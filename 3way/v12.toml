@@ -1,0 +1,18 @@
+# 12 players, 3 per lane pair, every couple meets 2 time(s);
+# lane pairs exact; positions balanced.
+# Groups of 3 in lane-pair order from first_lane up; within a group: left lane 1st, right lane 1st, left lane 2nd.
+# Oil-pattern blocks (weeks): [4, 3, 4] -- no couple meets twice on the same pattern.
+[schedule]
+weeks = [
+  [12, 4, 9, 5, 8, 1, 10, 7, 3, 6, 11, 2],
+  [2, 12, 5, 9, 3, 6, 11, 1, 7, 4, 10, 8],
+  [7, 2, 4, 1, 9, 10, 8, 6, 12, 3, 5, 11],
+  [10, 12, 11, 6, 4, 5, 3, 1, 2, 9, 8, 7],
+  [7, 11, 8, 12, 3, 1, 4, 5, 9, 2, 6, 10],
+  [11, 9, 6, 8, 2, 3, 1, 10, 4, 5, 7, 12],
+  [1, 6, 7, 12, 2, 9, 11, 3, 4, 5, 8, 10],
+  [8, 1, 2, 10, 11, 12, 9, 7, 5, 6, 4, 3],
+  [3, 9, 8, 7, 10, 6, 2, 5, 11, 4, 12, 1],
+  [5, 1, 6, 11, 8, 4, 9, 2, 10, 12, 7, 3],
+  [10, 3, 5, 2, 4, 7, 8, 6, 12, 1, 9, 11],
+]

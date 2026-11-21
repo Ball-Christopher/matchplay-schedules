@@ -1,0 +1,22 @@
+# 12 players, 4 per lane pair, 11 weeks: every couple meets exactly 3 times.
+# Oil-pattern blocks (consecutive weeks): 2 + 3 + 3 + 3 = 11 weeks.
+#   block 1: weeks 1-2
+#   block 2: weeks 3-5
+#   block 3: weeks 6-8
+#   block 4: weeks 9-11
+# Same-block repeat meetings: 27.
+# Lane pairs: 1 bowler(s) one off. Groups in lane-pair order; within a group: left lane 1st, right lane 1st, left lane 2nd, right lane 2nd.
+[schedule]
+weeks = [
+  [4, 7, 10, 5, 12, 1, 8, 9, 11, 6, 2, 3],
+  [3, 2, 1, 4, 7, 8, 5, 6, 10, 12, 9, 11],
+  [6, 9, 7, 2, 1, 10, 11, 8, 5, 4, 3, 12],
+  [9, 3, 6, 10, 8, 11, 4, 7, 2, 5, 12, 1],
+  [6, 12, 8, 5, 11, 4, 9, 2, 1, 10, 3, 7],
+  [4, 1, 6, 11, 12, 3, 7, 10, 2, 9, 5, 8],
+  [8, 2, 10, 1, 5, 6, 11, 3, 9, 7, 12, 4],
+  [7, 11, 2, 12, 3, 5, 1, 9, 10, 8, 4, 6],
+  [5, 9, 11, 10, 12, 6, 1, 4, 7, 8, 2, 3],
+  [8, 4, 3, 9, 2, 10, 6, 12, 1, 7, 5, 11],
+  [3, 11, 12, 8, 10, 5, 4, 2, 6, 1, 9, 7],
+]
