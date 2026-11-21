@@ -126,3 +126,6 @@ methods HTML via pandoc, and `schedules.json`) and the catalogue above. `--site 
 files into a website folder. `docs/` is ready for GitHub Pages (Settings → Pages → branch `main`, folder `/docs`).
 
 [METHODS.md](METHODS.md) has the full account: how each design was built, every lane-balance approach that was tried and failed, the impossibility proofs, the two-round and vacancy methods, the limits on short seasons, and what's still open.
+
+## Licence
+CC0 1.0 (public domain): use, copy and adapt the schedules and code freely, no attribution required. See [LICENSE](LICENSE).
