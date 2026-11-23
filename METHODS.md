@@ -5,11 +5,10 @@ This records how each schedule was built, what was tried, what failed and why, a
 **Limitations at a glance**
 
 - **Lane pairs not exact in three single rounds, all proven best possible or impossible to improve:** 3-way 15 (1 bowler off), 4-way 12 (1 off) and 4-way 16 (12 off; 3 off in the vacancy version). The two-round versions of all three are exact.
-- **Oil patterns:** 4-way 12 can't avoid couples meeting twice on a pattern (27 extra meetings, not proven minimal). 4-way 24 needs 8 patterns where 4 might be possible.
+- **Oil patterns:** 4-way 12 can't avoid couples meeting twice on a pattern (27 extra meetings, proven minimal; section 14). 4-way 36 uses 11 patterns where 4 might be possible.
 - **Short seasons:** a season stopped part-way through a long schedule is less even than a full one; see section 8 and each schedule's "stopping early" figure.
-- **Vacancy files:** in most, the short group sits on the same lane pair every week.
+- **Vacancy files:** the short group moves round the lane pairs evenly wherever a lane-exact full round exists. Only 3-way 14 and 4-way 11 and 15 can't have this (section 14).
 - **Two-round files:** a few groups from round 1 meet again in round 2 (3-way 12, 18 and 24, and 4-way 12).
-- **4-way 24 oil version:** three weeks repeat the groups of an earlier week (on different lane pairs).
 
 ## 1. The problem
 
@@ -44,7 +43,7 @@ Pair balance was never the bottleneck. Every case gave way to one of the followi
 ### 3.1 The circle method nearly does it
 In a 1-rotational design, keep base group j on lane pair j every week. A finite point x sits in base group j in exactly as many weeks as that group has finite points. So every finite bowler's lane counts come out exact automatically, for example 4,4,4,4,3 for 4-way 20.
 
-The exception is **∞**, which sits in the same base group every week and so is stuck on one lane pair for the whole round. This is the same as the classic round-robin circle method, and it's why the `_vacant` files work: make ∞ the empty slot (section 5).
+The exception is **∞**, which sits in the same base group every week and so is stuck on one lane pair for the whole round. This is the same as the classic round-robin circle method, and it's why the first `_vacant` files worked: make ∞ the empty slot (section 5). The current files rotate the slot instead.
 
 ### 3.2 Fixing ∞ by reordering lanes (4-way 20, one design)
 Each of these failed:
@@ -91,8 +90,13 @@ This was found by a Fable agent and then reused for every hard case. Instead of 
 
 ## 5. Vacancy (n−1) files
 
-The ∞ point is the empty slot, so every real bowler is lane-balanced (section 3.1).
-- **3-way 12, 18 and 24, and 4-way 20 and 24:** the 1-rotational design with base group j on lane pair j. The short group is always on the same lane pair.
+**Current files (24 November 2026).** 3-way 12, 18, 24, 27, 30 and 36 and 4-way 20, 24, 32 and 36 are built by `tools/rotate_vacancy.py`. The tool takes the lane-exact main round and makes one bowler the empty slot. That bowler is chosen for the smallest prefix spread and renumbered to N.
+- The slot then visits each lane pair ⌊r/n⌋ or ⌈r/n⌉ times.
+- The real bowlers keep the main round's exact lanes, positions and pair counts.
+- This is possible exactly when a lane-exact full round exists (section 14).
+
+The earlier versions are described below. In them, the ∞ point was the empty slot, so every real bowler was lane-balanced (section 3.1).
+- **3-way 12, 18 and 24, and 4-way 20 and 24 (replaced):** the 1-rotational design with base group j on lane pair j. The short group was always on the same lane pair.
 - **4-way 12:** the circle-method version was also exact, but the z3 design (lanes re-solved for the 11 real bowlers) has a better prefix, so that was used.
 - **4-way 28:** the 9-week design is already exact, so any slot can be left empty.
 - **3-way 15 and 21:** an exhaustive search found **no 1-rotational KTS** under Z_14 or Z_20. These use the main KTS with lanes re-annealed for the real bowlers, and are exact.
@@ -197,7 +201,7 @@ Lane-rotating symmetric designs, good for lanes, are poor for blocks because the
   - A new Z_5 × 4 design in which each base week's Z_5 orbit is a clash-free 5-week block, and the 4 invariant weeks form the fourth block.
   - Found by annealing on difference types with a within-block penalty, then the exhaustive rotating-lane search.
   - This design is also better for short seasons than the main v20 (worst prefix spread 2 against 3).
-- **4-way 24: 8 blocks, exact lanes; the bound of 4 was not reached.**
+- **4-way 24: now [6, 5, 6, 6], exact lanes (third pass, below). The first two passes reached only 8 blocks:**
   - The file is a lane-exact Z₂² × Z₃ design split by exact colouring. Only 20 of its 23 weeks are distinct.
   - **Failed routes to 4 blocks:**
     - Z_5 on 20 points with 4 fixed points is impossible by counting: at most 16 of the 24 pure-difference slots can be filled.
@@ -223,7 +227,7 @@ The search code is in `3way/tools/oil_search/` and `4way/tools/oil_search/`.
 
 - ~~A proof for exact lane balance in the 4-way 12 single round.~~ Settled: impossible, by a published result (section 12).
 - Prefix-optimal ordering searched jointly with lane exactness. At present prefix order is tuned only after lanes are fixed, and 4-way 20 and 24 sit at 3.
-- Oil-pattern blocks: 4 blocks for 4-way 24, a proof of the best possible for 4-way 12, and two-round oil versions of the λ > 1 sizes (section 10).
+- Oil-pattern blocks: 4 blocks for 4-way 36 (4-way 24 is settled, section 13), a proof of the best possible for 4-way 12, and two-round oil versions of the λ > 1 sizes (section 10).
 
 ## 12. What the literature says
 
@@ -235,7 +239,7 @@ A literature check on 21 November 2026 found that lane balance is an established
 | 3-way, λ = 2, lane-exact | **Solved** | Exists for every 3m except m = 2, so 12, 18 and 24 exist, as found. [3] |
 | 4-way, λ = 3, lane-exact | **Solved** | Exists exactly when m = 1 or m ≥ 4 (m = lane pairs). So 20 and 24 exist, and **12 (m = 3) is impossible**. [2, 4] |
 | 4-way 16, λ = 1 (AG(2,4)), lane-exact | **Known impossible** | Shown by an exhaustive code search (at most 12 codewords, not 16). Our pencil argument (section 4) is a short proof; we did not find it published. [1] |
-| 4-way 28, λ = 1, lane-exact | **Apparently new** | GBTDs with λ ≠ k−1 had been studied only for block size 3; we found no result for block size 4 with λ = 1. |
+| 4-way 28 and 40, λ = 1, lane-exact | **Apparently new** | GBTDs with λ ≠ k−1 had been studied only for block size 3; we found no result for block size 4 with λ = 1. Both exist (sections 3.3 and 13). |
 | Social golfer 5-4-w and 6-4-w | **Solved** | 20 golfers: at most 5 weeks. 24 golfers: 7 weeks, which is optimal. NKTS(v) exists exactly for v ≡ 0 (mod 6), v ∉ {6, 12}. [5, 6] |
 | 4 oil patterns for 4-way 24 | **Not addressed** | No work found on partitioning a resolvable design's weeks into resolvable packings with each couple missing exactly one block. Nestings and partitioned GBTDs are different conditions. Still open. |
 | Fewest same-pattern repeats for 4-way 12 | **Not addressed** | CSPLib's social golfer page names a "fewest repeats" variant but gives no results. Still open. |
@@ -254,3 +258,46 @@ A literature check on 21 November 2026 found that lane balance is an established
 8. K. Bhandari, "A software solution to the unsolved problem of scheduling bowling tournaments", McKendree University Scholars, issue 13.
 
 References 3, 4 and 6 were seen only as cited by the others; 1, 2 and 5 were read in full.
+
+## 13. Extension to 40 bowlers
+
+This section was added on 24 November 2026. The library now covers 3-way 30, 33, 36 and 39 and 4-way 32, 36 and 40, each with one-round, vacancy and two-round files, plus oil-pattern files for the λ = 2 and λ = 3 sizes. **Every new file is lane-exact.** Code and full notes: `3way/tools/ext40/` and `4way/tools/ext40/` (with `fable32/` and `fable40/`).
+
+**3-way**
+- **33 and 39 (Kirkman):** Z_11 × 3 and Z_13 × 3 with the lane pairs rotated, one base week plus 5 or 6 invariant weeks. The vacancy files are the main design with slot N empty, already exact for everyone, so the short group moves around. The two-round files are pairs of KTS found together (as for 27).
+- **36:** Z_12 × 3, two base weeks plus 11 invariant weeks. Vacancy: 1-rotational Z_35 ∪ {∞}. Two rounds: a pair of Z_12 designs found together, no repeated trios.
+- **30:** Z_10 × 3 **cannot** work: reducing differences mod 2, every trio and invariant week has an even number of odd-difference pairs, but each class needs 5. Instead Z_5 acts on 6 classes, with the 10 lane pairs as two tracks of 5. Two rounds: `second_round`, 5 repeated trios.
+- **Oil:** 30 is [14, 9, 6] and 36 is [16, 10, 9], both the lower bound of 3. For 36 the 24-bowler template (a full orbit plus invariant weeks as the first block) fails by the same parity argument; the working split is one orbit plus 4 invariant weeks, then the other orbit's two halves with 4 and 3.
+
+**4-way**
+- **36:** plain Z_9 × 4 stalled; tying the three base weeks with a class map φ = (0)(1 2 3) (base week w+1 = φ(base week w)) gives designs in seconds, the tenth lane-exact. The same trick solves 4-way 20 instantly.
+- **32:** a fixed-point-free involution symmetry g must fix a lane pair (the couple {x, gx} meets 3 times, an odd number, so some g-invariant group lies in a g-invariant week). That rules out Z_8 on 8 lane pairs and Z_4 on two tracks of 4, which is why the first attempts stalled at 16 cells off. The working design: Z_7 × 4 classes plus 4 fixed bowlers, with i → i+1 rotating lane pairs 1–7 and fixing lane pair 8; 4 base weeks × 7 plus 3 invariant weeks; an extra order-3 map α: (c, i) → (π(c), 2i) makes it searchable. Lanes reduce to residues and solve at once.
+- **32 oil: [8, 7, 8, 8], the lower bound of 4.** The same design: a base week's 7 translates are clash-free iff it uses no pair-orbit twice, and with weeks W, αW, α²W, an α-invariant W0 and T, αT, α²T, the blocks are [αᵏW orbit + αᵏT] for k = 0, 1, 2 and [W0 orbit].
+- **36 oil: 11 blocks, not improved.** Three Z_9 orbits plus 8 invariant weeks as the fourth block is **impossible**: 8 clash-free transversal weeks would give a (9,4;1) difference matrix over Z_9, i.e. two orthogonal orthomorphisms of Z_9, and an exhaustive check of all 225 normalised orthomorphisms finds none. Order-3-tied variants, five-block splits and untied annealing (floor 18) also failed.
+- **40 (λ = 1): the lines of PG(3,3).** Points GF(81)*/GF(3)* = Z_40; the order-5 Singer subgroup n → n+8 acts freely on points and lines. Parallelisms (13 disjoint spreads = weeks) invariant under it with 3 fixed spreads and 2 orbits of 5: 176 of them, enumerated in seconds. The 10 lane pairs are two tracks of 5 rotated with the weeks; an exact solver (choose each base block's track, then two independent memoised DFSs) is exhaustive in 1–3 s per parallelism. 48 of 176 admit exact lanes. This shows a **lane-exact resolvable (40,4,1)** exists. Z_10 × 4 found no design, and Z_13-developed designs can't rotate 10 lane pairs.
+
+**Two rounds in oil blocks, 3-way 18 (`v18_oil_x2`): [8, 5, 6, 7, 8], optimal.** Round 1 is `v18_oil` unchanged. Round 2 is X (2 weeks) + Y (7) + Z (8): Z is an NKTS(18) missing a 1-factor F′ (round 1's first block relabelled), and X + Y is a 9-week resolvable covering whose doubled couples are exactly F′, once in each. X shares no couple with round 1's last 4 weeks, so those join it as block 3. The covering came from z3 with an order-3 automorphism, and was fitted onto round 1 by a graph-isomorphism test (two couple-disjoint weeks form a cubic bipartite graph on 6 + 6 trios); only 34 week pairs are admissible because week 18 must give each bowler the one position they are owed. Lanes by z3. Prefix spread 2 only at weeks 9, 10 and 25; 3 trios recur from round 1 (at least 2 are forced). This result was first reported by another AI system without a schedule; it was rebuilt and verified here.
+
+**4-way 24 oil: [6, 5, 6, 6], exact lanes, prefix spread 2 (third pass).** This settles the 4-block question for 24, including the lane-exact version; another AI system had reported a 6+6+6+5 design without publishing it.
+- Points are 6 super-points × Z₂². Z₂² fixes every block: each week is fixed by all of Z₂², or is one of a pair {W, τW} with W fixed by one involution. A week's couples are then whole Z₂²-classes (60 cross classes of 4 couples, 18 inner classes of 2), and the design is an exact cover: every class in exactly 3 of the 4 blocks, chosen from 11,580 invariant weeks and 368,640 week pairs.
+- An order-3 map σ = (0 1 2)(3 4 5) on the super-points cycles the three 6-week blocks and fixes each week of the 5-week block. A DFS with forced classes finds the first block for a given 5-week block in seconds.
+- σ also rotates the lane pairs in two tracks of three; annealing over the remaining lane choices found an exact assignment for one of 97 designs.
+- The four leaves are disjoint, so the worst prefix spread is 2 for any week order.
+- **Ruled out on the way:** all 23 weeks Z₂²-invariant with σ (exhaustive); any lane assignment equivariant under Z₂² (counting); a Z₄ analogue (counting). Unsymmetric annealing, and annealing under Z₃ or Z₆ alone, stalled. Code: `4way/tools/oil_search/v24_4block_v3/`.
+
+## 14. Results from Astra, checked independently (24 November 2026)
+
+Astra (another AI agent) worked on the open problems against revision `e5afce7`. Its write-up, certificates and the independent checkers are in [contrib/astra-2026-11-24](contrib/astra-2026-11-24/README.md). Every stated property was reproduced from the weeks alone.
+
+- **12 in fours, fewest repeats.** There are exactly five resolvable 2-(12,4,3) designs (Morales and Velarde 2001), and none can repeat a foursome. Each has a unique resolution. Exhaustive splitting gives minima of 40 for 3 blocks and 27 for 4. So `4w12-oil` is optimal.
+- **Lane-exact one-meeting fours.**
+  - A quadrupling construction takes *m* to 4*m*, using OA(6,*m*) plus a 4-colouring of each lane's groups.
+  - It gives 28·4^j and 40·4^j bowlers. The 112, 160, 448 and 640 witnesses were checked.
+- **Vacancy.** Marking any bowler of a lane-exact full round as empty spreads the short group evenly. The reverse also holds, so this is possible exactly when a lane-exact full round exists.
+- **Two-round oil.**
+  - 4-way 20 reaches 8 blocks, which is optimal. 3-way 24 reaches 6, against a lower bound of 5.
+  - The bound is *g* − 1 + ⌈(*t*+*r*)/*L*⌉, from greedy cutting of the fixed round 1.
+  - Main-round continuations are optimal for 3-way 18 (6) and 4-way 20 (19).
+- **24 in fours, spread 1.** This needs a 7-week clash-free packing whose unmet couples form six disjoint 4-cycles. None has been found yet.
+
+The vacancy result is now used for the library's vacancy files (section 5). The other witnesses are not library files. See OPEN_PROBLEMS.md for what is still open.

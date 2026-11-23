@@ -1,0 +1,38 @@
+3 3 2 [(1, 'unsat'), (2, 'sat')] 
+3 3 3 [(1, 'unsat'), (2, 'unsat'), (3, 'sat')] 
+3 3 4 [(1, 'unsat'), (2, 'sat')] improved
+4 4 2 [(1, 'unsat'), (2, 'sat')] 
+4 4 3 [(1, 'unsat'), (2, 'sat')] improved
+4 4 4 [(1, 'unsat'), (2, 'sat')] improved
+3 4 2 [(1, 'unsat'), (2, 'sat')] 
+3 4 3 [(1, 'unsat'), (2, 'unsat'), (3, 'sat')] 
+4 4 5 [(1, 'unsat'), (2, 'sat')] improved
+4 4 6 [(1, 'unsat'), (2, 'sat')] 
+5 5 2 [(1, 'unsat'), (2, 'sat')] 
+5 5 3 [(1, 'unsat'), (2, 'sat')] improved
+5 5 4 [(1, 'unsat'), (2, 'sat')] improved
+5 5 5 [(1, 'unsat'), (2, 'sat')] improved
+5 5 6 [(1, 'unsat'), (2, 'sat')] improved
+3 5 2 [(1, 'unsat'), (2, 'sat')] 
+3 5 3 [(1, 'unsat'), (2, 'unsat'), (3, 'sat')] 
+3 5 4 [(1, 'unsat'), (2, 'unsat'), (3, 'sat')] 
+4 5 2 [(1, 'unsat'), (2, 'sat')] 
+4 5 3 [(1, 'unsat'), (2, 'sat')] 
+4 5 4 [(1, 'unsat'), (2, 'sat')] 
+4 5 5 [(1, 'unsat'), (2, 'sat')] 
+3 4 4 [(1, 'unsat'), (2, 'sat')] 
+3 4 5 [(1, 'unsat'), (2, 'sat')] 
+3 4 6 [(1, 'unsat'), (2, 'sat')] 
+6 4 5 [(1, 'sat')] improved
+6 4 6 [(1, 'unknown'), (2, 'sat')] improved
+5 3 6 [(1, 'unknown'), (2, 'sat')] 
+4 3 5 [(1, 'unknown'), (2, 'sat')] 
+4 3 6 [(1, 'unknown'), (2, 'sat')] 
+6 3 6 [(1, 'sat')] improved
+6 5 4 [(1, 'unknown'), (2, 'sat')] 
+6 5 5 [(1, 'unknown'), (2, 'sat')] improved
+6 5 6 [(1, 'unknown'), (2, 'sat')] improved
+3 3 5 [(1, 'unsat'), (2, 'sat')] 
+3 3 6 [(1, 'unsat'), (2, 'sat')] 
+10 4 8 [(1, 'unknown'), (2, 'sat')] 
+6 3 7 [(1, 'unknown'), (2, 'sat')] 

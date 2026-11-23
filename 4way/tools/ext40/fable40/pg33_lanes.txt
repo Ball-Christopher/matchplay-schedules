@@ -1,0 +1,224 @@
+0 sols 0 cands 19936 nodes 23389839
+1 sols 0 cands 19936 nodes 22922861
+2 sols 0 cands 19936 nodes 23621683
+3 sols 0 cands 19936 nodes 22810135
+4 sols 0 cands 19936 nodes 24692201
+5 sols 0 cands 19936 nodes 22704388
+6 sols 0 cands 19936 nodes 22717719
+7 sols 0 cands 19936 nodes 24649784
+8 sols 0 cands 19936 nodes 22941140
+9 sols 0 cands 19936 nodes 23488848
+10 sols 0 cands 19936 nodes 23425883
+11 sols 0 cands 19936 nodes 23929298
+12 sols 0 cands 19936 nodes 23358232
+13 sols 0 cands 19936 nodes 23659854
+14 sols 0 cands 19936 nodes 23286356
+15 sols 0 cands 19936 nodes 23465498
+16 sols 0 cands 19936 nodes 23980883
+17 sols 0 cands 19936 nodes 25459736
+18 sols 0 cands 19936 nodes 24311589
+19 sols 0 cands 19936 nodes 25371150
+20 sols 0 cands 19936 nodes 24064083
+21 sols 0 cands 19936 nodes 24322776
+22 sols 0 cands 19936 nodes 24357358
+23 sols 0 cands 19936 nodes 24620595
+24 SOL lanes 0 5 0 5 3 5 3 5 6 0 4 7 1 2 9 8 6 0 8 5 7 2 9 4 3 1
+24 sols 1 cands 946 nodes 1008269
+25 SOL lanes 0 5 1 6 5 1 2 3 6 8 7 1 9 5 4 0 8 7 1 9 3 4 0 5 6 2
+25 sols 1 cands 13080 nodes 15421325
+26 SOL lanes 0 5 5 0 2 5 8 7 1 3 2 9 4 0 6 5 4 0 5 3 8 1 9 2 6 7
+26 sols 1 cands 5970 nodes 6725537
+27 SOL lanes 0 5 0 5 2 5 3 7 8 0 4 9 1 2 6 5 8 9 2 0 6 3 4 7 1 5
+27 sols 1 cands 936 nodes 971409
+28 SOL lanes 0 5 0 5 1 7 2 7 8 1 4 9 3 0 6 5 8 3 1 7 6 4 0 2 5 9
+28 sols 1 cands 620 nodes 654746
+29 SOL lanes 0 5 0 5 1 8 2 5 6 1 4 7 3 0 9 8 6 3 1 5 9 4 0 2 8 7
+29 sols 1 cands 620 nodes 654992
+30 sols 0 cands 19936 nodes 23841530
+31 sols 0 cands 19936 nodes 25372713
+32 sols 0 cands 19936 nodes 24037067
+33 sols 0 cands 19936 nodes 25349409
+34 sols 0 cands 19936 nodes 24234323
+35 sols 0 cands 19936 nodes 23176565
+36 sols 0 cands 19936 nodes 24415061
+37 sols 0 cands 19936 nodes 23111285
+38 SOL lanes 0 5 5 0 0 6 8 0 6 4 3 5 2 9 1 7 2 7 4 1 3 5 6 8 9 0
+38 sols 1 cands 7498 nodes 9379469
+39 SOL lanes 0 5 1 5 1 6 2 4 7 0 1 6 9 5 3 8 7 8 1 6 3 4 0 5 2 9
+39 sols 1 cands 1478 nodes 1792305
+40 SOL lanes 0 5 0 5 1 9 2 4 7 0 1 6 9 5 3 8 6 5 4 7 9 2 3 8 0 1
+40 sols 1 cands 1482 nodes 1773025
+41 SOL lanes 0 5 0 5 1 7 2 0 6 4 3 5 8 9 1 7 8 9 5 6 3 2 0 1 4 7
+41 sols 1 cands 653 nodes 856331
+42 SOL lanes 0 5 0 5 1 8 2 0 7 4 3 5 6 8 1 9 6 7 8 9 3 2 0 1 4 5
+42 sols 1 cands 653 nodes 856609
+43 SOL lanes 0 5 0 6 6 0 3 5 1 9 8 0 7 4 6 2 7 8 2 9 5 3 4 6 1 0
+43 sols 1 cands 13386 nodes 15596223
+44 sols 0 cands 19936 nodes 24478474
+45 sols 0 cands 19936 nodes 24164747
+46 sols 0 cands 19936 nodes 24239268
+47 sols 0 cands 19936 nodes 23814247
+48 sols 0 cands 19936 nodes 25243398
+49 sols 0 cands 19936 nodes 24043292
+50 sols 0 cands 19936 nodes 24100204
+51 sols 0 cands 19936 nodes 24492335
+52 sols 0 cands 19936 nodes 24789194
+53 sols 0 cands 19936 nodes 22390839
+54 sols 0 cands 19936 nodes 22566350
+55 sols 0 cands 19936 nodes 24686740
+56 sols 0 cands 19936 nodes 24845869
+57 sols 0 cands 19936 nodes 23513085
+58 sols 0 cands 19936 nodes 25229819
+59 sols 0 cands 19936 nodes 24219288
+60 sols 0 cands 19936 nodes 23750085
+61 sols 0 cands 19936 nodes 23683494
+62 sols 0 cands 19936 nodes 23972135
+63 sols 0 cands 19936 nodes 24482298
+64 sols 0 cands 19936 nodes 24153979
+65 sols 0 cands 19936 nodes 22633899
+66 sols 0 cands 19936 nodes 22847940
+67 sols 0 cands 19936 nodes 23525262
+68 SOL lanes 0 5 0 5 2 8 3 2 0 7 5 1 8 9 6 4 1 2 9 8 0 4 6 7 5 3
+68 sols 1 cands 1756 nodes 1892981
+69 SOL lanes 0 5 0 5 2 6 3 2 0 7 5 1 8 9 6 4 1 2 7 5 0 4 8 9 6 3
+69 sols 1 cands 1756 nodes 1901595
+70 SOL lanes 0 5 4 8 0 9 6 3 4 8 9 0 1 2 5 7 9 2 7 8 3 6 4 1 5 0
+70 sols 1 cands 533 nodes 596657
+71 SOL lanes 0 5 4 9 0 6 9 3 4 7 8 0 1 2 5 6 6 2 4 7 3 5 9 8 1 0
+71 sols 1 cands 530 nodes 581568
+72 SOL lanes 0 5 0 5 1 7 8 9 4 3 7 6 1 2 0 5 2 9 3 6 5 4 7 8 1 0
+72 sols 1 cands 844 nodes 874426
+73 SOL lanes 0 5 0 5 1 8 6 7 4 3 5 9 1 2 0 8 2 7 3 6 9 4 8 5 1 0
+73 sols 1 cands 844 nodes 874592
+74 SOL lanes 0 5 0 6 2 5 3 2 6 0 5 1 7 9 8 4 1 2 6 5 0 4 8 9 7 3
+74 sols 1 cands 1915 nodes 2165645
+75 SOL lanes 0 5 4 9 2 8 1 2 0 3 6 4 5 7 9 8 7 3 6 8 2 0 1 4 5 9
+75 sols 1 cands 60 nodes 69576
+76 SOL lanes 0 5 0 5 1 7 8 9 2 0 7 6 3 4 1 5 3 4 7 1 0 9 2 6 5 8
+76 sols 1 cands 859 nodes 924250
+77 SOL lanes 0 5 0 5 1 8 6 7 2 0 5 9 3 4 1 8 3 4 5 1 0 7 2 9 8 6
+77 sols 1 cands 859 nodes 924426
+78 SOL lanes 0 5 4 5 4 6 2 1 6 4 5 0 7 9 8 3 3 4 6 5 2 8 9 1 7 0
+78 sols 1 cands 1916 nodes 2187803
+79 SOL lanes 0 5 2 7 3 7 8 9 2 6 4 3 0 1 7 5 2 3 6 9 1 5 7 0 4 8
+79 sols 1 cands 1071 nodes 1209348
+80 sols 0 cands 19936 nodes 23629092
+81 sols 0 cands 19936 nodes 24095375
+82 sols 0 cands 19936 nodes 24470922
+83 sols 0 cands 19936 nodes 25021881
+84 sols 0 cands 19936 nodes 24463605
+85 sols 0 cands 19936 nodes 23671460
+86 sols 0 cands 19936 nodes 23844736
+87 sols 0 cands 19936 nodes 23904609
+88 sols 0 cands 19936 nodes 24085400
+89 sols 0 cands 19936 nodes 23503853
+90 sols 0 cands 19936 nodes 23416456
+91 sols 0 cands 19936 nodes 22745157
+92 sols 0 cands 19936 nodes 26566812
+93 sols 0 cands 19936 nodes 25955092
+94 sols 0 cands 19936 nodes 26736397
+95 sols 0 cands 19936 nodes 26175280
+96 SOL lanes 0 5 2 7 0 5 6 2 8 5 7 4 3 1 0 9 9 5 3 1 8 7 4 0 2 6
+96 sols 1 cands 1052 nodes 1397751
+97 SOL lanes 0 5 2 8 0 5 6 2 5 9 8 4 3 1 0 7 7 8 3 1 6 5 4 0 2 9
+97 sols 1 cands 1052 nodes 1399395
+98 SOL lanes 0 5 0 5 2 8 6 2 8 5 7 4 9 1 0 3 1 2 7 4 3 5 6 8 9 0
+98 sols 1 cands 4740 nodes 5923942
+99 SOL lanes 0 5 5 0 1 5 7 4 9 6 8 2 3 0 1 5 9 1 8 3 2 7 4 0 5 6
+99 sols 1 cands 6649 nodes 8359797
+100 sols 0 cands 19936 nodes 24160785
+101 sols 0 cands 19936 nodes 23922441
+102 sols 0 cands 19936 nodes 26028169
+103 sols 0 cands 19936 nodes 26858836
+104 sols 0 cands 19936 nodes 24592960
+105 sols 0 cands 19936 nodes 24742994
+106 sols 0 cands 19936 nodes 24670381
+107 sols 0 cands 19936 nodes 24815078
+108 sols 0 cands 19936 nodes 23684726
+109 sols 0 cands 19936 nodes 23538332
+110 sols 0 cands 19936 nodes 23203299
+111 sols 0 cands 19936 nodes 23165251
+112 sols 0 cands 19936 nodes 26601856
+113 sols 0 cands 19936 nodes 26341292
+114 sols 0 cands 19936 nodes 26060982
+115 sols 0 cands 19936 nodes 25989589
+116 SOL lanes 0 5 1 5 6 1 6 5 1 7 3 4 0 8 9 2 5 6 1 8 7 3 9 0 4 2
+116 sols 1 cands 13327 nodes 16733797
+117 SOL lanes 0 5 2 7 0 6 8 7 3 9 2 4 1 5 0 6 1 2 9 7 0 5 6 8 4 3
+117 sols 1 cands 917 nodes 1233125
+118 SOL lanes 0 5 2 8 0 5 6 5 3 7 2 4 1 8 0 9 1 2 7 5 0 8 9 6 4 3
+118 sols 1 cands 917 nodes 1233933
+119 SOL lanes 0 5 1 6 1 5 8 7 1 9 3 4 0 5 2 6 2 3 7 9 8 4 5 6 1 0
+119 sols 1 cands 1481 nodes 1875482
+120 SOL lanes 0 5 2 7 0 6 8 7 2 9 0 6 1 5 3 4 9 5 0 4 8 7 2 3 1 6
+120 sols 1 cands 1657 nodes 1720078
+121 SOL lanes 0 5 2 8 0 5 6 5 2 7 0 9 1 8 3 4 7 8 0 4 6 5 2 3 1 9
+121 sols 1 cands 1657 nodes 1721058
+122 SOL lanes 0 5 5 0 1 5 7 8 0 6 3 9 4 5 1 2 5 6 2 8 7 4 9 1 0 3
+122 sols 1 cands 8994 nodes 9606809
+123 SOL lanes 0 5 0 5 1 6 8 7 4 9 6 2 3 5 0 1 2 3 7 9 8 4 5 6 1 0
+123 sols 1 cands 4276 nodes 4449269
+124 sols 0 cands 19936 nodes 23318611
+125 sols 0 cands 19936 nodes 23066711
+126 sols 0 cands 19936 nodes 24368758
+127 sols 0 cands 19936 nodes 24240423
+128 sols 0 cands 19936 nodes 23602808
+129 sols 0 cands 19936 nodes 23570093
+130 SOL lanes 0 5 1 9 4 5 0 4 7 8 3 2 5 6 1 9 4 8 7 3 0 9 6 2 5 1
+130 sols 1 cands 495 nodes 603376
+131 SOL lanes 0 5 2 7 4 8 8 1 7 9 0 3 6 4 2 5 3 4 9 7 2 1 5 6 8 0
+131 sols 1 cands 1433 nodes 1738125
+132 SOL lanes 0 5 3 5 2 7 8 1 7 9 0 3 6 4 2 5 1 2 6 5 0 8 9 4 7 3
+132 sols 1 cands 1458 nodes 1808324
+133 SOL lanes 0 5 3 8 2 7 8 1 7 9 0 3 6 4 2 5 1 2 9 7 0 5 6 8 4 3
+133 sols 1 cands 1459 nodes 1833238
+134 sols 0 cands 19936 nodes 23748649
+135 sols 0 cands 19936 nodes 23440476
+136 sols 0 cands 19936 nodes 25008030
+137 sols 0 cands 19936 nodes 24756196
+138 SOL lanes 0 5 0 6 2 5 8 9 4 2 6 0 1 7 3 5 1 2 9 4 3 7 8 5 6 0
+138 sols 1 cands 1050 nodes 1179748
+139 SOL lanes 0 5 2 7 0 5 6 7 0 2 9 4 3 5 1 8 1 2 5 8 0 6 9 4 7 3
+139 sols 1 cands 728 nodes 818429
+140 SOL lanes 0 5 2 8 0 5 7 9 0 2 8 4 3 5 1 6 1 2 9 8 0 6 7 4 5 3
+140 sols 1 cands 728 nodes 820159
+141 SOL lanes 0 5 0 5 5 0 6 7 0 8 9 4 3 5 1 2 6 1 7 3 2 8 4 0 5 9
+141 sols 1 cands 14490 nodes 16546553
+142 sols 0 cands 19936 nodes 24620174
+143 sols 0 cands 19936 nodes 24404567
+144 sols 0 cands 19936 nodes 23423689
+145 sols 0 cands 19936 nodes 23483978
+146 sols 0 cands 19936 nodes 24204618
+147 sols 0 cands 19936 nodes 23888177
+148 sols 0 cands 19936 nodes 24029958
+149 sols 0 cands 19936 nodes 23833489
+150 sols 0 cands 19936 nodes 22217366
+151 sols 0 cands 19936 nodes 22990678
+152 sols 0 cands 19936 nodes 23011385
+153 sols 0 cands 19936 nodes 23841044
+154 sols 0 cands 19936 nodes 23730723
+155 sols 0 cands 19936 nodes 23831583
+156 sols 0 cands 19936 nodes 25725990
+157 sols 0 cands 19936 nodes 26463894
+158 sols 0 cands 19936 nodes 24074373
+159 sols 0 cands 19936 nodes 24330107
+160 sols 0 cands 19936 nodes 24201887
+161 sols 0 cands 19936 nodes 24424213
+162 sols 0 cands 19936 nodes 22982748
+163 sols 0 cands 19936 nodes 22959458
+164 SOL lanes 0 5 2 9 4 8 7 1 4 3 8 0 2 9 6 5 3 4 9 8 2 1 6 7 5 0
+164 sols 1 cands 140 nodes 148056
+165 SOL lanes 0 5 2 9 4 6 7 1 4 3 8 0 2 9 6 5 3 4 7 5 2 1 8 9 6 0
+165 sols 1 cands 139 nodes 146476
+166 SOL lanes 0 5 3 8 2 9 7 1 4 3 8 0 2 9 6 5 1 2 9 8 0 6 7 4 5 3
+166 sols 1 cands 164 nodes 178386
+167 SOL lanes 0 5 3 6 2 9 7 1 4 3 8 0 2 9 6 5 1 2 7 5 0 8 9 6 4 3
+167 sols 1 cands 165 nodes 174018
+168 sols 0 cands 19936 nodes 23674444
+169 sols 0 cands 19936 nodes 24184766
+170 sols 0 cands 19936 nodes 23257161
+171 sols 0 cands 19936 nodes 23974094
+172 sols 0 cands 19936 nodes 23652097
+173 sols 0 cands 19936 nodes 24180321
+174 sols 0 cands 19936 nodes 23195602
+175 sols 0 cands 19936 nodes 23861230

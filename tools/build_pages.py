@@ -18,13 +18,14 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-KINDS = {"": "single", "_vacant": "vacant", "_x2": "x2", "_oil": "oil"}
-SUFFIX = {"single": "", "vacant": "-vacant", "x2": "-x2", "oil": "-oil"}
+KINDS = {"": "single", "_vacant": "vacant", "_x2": "x2", "_oil": "oil", "_oil_x2": "oilx2"}
+SUFFIX = {"single": "", "vacant": "-vacant", "x2": "-x2", "oil": "-oil", "oilx2": "-oil-x2"}
 LABEL = {
     "single": "One round",
     "vacant": "One round, one slot empty",
     "x2": "Two rounds",
     "oil": "One round in oil-pattern blocks",
+    "oilx2": "Two rounds in oil-pattern blocks",
 }
 
 # Hand-written context the figures alone can't give.  Keyed by schedule ID.
@@ -37,10 +38,13 @@ NOTES = {
              "argument in the methods). The two-round schedule 4w16-x2 is exact."],
     "4w16-vacant": ["Exact lane balance is impossible here too; 3 bowlers off is the best possible."],
     "4w12-oil": ["With 12 bowlers in fours, any two weeks share a couple, so some couples must meet "
-                 "twice on one pattern. 27 extra meetings is the fewest found for 4 patterns; it isn't "
-                 "proven to be the minimum."],
-    "4w24-oil": ["It takes 8 patterns, not the 4 that counting allows. Whether 4 is possible is open (nothing in the literature); "
-                 "two symmetric families were proven impossible."],
+                 "twice on one pattern. 27 extra meetings is the minimum for 4 patterns (40 for 3), "
+                 "proven by checking all five possible designs."],
+    "4w24-oil": ["4 patterns, the fewest possible; every couple meets on 3 different patterns."],
+    "4w36-oil": ["It takes 11 patterns; the lower bound is 4. A natural 4-pattern construction is proven impossible, "
+                 "and whether 4 is possible at all is open."],
+    "4w40": ["The first known 40-bowler schedule in fours with exact lane balance (built from the geometry PG(3,3))."],
+    "3w18-oil-x2": ["Round 1 is the one-round oil schedule 3w18-oil unchanged; 5 patterns over the two rounds is the fewest possible."],
     "3w12": ["The oil-pattern split (4, 3 and 4 weeks) is built in, and 3 patterns is the fewest possible."],
 }
 ANCHOR = {  # which METHODS.md section explains the hard part of each schedule
@@ -48,6 +52,7 @@ ANCHOR = {  # which METHODS.md section explains the hard part of each schedule
     "vacant": "5-vacancy-n1-files",
     "x2": "6-two-round-files",
     "oil": "10-oil-pattern-blocks",
+    "oilx2": "10-oil-pattern-blocks",
 }
 
 
@@ -85,7 +90,7 @@ def analyse(path):
     e = {
         "id": sid, "file": f"{path.parent.name}/{path.stem}", "k": k, "slots": v,
         "bowlers": len(real), "kind": kind, "label": LABEL[kind], "weeks": W,
-        "lanes": n, "lambda": lam[0], "rounds": 2 if kind == "x2" else 1,
+        "lanes": n, "lambda": lam[0], "rounds": 2 if kind in ("x2", "oilx2") else 1,
         "vacant": vac, "blocks": blocks, "lane_range": [lo, hi], "lane_off": off,
         "position_range": [plo, phi], "prefix_spread": prefix,
         "worst_prefix": max(prefix[:-1]) if r > 1 else 0,
@@ -111,7 +116,7 @@ def analyse(path):
         dup = [i + 1 for i, g in enumerate(week_groups) if g in week_groups[:i]]
         notes.append(f"{r - distinct} week(s) repeat an earlier week's groups exactly "
                      f"(week {', '.join(map(str, dup))}). The lane pairs differ, so balance is unaffected.")
-    if kind == "x2":
+    if kind in ("x2", "oilx2"):
         half = r // 2
         first = {g for wk in W[:half] for g in (frozenset(wk[i * k:(i + 1) * k]) for i in range(n))}
         again = sum(frozenset(wk[i * k:(i + 1) * k]) in first for wk in W[half:] for i in range(n))
@@ -152,7 +157,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--site", type=Path)
     a = ap.parse_args()
-    order = {"single": 0, "vacant": 1, "x2": 2, "oil": 3}
+    order = {"single": 0, "vacant": 1, "x2": 2, "oil": 3, "oilx2": 4}
     entries = sorted((analyse(p) for f in ("3way", "4way") for p in (ROOT / f).glob("v*.json")),
                      key=lambda e: (e["k"], e["slots"], order[e["kind"]]))
     docs = ROOT / "docs"

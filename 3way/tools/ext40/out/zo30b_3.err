@@ -1,0 +1,25 @@
+part 0 sa end cost 12
+part 0 sa end cost 10
+part 0 sa end cost 0
+part 1 sa end cost 5
+part 1 sa end cost 7
+part 1 sa end cost 8
+part 1 sa end cost 10
+part 1 sa end cost 0
+try 1: 1 repeated trio orbits
+part 0 sa end cost 8
+part 0 sa end cost 10
+part 0 sa end cost 0
+part 1 sa end cost 8
+part 1 sa end cost 10
+part 1 sa end cost 13
+part 1 sa end cost 8
+part 1 sa end cost 6
+part 1 sa end cost 19
+part 1 sa end cost 6
+part 1 sa end cost 0
+try 2: 1 repeated trio orbits
+part 0 sa end cost 0
+part 1 sa end cost 10
+part 1 sa end cost 0
+try 3 lane result 1

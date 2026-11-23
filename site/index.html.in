@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Matchplay schedules</title>
-<meta name="description" content="Balanced 3-way and 4-way matchplay schedules for leagues of 11 to 28 bowlers: couples, lane pairs and positions all balanced.">
+<meta name="description" content="Balanced 3-way and 4-way matchplay schedules for leagues of 11 to 40 bowlers: couples, lane pairs and positions all balanced.">
 <!-- Source: schedules/site/index.html.in. tools/build_pages.py inlines the
      schedule data and writes docs/index.html; never edit that copy. -->
 <meta name="color-scheme" content="light dark">
@@ -144,7 +144,7 @@
 <body>
 <button class="theme-switch" type="button" id="theme" aria-label="Colour theme"></button>
 <h1>Matchplay schedules</h1>
-<p class="lede">Balanced schedules for 3-way and 4-way matchplay leagues of 11 to 28 bowlers. In every schedule each couple of bowlers meets equally often, and every bowler gets an even share of the lane pairs and of the bowling positions. Pick a league size, add names if you like, and export the result.</p>
+<p class="lede">Balanced schedules for 3-way and 4-way matchplay leagues of 11 to 40 bowlers. In every schedule each couple of bowlers meets equally often, and every bowler gets an even share of the lane pairs and of the bowling positions. Pick a league size, add names if you like, and export the result.</p>
 <nav class="top"><a href="methods.html">How they were made, and the limits</a><a href="schedules.json" download>All schedules (JSON)</a></nav>
 
 <div class="controls">
@@ -214,7 +214,7 @@
 const DATA = /*DATA*/null;
 const POS = { 3: ["L1", "R1", "L2"], 4: ["L1", "R1", "L2", "R2"] };
 const POS_TEXT = { 3: "L1 left lane first · R1 right lane first · L2 left lane second", 4: "L1 left lane first · R1 right lane first · L2 left lane second · R2 right lane second" };
-const KIND_ORDER = { single: 0, vacant: 1, x2: 2, oil: 3 };
+const KIND_ORDER = { single: 0, vacant: 1, x2: 2, oil: 3, oilx2: 4 };
 const $ = s => document.querySelector(s);
 const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
                 set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
@@ -250,7 +250,7 @@ function fillSizes(k, want) {
   sel.innerHTML = all.map(n => `<option value="${n}">${n}</option>`).join("");
   const n = all.includes(want) ? want : all.reduce((a, b) => Math.abs(b - (want || 0)) < Math.abs(a - (want || 0)) ? b : a);
   sel.value = n;
-  const missing = []; for (let i = 11; i <= 28; i++) if (!all.includes(i)) missing.push(i);
+  const missing = []; for (let i = 11; i <= 40; i++) if (!all.includes(i)) missing.push(i);
   $("#nhint").textContent = `${k}-way schedules exist for ${all.join(", ")}. A size one below a multiple of ${k} uses the bigger schedule with an empty slot.`;
   return n;
 }
@@ -318,7 +318,7 @@ function render() {
   if (e.blocks) tiles.push(["Oil patterns", `${e.blocks.length}: ${e.blocks.join(" + ")} weeks`, false],
                            ["Same-pattern repeats", String(e.block_repeats), e.block_repeats > 0]);
   if (e.vacant) tiles.push(["Empty slot", `roster number ${e.vacant}`, false]);
-  if (e.kind === "x2") tiles.push(["Groups repeated in round 2", String(e.repeated_groups || 0), false]);
+  if (e.kind === "x2" || e.kind === "oilx2") tiles.push(["Groups repeated in round 2", String(e.repeated_groups || 0), false]);
   $("#summary").innerHTML = tiles.map(([a, b, w]) => `<div class="tile"><div class="k">${a}</div><div class="v${w ? " warn" : ""}">${b}</div></div>`).join("");
   const notes = [...e.notes];
   if (off) notes.unshift("Off-balance lane pairs: " + Object.entries(e.lane_off).map(([p, c]) => `${esc(label(+p, nm))} (${c.join(", ")})`).join("; ") + `. The even share is ${e.lane_range.join(" or ")}.`);
@@ -339,7 +339,7 @@ function render() {
   e.weeks.forEach((w, i) => {
     const c = cuts.find(x => x[0] === i);
     if (c) rows += `<tr class="band"><th colspan="${n + 1}">Pattern ${String.fromCharCode(65 + c[2])} · weeks ${i + 1}–${i + c[1]}</th></tr>`;
-    if (e.kind === "x2" && i === r / 2) rows += `<tr class="band"><th colspan="${n + 1}">Round 2 · weeks ${i + 1}–${r}</th></tr>`;
+    if ((e.kind === "x2" || e.kind === "oilx2") && i === r / 2) rows += `<tr class="band"><th colspan="${n + 1}">Round 2 · weeks ${i + 1}–${r}</th></tr>`;
     let cells = "";
     for (let g = 0; g < n; g++) {
       cells += `<td class="grp">` + w.slice(g * k, g * k + k).map((p, q) => p === e.vacant

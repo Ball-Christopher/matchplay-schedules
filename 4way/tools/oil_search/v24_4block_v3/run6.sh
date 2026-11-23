@@ -1,0 +1,22 @@
+#!/bin/bash
+# run6.sh seed T0 T1 itersM
+while read a d; do (./sa6 $a $d $1 $2 $3 $4 2 out/z_${a}_${d}_$1 > out/z_${a}_${d}_$1.log &); done <<X
+OO22 O222
+OO22 OO6
+OO22 O420
+OO42 OO0
+OO42 O000
+OO42 00000
+OO22 22200
+O2200 O222
+O4200 O000
+O2200 22200
+O4200 00000
+OO60 OO0
+O2220 O000
+222000 00000
+220000 22200
+OO22 60000
+OO22 O600
+O2200 O600
+X
