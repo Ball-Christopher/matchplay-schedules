@@ -41,8 +41,13 @@ NOTES = {
                  "twice on one pattern. 27 extra meetings is the minimum for 4 patterns (40 for 3), "
                  "proven by checking all five possible designs."],
     "4w24-oil": ["4 patterns, the fewest possible; every couple meets on 3 different patterns."],
-    "4w36-oil": ["It takes 11 patterns; the lower bound is 4. A natural 4-pattern construction is proven impossible, "
-                 "and whether 4 is possible at all is open."],
+    "4w36-oil": ["4 patterns, the fewest possible (a clash-free run has at most 11 weeks); found by Astra, another AI agent."],
+    "4w36-oil-x2": ["Round 1 is 4w36-oil unchanged; 8 patterns over two rounds, against a lower bound of 7."],
+    "3w30-oil-x2": ["Round 1 is 3w30-oil unchanged; 5 patterns over two rounds is the fewest possible (Astra)."],
+    "4w24-oil-x2": ["Round 1 is 4w24-oil unchanged; 8 patterns over two rounds is the fewest possible (Astra)."],
+    "4w32-oil-x2": ["Round 1 is 4w32-oil unchanged; 8 patterns over two rounds is the fewest possible (Astra)."],
+    "3w24-oil-x2": ["Round 1 is 3w24-oil unchanged; 6 patterns over two rounds, against a lower bound of 5 (Astra)."],
+    "3w36-oil-x2": ["Round 1 is 3w36-oil unchanged; 6 patterns over two rounds, against a lower bound of 5 (Astra)."],
     "4w40": ["The first known 40-bowler schedule in fours with exact lane balance (built from the geometry PG(3,3))."],
     "3w18-oil-x2": ["Round 1 is the one-round oil schedule 3w18-oil unchanged; 5 patterns over the two rounds is the fewest possible."],
     "3w12": ["The oil-pattern split (4, 3 and 4 weeks) is built in, and 3 patterns is the fewest possible."],

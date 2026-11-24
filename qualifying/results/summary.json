@@ -9693,7 +9693,7 @@
 "lower_bound": [
 0,
 3,
-1,
+2,
 0,
 0,
 1,
@@ -9702,7 +9702,7 @@
 0,
 0
 ],
-"proven_fields": 2,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 4,
@@ -9969,20 +9969,20 @@
 "score": {
 "pair_spread": 0,
 "max_meet": 2,
-"max_follow": 2,
-"repeats": 18,
-"follow_repeats": 3,
+"max_follow": 1,
+"repeats": 27,
+"follow_repeats": 0,
 "max_ufollow": 2,
-"ufollow_repeats": 18,
-"neg_min_meet": -1,
-"side_spread": 0,
-"pos_spread": 0
+"ufollow_repeats": 27,
+"neg_min_meet": 0,
+"side_spread": 3,
+"pos_spread": 3
 },
 "extra": {
-"min_meet": 1,
-"never_met": 0,
-"min_distinct_followed": 5,
-"min_distinct_followers": 4
+"min_meet": 0,
+"never_met": 9,
+"min_distinct_followed": 6,
+"min_distinct_followers": 6
 },
 "lower_bound": [
 0,
@@ -9996,7 +9996,7 @@
 0,
 0
 ],
-"proven_fields": 2,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 4,
@@ -11471,20 +11471,20 @@
 "score": {
 "pair_spread": 1,
 "max_meet": 2,
-"max_follow": 2,
-"repeats": 42,
-"follow_repeats": 3,
+"max_follow": 1,
+"repeats": 44,
+"follow_repeats": 0,
 "max_ufollow": 2,
-"ufollow_repeats": 42,
-"neg_min_meet": -1,
+"ufollow_repeats": 44,
+"neg_min_meet": 0,
 "side_spread": 4,
 "pos_spread": 5
 },
 "extra": {
-"min_meet": 1,
-"never_met": 0,
-"min_distinct_followed": 7,
-"min_distinct_followers": 8
+"min_meet": 0,
+"never_met": 2,
+"min_distinct_followed": 9,
+"min_distinct_followers": 9
 },
 "lower_bound": [
 1,
@@ -11498,7 +11498,7 @@
 0,
 0
 ],
-"proven_fields": 2,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 4,
@@ -11546,12 +11546,12 @@
 ],
 "unconstrained_mixing": [
 2,
+1,
+44,
+0,
 2,
-42,
-3,
-2,
-42,
--1
+44,
+0
 ],
 "balance_costs_mixing": false
 },
@@ -11569,20 +11569,20 @@
 "score": {
 "pair_spread": 1,
 "max_meet": 2,
-"max_follow": 2,
+"max_follow": 1,
 "repeats": 54,
-"follow_repeats": 2,
+"follow_repeats": 0,
 "max_ufollow": 2,
 "ufollow_repeats": 54,
 "neg_min_meet": -1,
-"side_spread": 4,
-"pos_spread": 5
+"side_spread": 3,
+"pos_spread": 3
 },
 "extra": {
 "min_meet": 1,
 "never_met": 0,
-"min_distinct_followed": 9,
-"min_distinct_followers": 9
+"min_distinct_followed": 10,
+"min_distinct_followers": 10
 },
 "lower_bound": [
 1,
@@ -11596,9 +11596,9 @@
 1,
 1
 ],
-"proven_fields": 2,
+"proven_fields": 8,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 4,
 "sgp_rounds_max": 4,
 "rule": null,
@@ -11644,9 +11644,9 @@
 ],
 "unconstrained_mixing": [
 2,
-2,
+1,
 54,
-2,
+0,
 2,
 54,
 -1
@@ -11667,20 +11667,20 @@
 "score": {
 "pair_spread": 1,
 "max_meet": 2,
-"max_follow": 2,
+"max_follow": 1,
 "repeats": 66,
-"follow_repeats": 5,
+"follow_repeats": 0,
 "max_ufollow": 2,
 "ufollow_repeats": 66,
 "neg_min_meet": -2,
-"side_spread": 4,
-"pos_spread": 6
+"side_spread": 3,
+"pos_spread": 4
 },
 "extra": {
 "min_meet": 2,
 "never_met": 0,
-"min_distinct_followed": 10,
-"min_distinct_followers": 10
+"min_distinct_followed": 11,
+"min_distinct_followers": 11
 },
 "lower_bound": [
 1,
@@ -11694,9 +11694,9 @@
 1,
 1
 ],
-"proven_fields": 2,
+"proven_fields": 8,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 4,
 "sgp_rounds_max": 4,
 "rule": null,
@@ -11742,9 +11742,9 @@
 ],
 "unconstrained_mixing": [
 2,
-2,
+1,
 66,
-5,
+0,
 2,
 66,
 -2
@@ -12500,7 +12500,7 @@
 },
 "lower_bound": [
 1,
-1,
+2,
 1,
 0,
 0,
@@ -12510,7 +12510,7 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 7,
@@ -12875,20 +12875,20 @@
 "score": {
 "pair_spread": 1,
 "max_meet": 2,
-"max_follow": 2,
-"repeats": 60,
-"follow_repeats": 3,
+"max_follow": 1,
+"repeats": 65,
+"follow_repeats": 0,
 "max_ufollow": 2,
-"ufollow_repeats": 60,
-"neg_min_meet": -1,
-"side_spread": 5,
-"pos_spread": 5
+"ufollow_repeats": 65,
+"neg_min_meet": 0,
+"side_spread": 3,
+"pos_spread": 3
 },
 "extra": {
-"min_meet": 1,
-"never_met": 0,
-"min_distinct_followed": 10,
-"min_distinct_followers": 10
+"min_meet": 0,
+"never_met": 5,
+"min_distinct_followed": 11,
+"min_distinct_followers": 11
 },
 "lower_bound": [
 1,
@@ -12902,7 +12902,7 @@
 1,
 1
 ],
-"proven_fields": 2,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 7,
@@ -12950,12 +12950,12 @@
 ],
 "unconstrained_mixing": [
 2,
+1,
+65,
+0,
 2,
-60,
-3,
-2,
-60,
--1
+65,
+0
 ],
 "balance_costs_mixing": false
 },
@@ -12973,20 +12973,20 @@
 "score": {
 "pair_spread": 1,
 "max_meet": 2,
-"max_follow": 2,
-"repeats": 75,
-"follow_repeats": 3,
+"max_follow": 1,
+"repeats": 90,
+"follow_repeats": 0,
 "max_ufollow": 2,
-"ufollow_repeats": 75,
-"neg_min_meet": -1,
-"side_spread": 6,
-"pos_spread": 7
+"ufollow_repeats": 90,
+"neg_min_meet": 0,
+"side_spread": 12,
+"pos_spread": 12
 },
 "extra": {
-"min_meet": 1,
-"never_met": 0,
-"min_distinct_followed": 11,
-"min_distinct_followers": 11
+"min_meet": 0,
+"never_met": 15,
+"min_distinct_followed": 12,
+"min_distinct_followers": 12
 },
 "lower_bound": [
 1,
@@ -13000,7 +13000,7 @@
 0,
 0
 ],
-"proven_fields": 2,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 7,
@@ -13048,12 +13048,12 @@
 ],
 "unconstrained_mixing": [
 2,
+1,
+90,
+0,
 2,
-75,
-3,
-2,
-75,
--1
+90,
+0
 ],
 "balance_costs_mixing": false
 },
@@ -13703,19 +13703,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 2,
+"repeats": 0,
 "follow_repeats": 0,
-"max_ufollow": 2,
-"ufollow_repeats": 2,
+"max_ufollow": 1,
+"ufollow_repeats": 0,
 "neg_min_meet": 0,
 "side_spread": 1,
 "pos_spread": 1
 },
 "extra": {
 "min_meet": 0,
-"never_met": 29,
+"never_met": 27,
 "min_distinct_followed": 7,
 "min_distinct_followers": 7
 },
@@ -13731,9 +13731,9 @@
 1,
 1
 ],
-"proven_fields": 1,
-"optimal": false,
-"mixing_optimal": false,
+"proven_fields": 10,
+"optimal": true,
+"mixing_optimal": true,
 "sgp_rounds_known": 8,
 "sgp_rounds_max": 8,
 "rule": null,
@@ -13786,7 +13786,7 @@
 0,
 0
 ],
-"balance_costs_mixing": true
+"balance_costs_mixing": false
 },
 {
 "id": "M6_K3_B8",
@@ -13801,19 +13801,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 1,
+"repeats": 0,
 "follow_repeats": 0,
-"max_ufollow": 2,
-"ufollow_repeats": 1,
+"max_ufollow": 1,
+"ufollow_repeats": 0,
 "neg_min_meet": 0,
 "side_spread": 1,
 "pos_spread": 1
 },
 "extra": {
 "min_meet": 0,
-"never_met": 10,
+"never_met": 9,
 "min_distinct_followed": 8,
 "min_distinct_followers": 8
 },
@@ -13829,9 +13829,9 @@
 1,
 1
 ],
-"proven_fields": 1,
-"optimal": false,
-"mixing_optimal": false,
+"proven_fields": 10,
+"optimal": true,
+"mixing_optimal": true,
 "sgp_rounds_known": 8,
 "sgp_rounds_max": 8,
 "rule": null,
@@ -13876,12 +13876,12 @@
 8
 ],
 "unconstrained_mixing": [
-2,
 1,
 1,
 0,
-2,
+0,
 1,
+0,
 0
 ],
 "balance_costs_mixing": false
@@ -14194,20 +14194,20 @@
 "score": {
 "pair_spread": 0,
 "max_meet": 2,
-"max_follow": 2,
-"repeats": 64,
-"follow_repeats": 2,
+"max_follow": 1,
+"repeats": 108,
+"follow_repeats": 0,
 "max_ufollow": 2,
-"ufollow_repeats": 64,
+"ufollow_repeats": 108,
 "neg_min_meet": 0,
-"side_spread": 6,
-"pos_spread": 7
+"side_spread": 0,
+"pos_spread": 0
 },
 "extra": {
 "min_meet": 0,
-"never_met": 1,
-"min_distinct_followed": 11,
-"min_distinct_followers": 11
+"never_met": 45,
+"min_distinct_followed": 12,
+"min_distinct_followers": 12
 },
 "lower_bound": [
 0,
@@ -14221,7 +14221,7 @@
 0,
 0
 ],
-"proven_fields": 2,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 8,
@@ -14269,14 +14269,14 @@
 ],
 "unconstrained_mixing": [
 2,
-2,
-63,
 1,
+108,
+0,
 2,
-63,
--1
+108,
+0
 ],
-"balance_costs_mixing": true
+"balance_costs_mixing": false
 },
 {
 "id": "M6_K3_universal",
@@ -15205,19 +15205,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 5,
+"repeats": 0,
 "follow_repeats": 0,
-"max_ufollow": 2,
-"ufollow_repeats": 5,
-"neg_min_meet": 0,
+"max_ufollow": 1,
+"ufollow_repeats": 0,
+"neg_min_meet": -1,
 "side_spread": 1,
 "pos_spread": 1
 },
 "extra": {
-"min_meet": 0,
-"never_met": 5,
+"min_meet": 1,
+"never_met": 0,
 "min_distinct_followed": 10,
 "min_distinct_followers": 10
 },
@@ -15233,9 +15233,9 @@
 1,
 1
 ],
-"proven_fields": 1,
-"optimal": false,
-"mixing_optimal": false,
+"proven_fields": 10,
+"optimal": true,
+"mixing_optimal": true,
 "sgp_rounds_known": 10,
 "sgp_rounds_max": 10,
 "rule": null,
@@ -15280,13 +15280,13 @@
 10
 ],
 "unconstrained_mixing": [
-2,
 1,
-5,
+1,
 0,
-2,
-5,
-0
+0,
+1,
+0,
+-1
 ],
 "balance_costs_mixing": false
 },
@@ -16413,19 +16413,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 4,
+"repeats": 0,
 "follow_repeats": 0,
-"max_ufollow": 2,
-"ufollow_repeats": 4,
+"max_ufollow": 1,
+"ufollow_repeats": 0,
 "neg_min_meet": 0,
 "side_spread": 1,
-"pos_spread": 1
+"pos_spread": 7
 },
 "extra": {
 "min_meet": 0,
-"never_met": 40,
+"never_met": 36,
 "min_distinct_followed": 10,
 "min_distinct_followers": 10
 },
@@ -16441,9 +16441,9 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 9,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 11,
 "sgp_rounds_max": 11,
 "rule": null,
@@ -16496,7 +16496,7 @@
 0,
 0
 ],
-"balance_costs_mixing": true
+"balance_costs_mixing": false
 },
 {
 "id": "M8_K3_B11",
@@ -16511,19 +16511,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 3,
+"repeats": 0,
 "follow_repeats": 0,
-"max_ufollow": 2,
-"ufollow_repeats": 3,
+"max_ufollow": 1,
+"ufollow_repeats": 0,
 "neg_min_meet": 0,
-"side_spread": 1,
-"pos_spread": 1
+"side_spread": 2,
+"pos_spread": 8
 },
 "extra": {
 "min_meet": 0,
-"never_met": 15,
+"never_met": 12,
 "min_distinct_followed": 11,
 "min_distinct_followers": 11
 },
@@ -16539,9 +16539,9 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 8,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 11,
 "sgp_rounds_max": 11,
 "rule": null,
@@ -16586,12 +16586,12 @@
 11
 ],
 "unconstrained_mixing": [
-2,
 1,
-3,
+1,
 0,
-2,
-3,
+0,
+1,
+0,
 0
 ],
 "balance_costs_mixing": false
@@ -17621,19 +17621,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 3,
+"repeats": 0,
 "follow_repeats": 0,
-"max_ufollow": 2,
-"ufollow_repeats": 3,
+"max_ufollow": 1,
+"ufollow_repeats": 0,
 "neg_min_meet": 0,
-"side_spread": 1,
-"pos_spread": 1
+"side_spread": 10,
+"pos_spread": 10
 },
 "extra": {
 "min_meet": 0,
-"never_met": 84,
+"never_met": 81,
 "min_distinct_followed": 10,
 "min_distinct_followers": 10
 },
@@ -17649,9 +17649,9 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 8,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 13,
 "sgp_rounds_max": 13,
 "rule": null,
@@ -17704,7 +17704,7 @@
 0,
 0
 ],
-"balance_costs_mixing": true
+"balance_costs_mixing": false
 },
 {
 "id": "M9_K3_B11",
@@ -17719,19 +17719,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 5,
+"repeats": 0,
 "follow_repeats": 0,
-"max_ufollow": 2,
-"ufollow_repeats": 5,
+"max_ufollow": 1,
+"ufollow_repeats": 0,
 "neg_min_meet": 0,
-"side_spread": 1,
-"pos_spread": 1
+"side_spread": 11,
+"pos_spread": 11
 },
 "extra": {
 "min_meet": 0,
-"never_met": 59,
+"never_met": 54,
 "min_distinct_followed": 11,
 "min_distinct_followers": 11
 },
@@ -17747,9 +17747,9 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 8,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 13,
 "sgp_rounds_max": 13,
 "rule": null,
@@ -17802,7 +17802,7 @@
 0,
 0
 ],
-"balance_costs_mixing": true
+"balance_costs_mixing": false
 },
 {
 "id": "M9_K3_B12",
@@ -17817,19 +17817,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 9,
+"repeats": 0,
 "follow_repeats": 0,
-"max_ufollow": 2,
-"ufollow_repeats": 9,
+"max_ufollow": 1,
+"ufollow_repeats": 0,
 "neg_min_meet": 0,
-"side_spread": 0,
-"pos_spread": 0
+"side_spread": 12,
+"pos_spread": 12
 },
 "extra": {
 "min_meet": 0,
-"never_met": 36,
+"never_met": 27,
 "min_distinct_followed": 12,
 "min_distinct_followers": 12
 },
@@ -17845,9 +17845,9 @@
 0,
 0
 ],
-"proven_fields": 1,
+"proven_fields": 8,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 13,
 "sgp_rounds_max": 13,
 "rule": null,
@@ -17892,15 +17892,15 @@
 12
 ],
 "unconstrained_mixing": [
-2,
 1,
 1,
 0,
-2,
+0,
 1,
+0,
 0
 ],
-"balance_costs_mixing": true
+"balance_costs_mixing": false
 },
 {
 "id": "M9_K3_universal",
@@ -19775,7 +19775,7 @@
 },
 "lower_bound": [
 1,
-2,
+3,
 1,
 60,
 0,
@@ -19785,9 +19785,9 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 8,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 1,
 "sgp_rounds_max": 1,
 "rule": null,
@@ -20175,7 +20175,7 @@
 },
 "lower_bound": [
 1,
-3,
+4,
 1,
 132,
 0,
@@ -20185,7 +20185,7 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 2,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 1,
@@ -21193,15 +21193,15 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 3,
+"max_meet": 2,
 "max_follow": 1,
 "repeats": 96,
 "follow_repeats": 0,
 "max_ufollow": 2,
-"ufollow_repeats": 25,
+"ufollow_repeats": 43,
 "neg_min_meet": -1,
-"side_spread": 2,
-"pos_spread": 3
+"side_spread": 8,
+"pos_spread": 8
 },
 "extra": {
 "min_meet": 1,
@@ -21221,7 +21221,7 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 6,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 5,
@@ -21293,18 +21293,18 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 3,
+"max_meet": 2,
 "max_follow": 1,
 "repeats": 120,
 "follow_repeats": 0,
 "max_ufollow": 2,
-"ufollow_repeats": 40,
-"neg_min_meet": -1,
-"side_spread": 2,
-"pos_spread": 3
+"ufollow_repeats": 48,
+"neg_min_meet": -2,
+"side_spread": 8,
+"pos_spread": 9
 },
 "extra": {
-"min_meet": 1,
+"min_meet": 2,
 "never_met": 0,
 "min_distinct_followed": 10,
 "min_distinct_followers": 10
@@ -21321,7 +21321,7 @@
 0,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 6,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 5,
@@ -23398,7 +23398,7 @@
 },
 "lower_bound": [
 0,
-1,
+2,
 1,
 0,
 0,
@@ -23408,7 +23408,7 @@
 0,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 7,
@@ -24816,19 +24816,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 9,
+"repeats": 0,
 "follow_repeats": 0,
 "max_ufollow": 1,
 "ufollow_repeats": 0,
 "neg_min_meet": 0,
-"side_spread": 0,
-"pos_spread": 0
+"side_spread": 2,
+"pos_spread": 2
 },
 "extra": {
 "min_meet": 0,
-"never_met": 51,
+"never_met": 42,
 "min_distinct_followed": 8,
 "min_distinct_followers": 8
 },
@@ -24844,9 +24844,9 @@
 0,
 0
 ],
-"proven_fields": 1,
+"proven_fields": 8,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 9,
 "sgp_rounds_max": 9,
 "rule": null,
@@ -24893,15 +24893,15 @@
 8
 ],
 "unconstrained_mixing": [
-2,
 1,
-8,
+1,
+0,
 0,
 1,
 0,
 0
 ],
-"balance_costs_mixing": true
+"balance_costs_mixing": false
 },
 {
 "id": "M7_K4_B9",
@@ -24916,19 +24916,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 16,
+"repeats": 0,
 "follow_repeats": 0,
 "max_ufollow": 1,
 "ufollow_repeats": 0,
-"neg_min_meet": 0,
+"neg_min_meet": -1,
 "side_spread": 1,
 "pos_spread": 1
 },
 "extra": {
-"min_meet": 0,
-"never_met": 16,
+"min_meet": 1,
+"never_met": 0,
 "min_distinct_followed": 9,
 "min_distinct_followers": 9
 },
@@ -24944,9 +24944,9 @@
 1,
 1
 ],
-"proven_fields": 1,
-"optimal": false,
-"mixing_optimal": false,
+"proven_fields": 10,
+"optimal": true,
+"mixing_optimal": true,
 "sgp_rounds_known": 9,
 "sgp_rounds_max": 9,
 "rule": null,
@@ -24993,13 +24993,13 @@
 9
 ],
 "unconstrained_mixing": [
-2,
 1,
-16,
+1,
+0,
 0,
 1,
 0,
-0
+-1
 ],
 "balance_costs_mixing": false
 },
@@ -26167,19 +26167,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 36,
+"repeats": 0,
 "follow_repeats": 0,
 "max_ufollow": 1,
 "ufollow_repeats": 0,
 "neg_min_meet": 0,
-"side_spread": 1,
-"pos_spread": 1
+"side_spread": 9,
+"pos_spread": 9
 },
 "extra": {
 "min_meet": 0,
-"never_met": 100,
+"never_met": 64,
 "min_distinct_followed": 9,
 "min_distinct_followers": 9
 },
@@ -26195,9 +26195,9 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 8,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 10,
 "sgp_rounds_max": 10,
 "rule": null,
@@ -26244,15 +26244,15 @@
 9
 ],
 "unconstrained_mixing": [
-2,
 1,
-9,
+1,
+0,
 0,
 1,
 0,
 0
 ],
-"balance_costs_mixing": true
+"balance_costs_mixing": false
 },
 {
 "id": "M8_K4_B10",
@@ -28954,19 +28954,19 @@
 "type": "draw",
 "score": {
 "pair_spread": 1,
-"max_meet": 2,
+"max_meet": 1,
 "max_follow": 1,
-"repeats": 62,
+"repeats": 0,
 "follow_repeats": 0,
 "max_ufollow": 1,
 "ufollow_repeats": 0,
 "neg_min_meet": 0,
-"side_spread": 0,
-"pos_spread": 0
+"side_spread": 2,
+"pos_spread": 2
 },
 "extra": {
 "min_meet": 0,
-"never_met": 122,
+"never_met": 60,
 "min_distinct_followed": 12,
 "min_distinct_followers": 12
 },
@@ -28982,9 +28982,9 @@
 0,
 0
 ],
-"proven_fields": 1,
+"proven_fields": 8,
 "optimal": false,
-"mixing_optimal": false,
+"mixing_optimal": true,
 "sgp_rounds_known": 13,
 "sgp_rounds_max": 13,
 "rule": null,
@@ -29031,15 +29031,15 @@
 12
 ],
 "unconstrained_mixing": [
-2,
 1,
-22,
+1,
+0,
 0,
 1,
 0,
 0
 ],
-"balance_costs_mixing": true
+"balance_costs_mixing": false
 },
 {
 "id": "M10_K4_universal",
@@ -30232,20 +30232,20 @@
 "score": {
 "pair_spread": 0,
 "max_meet": 4,
-"max_follow": 2,
+"max_follow": 1,
 "repeats": 255,
-"follow_repeats": 2,
-"max_ufollow": 3,
-"ufollow_repeats": 75,
+"follow_repeats": 0,
+"max_ufollow": 2,
+"ufollow_repeats": 78,
 "neg_min_meet": -2,
-"side_spread": 5,
-"pos_spread": 5
+"side_spread": 7,
+"pos_spread": 7
 },
 "extra": {
 "min_meet": 2,
 "never_met": 0,
-"min_distinct_followed": 11,
-"min_distinct_followers": 11
+"min_distinct_followed": 12,
+"min_distinct_followers": 12
 },
 "lower_bound": [
 0,
@@ -30259,7 +30259,7 @@
 1,
 1
 ],
-"proven_fields": 2,
+"proven_fields": 6,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 1,
@@ -30311,14 +30311,14 @@
 ],
 "unconstrained_mixing": [
 4,
-2,
-255,
 1,
-3,
-76,
+255,
+0,
+2,
+78,
 -2
 ],
-"balance_costs_mixing": true
+"balance_costs_mixing": false
 },
 {
 "id": "M3_K5_universal",
@@ -33225,7 +33225,7 @@
 },
 "lower_bound": [
 1,
-1,
+2,
 1,
 0,
 0,
@@ -33235,7 +33235,7 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 6,
@@ -33327,7 +33327,7 @@
 },
 "lower_bound": [
 1,
-1,
+2,
 1,
 0,
 0,
@@ -33337,7 +33337,7 @@
 0,
 0
 ],
-"proven_fields": 1,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 6,
@@ -33429,7 +33429,7 @@
 },
 "lower_bound": [
 0,
-1,
+2,
 1,
 0,
 0,
@@ -33439,7 +33439,7 @@
 1,
 1
 ],
-"proven_fields": 1,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 6,
@@ -35182,24 +35182,24 @@
 21,
 22
 ],
-"type": "rule",
+"type": "draw",
 "score": {
 "pair_spread": 1,
 "max_meet": 2,
-"max_follow": 2,
+"max_follow": 1,
 "repeats": 280,
-"follow_repeats": 140,
+"follow_repeats": 0,
 "max_ufollow": 2,
-"ufollow_repeats": 140,
+"ufollow_repeats": 41,
 "neg_min_meet": 0,
-"side_spread": 11,
+"side_spread": 10,
 "pos_spread": 11
 },
 "extra": {
 "min_meet": 0,
 "never_met": 105,
-"min_distinct_followed": 7,
-"min_distinct_followers": 7
+"min_distinct_followed": 11,
+"min_distinct_followers": 11
 },
 "lower_bound": [
 1,
@@ -35213,29 +35213,12 @@
 1,
 1
 ],
-"proven_fields": 2,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 7,
 "sgp_rounds_max": 8,
-"rule": {
-"d": [
-6,
-5,
-3,
-2,
-1
-],
-"pi": [
-0,
-1,
-2,
-3,
-4
-],
-"words": "1st (left lane): move 1 pair left, keep position; 2nd (right lane): move 2 pairs left, keep position; 3rd (left lane): move 3 pairs right, keep position; 4th (right lane): move 2 pairs right, keep position; 5th (left lane): move 1 pair right, keep position",
-"never_meet_ever": 105
-},
+"rule": null,
 "best_rule": {
 "d": [
 6,
@@ -35265,8 +35248,8 @@
 11
 ],
 "never_meet_ever": 105,
-"ties_best": true,
-"ties_best_mixing": true
+"ties_best": false,
+"ties_best_mixing": false
 },
 "nz_score": [
 1,
@@ -35301,24 +35284,24 @@
 23,
 24
 ],
-"type": "rule",
+"type": "draw",
 "score": {
 "pair_spread": 1,
 "max_meet": 2,
-"max_follow": 2,
+"max_follow": 1,
 "repeats": 350,
-"follow_repeats": 175,
+"follow_repeats": 0,
 "max_ufollow": 2,
-"ufollow_repeats": 175,
+"ufollow_repeats": 63,
 "neg_min_meet": 0,
-"side_spread": 12,
+"side_spread": 9,
 "pos_spread": 12
 },
 "extra": {
 "min_meet": 0,
 "never_met": 105,
-"min_distinct_followed": 7,
-"min_distinct_followers": 7
+"min_distinct_followed": 12,
+"min_distinct_followers": 12
 },
 "lower_bound": [
 1,
@@ -35332,29 +35315,12 @@
 1,
 1
 ],
-"proven_fields": 2,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 7,
 "sgp_rounds_max": 8,
-"rule": {
-"d": [
-6,
-5,
-3,
-2,
-1
-],
-"pi": [
-0,
-1,
-2,
-3,
-4
-],
-"words": "1st (left lane): move 1 pair left, keep position; 2nd (right lane): move 2 pairs left, keep position; 3rd (left lane): move 3 pairs right, keep position; 4th (right lane): move 2 pairs right, keep position; 5th (left lane): move 1 pair right, keep position",
-"never_meet_ever": 105
-},
+"rule": null,
 "best_rule": {
 "d": [
 6,
@@ -35384,8 +35350,8 @@
 12
 ],
 "never_meet_ever": 105,
-"ties_best": true,
-"ties_best_mixing": true
+"ties_best": false,
+"ties_best_mixing": false
 },
 "nz_score": [
 1,

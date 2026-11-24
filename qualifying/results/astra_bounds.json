@@ -1,0 +1,11 @@
+{
+ "_about": "Lower bounds proved in Astra's second batch (contrib/astra-2026-11-24b), checked there. Field -> bound, with the reason.",
+ "M3_K3_B3": {"max_follow": [2, "every lane word is one of 6 permutations, so two of the 9 bowlers share all 3 pairs; meeting 3 times in trios repeats a follow direction"]},
+ "M3_K4_B7": {"max_meet": [3, "a cap of 2 forces every met couple to meet exactly twice, but each bowler has 21 opponent slots (odd)"]},
+ "M3_K4_B11": {"max_meet": [4, "a cap of 3 is a lane-exact resolvable 2-(12,4,3) design, i.e. a GBTD(4,3), which does not exist (Chee, Kiah, Wang 2013)"]},
+ "M5_K3_B7": {"max_meet": [2, "one meeting is a KTS(15); none of the 7 has a balanced 5-lane allocation (exhaustive)"]},
+ "M6_K4_B6": {"max_meet": [2, "one meeting needs 24 permutations of 6 symbols at Hamming distance >= 5; at most 18 exist"]},
+ "M6_K5_B4": {"max_meet": [2, "one meeting plus 6 constant rows gives two orthogonal Latin squares of order 6"]},
+ "M6_K5_B5": {"max_meet": [2, "as B=4 (project onto 4 blocks)"]},
+ "M6_K5_B6": {"max_meet": [2, "as B=4 (project onto 4 blocks)"]}
+}

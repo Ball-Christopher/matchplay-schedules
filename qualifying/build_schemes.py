@@ -40,6 +40,10 @@ for _f in ("exact_first.json", "exact.json", "exact_b7.json"):
         EXACT.update(json.load(open(_ep)))
 
 
+ASTRA_LB = {k: v for k, v in json.load(open(os.path.join(HERE, "results", "astra_bounds.json"))).items()
+            if not k.startswith("_")}
+
+
 def main():
     out, summary = [], []
     for K in (2, 3, 4, 5):
@@ -56,6 +60,8 @@ def main():
                             break
                         lead += 1
                     lb["max_meet"] = max(lb["max_meet"], lead + 1)
+                for f, (val, _why) in ASTRA_LB.get(f"M{M}_K{K}_B{B}", {}).items():
+                    lb[f] = max(lb[f], val)
                 lbl = [lb[f] for f in SCORE_FIELDS]
                 rb = rule_best(M, K, B)
                 rdraw = rule_draw(M, K, B, rb["d"], rb["pi"])
@@ -69,6 +75,12 @@ def main():
                     od0 = [[[x - 1 for x in pr] for pr in blk] for blk in od]
                     os_ = evaluate(od0)
                     cand.append(("draw", tuple(os_["score"]), od0, os_))
+                # draws from Astra's second batch (contrib/astra-2026-11-24b), 1-based
+                pa = os.path.join(HERE, "results", "astra", f"M{M}_K{K}_B{B}.json")
+                if os.path.exists(pa):
+                    ad0 = [[[x - 1 for x in pr] for pr in blk] for blk in relabel(json.load(open(pa))["draw"])]
+                    as_ = evaluate(ad0)
+                    cand.append(("draw", tuple(as_["score"]), ad0, as_))
                 cand.sort(key=lambda c: c[1])   # stable: rule first on ties
                 kind, score, draw, r = cand[0]
                 proven = 0

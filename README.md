@@ -10,6 +10,7 @@ and of the bowling positions. Each schedule is a JSON file and a ready-to-paste 
 - **How they were made, the limits and the open questions:** [`docs/methods.html`](docs/methods.html)
   (source [METHODS.md](METHODS.md)).
 - **Open problems, stated on their own:** [OPEN_PROBLEMS.md](OPEN_PROBLEMS.md).
+- **Open issues, as a to-do list with where to start:** [OPEN_ISSUES.md](OPEN_ISSUES.md).
 - **Outside results, checked here:** [contrib/astra-2026-11-24](contrib/astra-2026-11-24/README.md).
 - **Hybrid seasons** (the format changes between 2-, 3- and 4-way so every couple meets exactly once): [hybrid/README.md](hybrid/README.md). They're also on the web page under "Hybrid".
 - **Qualifying lane movements** (M pairs, K per pair, B blocks: mixing, following and lane-pair balance): [qualifying/README.md](qualifying/README.md).
@@ -72,10 +73,16 @@ For leagues that change oil pattern in blocks, the aim is that no couple meets t
 | 3way/v30_oil | 3 (14,9,6) | 0 | exact | lower bound reached |
 | 3way/v36_oil | 3 (16,10,9) | 0 | exact | lower bound reached |
 | 3way/v18_oil_x2 | 5 (8,5,6,7,8) over two rounds | 0 | exact | round 1 = v18_oil; 5 is optimal |
+| 3way/v24_oil_x2 | 6 (11,6,6,11,6,6) | 0 | exact | round 1 = v24_oil; lower bound 5 (Astra) |
+| 3way/v30_oil_x2 | 5 (14,9,8,13,14) | 0 | exact | round 1 = v30_oil; optimal (Astra) |
+| 3way/v36_oil_x2 | 6 (16,10,9,16,10,9) | 0 | exact | round 1 = v36_oil; lower bound 5 (Astra) |
+| 4way/v24_oil_x2 | 8 (6,5,6,6,6,5,6,6) | 0 | exact | round 1 = v24_oil; optimal (Astra) |
+| 4way/v32_oil_x2 | 8 (8,7,8,8,8,7,8,8) | 0 | exact | round 1 = v32_oil; optimal (Astra) |
+| 4way/v36_oil_x2 | 8 (9,9,9,8,9,9,9,8) | 0 | exact | round 1 = v36_oil; lower bound 7 |
 | 4way/v12_oil | 4 (2,3,3,3) | 27 | 1 off | repeats unavoidable: any two weeks of 12 in fours share a couple |
 | 4way/v20_oil | 4 (5,4,5,5) | 0 | exact | lower bound reached |
 | 4way/v32_oil | 4 (8,7,8,8) | 0 | exact | lower bound reached |
-| 4way/v36_oil | 11 | 0 | exact | lower bound 4 not reached (open) |
+| 4way/v36_oil | 4 (9,9,9,8) | 0 | exact | lower bound reached; prefix spread 2 (Astra) |
 | 4way/v24_oil | 4 (6,5,6,6) | 0 | exact | lower bound reached; prefix spread 2 |
 | two-round files for 3way 15/21/27/33/39 and 4way 16/28/40 | 2 (one per round) | 0 | exact | each couple meets once on each pattern |
 
@@ -104,22 +111,25 @@ A `-vacant` schedule is for N−1 bowlers. The table is written by `tools/build_
 | `3w21-x2` | 21 | 20 | 2× | exact | 10+10 | [3way/v21_x2.toml](3way/v21_x2.toml) |
 | `3w24` | 24 | 23 | 2× | exact |  | [3way/v24.toml](3way/v24.toml) |
 | `3w24-vacant` | 23 (slot 24 empty) | 23 | 2× | exact |  | [3way/v24_vacant.toml](3way/v24_vacant.toml) |
-| `3w24-x2` | 24 | 46 | 4× | exact |  | [3way/v24_x2.toml](3way/v24_x2.toml) |
+| `3w24-x2` | 24 | 46 | 4× | exact | 4+1+1+1+1+1+1+1+1+1+1+1+1+1+1+5+11+6+6 | [3way/v24_x2.toml](3way/v24_x2.toml) |
 | `3w24-oil` | 24 | 23 | 2× | exact | 11+6+6 | [3way/v24_oil.toml](3way/v24_oil.toml) |
+| `3w24-oil-x2` | 24 | 46 | 4× | exact | 11+6+6+11+6+6 | [3way/v24_oil_x2.toml](3way/v24_oil_x2.toml) |
 | `3w27` | 27 | 13 | 1× | exact |  | [3way/v27.toml](3way/v27.toml) |
 | `3w27-vacant` | 26 (slot 27 empty) | 13 | 1× | exact |  | [3way/v27_vacant.toml](3way/v27_vacant.toml) |
 | `3w27-x2` | 27 | 26 | 2× | exact | 13+13 | [3way/v27_x2.toml](3way/v27_x2.toml) |
 | `3w30` | 30 | 29 | 2× | exact |  | [3way/v30.toml](3way/v30.toml) |
 | `3w30-vacant` | 29 (slot 30 empty) | 29 | 2× | exact |  | [3way/v30_vacant.toml](3way/v30_vacant.toml) |
-| `3w30-x2` | 30 | 58 | 4× | exact |  | [3way/v30_x2.toml](3way/v30_x2.toml) |
+| `3w30-x2` | 30 | 58 | 4× | exact | 5+4+1+1+2+2+1+1+2+1+1+2+1+1+2+8+9+14 | [3way/v30_x2.toml](3way/v30_x2.toml) |
 | `3w30-oil` | 30 | 29 | 2× | exact | 14+9+6 | [3way/v30_oil.toml](3way/v30_oil.toml) |
+| `3w30-oil-x2` | 30 | 58 | 4× | exact | 14+9+8+13+14 | [3way/v30_oil_x2.toml](3way/v30_oil_x2.toml) |
 | `3w33` | 33 | 16 | 1× | exact |  | [3way/v33.toml](3way/v33.toml) |
 | `3w33-vacant` | 32 (slot 33 empty) | 16 | 1× | exact |  | [3way/v33_vacant.toml](3way/v33_vacant.toml) |
 | `3w33-x2` | 33 | 32 | 2× | exact | 16+16 | [3way/v33_x2.toml](3way/v33_x2.toml) |
 | `3w36` | 36 | 35 | 2× | exact |  | [3way/v36.toml](3way/v36.toml) |
 | `3w36-vacant` | 35 (slot 36 empty) | 35 | 2× | exact |  | [3way/v36_vacant.toml](3way/v36_vacant.toml) |
-| `3w36-x2` | 36 | 70 | 4× | exact |  | [3way/v36_x2.toml](3way/v36_x2.toml) |
+| `3w36-x2` | 36 | 70 | 4× | exact | 2+1+1+1+1+2+2+1+1+3+1+2+1+1+2+1+2+2+2+1+2+11+16+11 | [3way/v36_x2.toml](3way/v36_x2.toml) |
 | `3w36-oil` | 36 | 35 | 2× | exact | 16+10+9 | [3way/v36_oil.toml](3way/v36_oil.toml) |
+| `3w36-oil-x2` | 36 | 70 | 4× | exact | 16+10+9+16+10+9 | [3way/v36_oil_x2.toml](3way/v36_oil_x2.toml) |
 | `3w39` | 39 | 19 | 1× | exact |  | [3way/v39.toml](3way/v39.toml) |
 | `3w39-vacant` | 38 (slot 39 empty) | 19 | 1× | exact |  | [3way/v39_vacant.toml](3way/v39_vacant.toml) |
 | `3w39-x2` | 39 | 38 | 2× | exact | 19+19 | [3way/v39_x2.toml](3way/v39_x2.toml) |
@@ -136,8 +146,9 @@ A `-vacant` schedule is for N−1 bowlers. The table is written by `tools/build_
 | `4w20-oil` | 20 | 19 | 3× | exact | 5+4+5+5 | [4way/v20_oil.toml](4way/v20_oil.toml) |
 | `4w24` | 24 | 23 | 3× | exact |  | [4way/v24.toml](4way/v24.toml) |
 | `4w24-vacant` | 23 (slot 24 empty) | 23 | 3× | exact |  | [4way/v24_vacant.toml](4way/v24_vacant.toml) |
-| `4w24-x2` | 24 | 46 | 6× | exact |  | [4way/v24_x2.toml](4way/v24_x2.toml) |
+| `4w24-x2` | 24 | 46 | 6× | exact | 3+2+1+1+1+1+1+1+3+1+3+5+6+5+6+6 | [4way/v24_x2.toml](4way/v24_x2.toml) |
 | `4w24-oil` | 24 | 23 | 3× | exact | 6+5+6+6 | [4way/v24_oil.toml](4way/v24_oil.toml) |
+| `4w24-oil-x2` | 24 | 46 | 6× | exact | 6+5+6+6+6+5+6+6 | [4way/v24_oil_x2.toml](4way/v24_oil_x2.toml) |
 | `4w28` | 28 | 9 | 1× | exact |  | [4way/v28.toml](4way/v28.toml) |
 | `4w28-vacant` | 27 (slot 28 empty) | 9 | 1× | exact |  | [4way/v28_vacant.toml](4way/v28_vacant.toml) |
 | `4w28-x2` | 28 | 18 | 2× | exact | 9+9 | [4way/v28_x2.toml](4way/v28_x2.toml) |
@@ -145,10 +156,12 @@ A `-vacant` schedule is for N−1 bowlers. The table is written by `tools/build_
 | `4w32-vacant` | 31 (slot 32 empty) | 31 | 3× | exact |  | [4way/v32_vacant.toml](4way/v32_vacant.toml) |
 | `4w32-x2` | 32 | 62 | 6× | exact |  | [4way/v32_x2.toml](4way/v32_x2.toml) |
 | `4w32-oil` | 32 | 31 | 3× | exact | 8+7+8+8 | [4way/v32_oil.toml](4way/v32_oil.toml) |
+| `4w32-oil-x2` | 32 | 62 | 6× | exact | 8+7+8+8+8+7+8+8 | [4way/v32_oil_x2.toml](4way/v32_oil_x2.toml) |
 | `4w36` | 36 | 35 | 3× | exact |  | [4way/v36.toml](4way/v36.toml) |
 | `4w36-vacant` | 35 (slot 36 empty) | 35 | 3× | exact |  | [4way/v36_vacant.toml](4way/v36_vacant.toml) |
-| `4w36-x2` | 36 | 70 | 6× | exact |  | [4way/v36_x2.toml](4way/v36_x2.toml) |
-| `4w36-oil` | 36 | 35 | 3× | exact | 4+3+3+3+3+3+3+3+3+3+4 | [4way/v36_oil.toml](4way/v36_oil.toml) |
+| `4w36-x2` | 36 | 70 | 6× | exact | 3+1+1+1+2+1+2+2+1+1+1+2+1+1+1+1+1+1+1+1+2+1+1+1+1+3+9+9+9+8 | [4way/v36_x2.toml](4way/v36_x2.toml) |
+| `4w36-oil` | 36 | 35 | 3× | exact | 9+9+9+8 | [4way/v36_oil.toml](4way/v36_oil.toml) |
+| `4w36-oil-x2` | 36 | 70 | 6× | exact | 9+9+9+8+9+9+9+8 | [4way/v36_oil_x2.toml](4way/v36_oil_x2.toml) |
 | `4w40` | 40 | 13 | 1× | exact |  | [4way/v40.toml](4way/v40.toml) |
 | `4w40-vacant` | 39 (slot 40 empty) | 13 | 1× | exact |  | [4way/v40_vacant.toml](4way/v40_vacant.toml) |
 | `4w40-x2` | 40 | 26 | 2× | exact | 13+13 | [4way/v40_x2.toml](4way/v40_x2.toml) |

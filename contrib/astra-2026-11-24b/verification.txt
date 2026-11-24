@@ -1,0 +1,65 @@
+fours36_oil.json OK
+trios36_product.json OK
+3w24_main.json OK
+3w24_oil.json OK
+3w30_main.json OK
+3w30_oil.json OK
+3w36_main.json OK
+3w36_oil.json OK
+4w24_main.json OK
+4w24_oil.json OK
+4w32_main.json OK
+4w32_oil.json OK
+4w36_main.json OK
+4w36_oil.json OK
+M10_K4_B12.json OK
+M3_K3_B3.json OK
+M3_K3_B6.json OK
+M3_K4_B11.json OK
+M3_K4_B7.json OK
+M3_K5_B12.json OK
+M4_K3_B10.json OK
+M4_K3_B11.json OK
+M4_K3_B6.json OK
+M4_K3_B9.json OK
+M4_K4_B10.json OK
+M4_K4_B9.json OK
+M5_K3_B11.json OK
+M5_K3_B12.json OK
+M5_K3_B7.json OK
+M6_K3_B12.json OK
+M6_K3_B7.json OK
+M6_K3_B8.json OK
+M6_K4_B6.json OK
+M6_K5_B4.json OK
+M6_K5_B5.json OK
+M6_K5_B6.json OK
+M7_K3_B10.json OK
+M7_K4_B8.json OK
+M7_K4_B9.json OK
+M7_K5_B11.json OK
+M7_K5_B12.json OK
+M8_K3_B10.json OK
+M8_K3_B11.json OK
+M8_K4_B9.json OK
+M9_K3_B10.json OK
+M9_K3_B11.json OK
+M9_K3_B12.json OK
+4w24_main 60 possible first quartets, 0 valid continuations of length 2
+4w32_main 7 possible first quartets, 0 valid continuations of length 1
+4w32_oil 7 possible first quartets, 0 valid continuations of length 1
+Representative 1 passed the full and seven deletion checks
+Representative 2 passed the full and seven deletion checks
+Representative 3 passed the full and seven deletion checks
+Representative 4 passed the full and seven deletion checks
+Representative 5 passed the full and seven deletion checks
+Representative 6 passed the full and seven deletion checks
+Representative 7 passed the full and seven deletion checks
+Three disjoint layers, 198 within-layer couples meeting twice, 12 clash-free boundary weeks, and all candidate lane fragments verified.
+index1_100.json OK
+index1_124.json OK
+index1_136.json OK
+index1_148.json OK
+index1_52.json OK
+index1_64.json OK
+index1_76.json OK

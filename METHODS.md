@@ -5,7 +5,7 @@ This records how each schedule was built, what was tried, what failed and why, a
 **Limitations at a glance**
 
 - **Lane pairs not exact in three single rounds, all proven best possible or impossible to improve:** 3-way 15 (1 bowler off), 4-way 12 (1 off) and 4-way 16 (12 off; 3 off in the vacancy version). The two-round versions of all three are exact.
-- **Oil patterns:** 4-way 12 can't avoid couples meeting twice on a pattern (27 extra meetings, proven minimal; section 14). 4-way 36 uses 11 patterns where 4 might be possible.
+- **Oil patterns:** 4-way 12 can't avoid couples meeting twice on a pattern (27 extra meetings, proven minimal; section 14). 4-way 36 now uses 4 patterns, the fewest possible (Astra, section 14).
 - **Short seasons:** a season stopped part-way through a long schedule is less even than a full one; see section 8 and each schedule's "stopping early" figure.
 - **Vacancy files:** the short group moves round the lane pairs evenly wherever a lane-exact full round exists. Only 3-way 14 and 4-way 11 and 15 can't have this (section 14).
 - **Two-round files:** a few groups from round 1 meet again in round 2 (3-way 12, 18 and 24, and 4-way 12).
@@ -111,6 +111,9 @@ Round 2 keeps every couple's count right under any relabelling of the bowlers, s
 - **Method 2: relabel by matching** (`tools/schedlib.py: second_round`). This uses a random lane permutation, and then bipartite matching assigns a new label to each bowler so that every bowler's totals over both rounds are in range. It was used for 3-way 12, 15, 18, 21 and 24, keeping the round that repeats the fewest groups out of up to 4,000 tries. It replaced the 3-way agent's first versions, cutting repeated trios from 8/2/16/3/21 to 1/0/3/0/4. 3-way 15 works even though its single round isn't exact, because round 2 makes up the shortfall.
 - **4-way 12, 16 and 28:** the 4-way agent's version (`build.py: relabel_cycle`), a relabelling by bipartite matching plus a lane permutation. These are exact with 2/0/0 repeated groups.
 - **3-way 27:** Method 2 found nothing in 20,000 tries, because round 1 has four doubled lane pairs per bowler. The agent's freer annealing of round 2's lane order, with a Hungarian-optimal relabelling at every step, stalled at 3–5 cells off after 34 runs. The fix was the Fable agent's **pair of KTS(27)s** built together (section 3.3), each exact alone and exact together with no repeated trios. Its first round replaced the original `v27.json`.
+
+- **Astra's two-round files (24 November 2026, section 14):** round 1 is copied row for row, and round 2 is relabelled so each bowler's less-frequent lane pair and position differ from round 1's. Where possible a short colour class of round 2 is joined to round 1's last block. They replaced `v24_x2`, `v30_x2` and `v36_x2` (3-way) and `v24_x2` and `v36_x2` (4-way), which needed 29/34/40 and 24/52 oil-pattern blocks; the replacements need 19/18/24 and 16/30. They also supplied `v24_oil_x2`, `v30_oil_x2`, `v36_oil_x2` (3-way) and `v24_oil_x2`, `v32_oil_x2` (4-way).
+- **4-way 36 oil, two rounds** (`tools/import_astra_b2.py`): Method 2 with positions added to the matching, on the new 4-pattern round. 8 blocks; the lower bound is 7.
 
 **Left as is:** a few groups recur across the rounds in 3-way 12 (1), 3-way 18 (3), 3-way 24 (4) and 4-way 12 (2). These designs have every couple meeting at least twice per round, which leaves little room.
 
@@ -221,13 +224,15 @@ Lane-rotating symmetric designs, good for lanes, are poor for blocks because the
   - z3 didn't settle ≤ 26 (4 blocks) or ≤ 40 (3 blocks) in about 20 minutes.
   - In the file, 42 couples meet on 3 patterns, 21 on 2 and 3 on 1.
 
+- **4-way 36: [9, 9, 9, 8], exact lanes, prefix spread 2** (Astra, section 14). Four layers of GF(9); each Hamilton cycle of K_4 on the layers gives a 9-week pattern, and 8 transversal weeks finish the round. It replaced the 11-block Z_9 × 4 file.
+
 The search code is in `3way/tools/oil_search/` and `4way/tools/oil_search/`.
 
 ## 11. Still open
 
 - ~~A proof for exact lane balance in the 4-way 12 single round.~~ Settled: impossible, by a published result (section 12).
 - Prefix-optimal ordering searched jointly with lane exactness. At present prefix order is tuned only after lanes are fixed, and 4-way 20 and 24 sit at 3.
-- Oil-pattern blocks: 4 blocks for 4-way 36 (4-way 24 is settled, section 13), a proof of the best possible for 4-way 12, and two-round oil versions of the λ > 1 sizes (section 10).
+- ~~Oil-pattern blocks: 4 blocks for 4-way 36, a proof of the best possible for 4-way 12, two-round oil versions of the λ > 1 sizes.~~ 4-way 36 and 4-way 12 are settled (section 14). Two-round oil files now exist for every λ > 1 size; the gaps left are in OPEN_PROBLEMS.md problem 4.
 
 ## 12. What the literature says
 
@@ -301,6 +306,17 @@ Astra (another AI agent) worked on the open problems against revision `e5afce7`.
 - **24 in fours, spread 1.** This needs a 7-week clash-free packing whose unmet couples form six disjoint 4-cycles. None has been found yet.
 
 The vacancy result is now used for the library's vacancy files (section 5). The other witnesses are not library files. See OPEN_PROBLEMS.md for what is still open.
+
+### Second batch (24 November 2026)
+
+Checked in [contrib/astra-2026-11-24b](contrib/astra-2026-11-24b/README.md), against revision `33d41db`.
+
+- **Lane-exact one-meeting fours** at 52, 64, 76, 100, 124, 136 and 148 (layered cyclic and finite-field constructions). Below 160 only 88 remains open.
+- **36 in fours, four oil patterns** (9+9+9+8) from GF(9) layers on the Hamilton cycles of K_4, lane-exact with spread 2.
+- **Two-round oil with round 1 fixed:** 12 witnesses. Seven are proven optimal, including two by exhaustive boundary checks (4-way 24 main and 4-way 32).
+- **Qualifying:** 33 draws scored with our own `model.evaluate`. 24 improve the published draw, and new lower bounds come from permutation arrays, the non-existence of two orthogonal Latin squares of order 6, and the seven KTS(15).
+
+Library files taken from this batch: `4way/v36_oil`, the two-round files listed in section 6, and 24 qualifying draws (`qualifying/schemes.json`). `tools/import_astra_b2.py` imports them and asserts that each round 1 matches the library.
 
 ## 15. Hybrid single rounds
 

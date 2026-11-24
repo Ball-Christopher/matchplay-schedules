@@ -102,6 +102,12 @@ B > M the block-level balance leaves at most one extra game on a pair.
 * Following (K ≥ 3): each bowler follows B bowlers out of MK−1, so
   `max_follow` ≥ ⌈B/(MK−1)⌉.
 * Pair, side and position spreads: 0 if the average is a whole number, else 1.
+* Further bounds from Astra's second batch (24 Nov 2026, checked in
+  [contrib/astra-2026-11-24b](../contrib/astra-2026-11-24b/README.md)), stored
+  with their reasons in `results/astra_bounds.json`: 3×3 B=3 needs 2 follows;
+  3×4 B=7 needs 3 meetings and B=11 needs 4; 5×3 B=7 needs 2 (no KTS(15) has
+  balanced lanes); 6×4 B=6 needs 2 (permutation-array bound); 6×5 B=4–6 needs
+  2 (no two orthogonal Latin squares of order 6).
 
 A scheme is **proven optimal** on a field when it reaches these bounds on that
 field and on every earlier one. Lane-pair balance can push mixing above the
@@ -249,27 +255,27 @@ counting, social golfer, z3). All entries are lane-pair balanced.
 | 8×2 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D |
 | 9×2 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D |
 | 10×2 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D |
-| 3×3 | 1/1 R | 2/1 R | 3/2 r? | 2/1 D | 2/1 D | 2/2 D? | 2/1 D | 2/1 D | 3/2 D | 3/2 D | 3/2 D | 3/2 D |
-| 4×3 | 1/1 R | 1/1 r | 1/1 D | 1/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/2 D? | 2/2 D? | 2/2 D? | 3/2 D |
-| 5×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D? | 2/1 D? | 2/1 D | 2/1 D | 2/1 D | 2/2 D? | 2/2 D? |
-| 6×3 | 1/1 R | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D | 2/1 D | 2/1 D | 2/2 D? |
-| 7×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D? | 1/1 D | 2/1 D? | 2/1 D | 2/1 D |
-| 8×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D |
-| 9×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D? |
+| 3×3 | 1/1 R | 2/1 R | 3/2 r | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/2 D | 3/2 D | 3/2 D | 3/2 D |
+| 4×3 | 1/1 R | 1/1 r | 1/1 D | 1/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/2 D |
+| 5×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D? | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D |
+| 6×3 | 1/1 R | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D |
+| 7×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D? | 1/1 D | 1/1 D | 2/1 D | 2/1 D |
+| 8×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 1/1 D | 1/1 D | 2/1 D |
+| 9×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D |
 | 10×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D? |
-| 3×4 | 1/1 R | 2/1 r | 3/1 r | 2/1 D | 2/1 D | 2/1 D | 3/1 D? | 3/1 D | 3/1 D | 3/2 D? | 4/2 D? | 4/2 D |
-| 4×4 | 1/1 R | 2/1 r | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/1 D? | 3/1 D? | 3/1 D | 3/1 D |
+| 3×4 | 1/1 R | 2/1 r | 3/1 r | 2/1 D | 2/1 D | 2/1 D | 3/1 D | 3/1 D | 3/1 D | 3/2 D? | 4/2 D? | 4/2 D |
+| 4×4 | 1/1 R | 2/1 r | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/1 D | 3/1 D |
 | 5×4 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/1 D? | 3/1 D? |
-| 6×4 | 1/1 R | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/1 D? |
-| 7×4 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D? | 2/1 D? | 2/1 D | 2/1 D | 2/1 D |
-| 8×4 | 1/1 R | 1/1 r | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D | 2/1 D |
+| 6×4 | 1/1 R | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 2/1 D | 2/1 D? | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/1 D? |
+| 7×4 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 2/1 D | 2/1 D | 2/1 D |
+| 8×4 | 1/1 R | 1/1 r | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 2/1 D | 2/1 D |
 | 9×4 | 1/1 R | 1/1 r | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D |
-| 10×4 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D? |
-| 3×5 | 1/1 R | 2/1 r | 3/1 r | 3/1 D | 2/1 R | 2/1 D | 3/1 D | 3/1 D | 3/1 D | 4/1 D? | 4/1 D | 4/2 D? |
+| 10×4 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D? | 1/1 D |
+| 3×5 | 1/1 R | 2/1 r | 3/1 r | 3/1 D | 2/1 R | 2/1 D | 3/1 D | 3/1 D | 3/1 D | 4/1 D? | 4/1 D | 4/1 D |
 | 4×5 | 1/1 R | 2/1 r | 2/1 r | 2/1 r | 2/1 D | 2/1 D | 3/1 D? | 3/1 D? | 3/1 D? | 3/1 D | 3/1 D | 4/1 D? |
 | 5×5 | 1/1 R | 2/1 r | 2/1 r | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/1 D? | 3/1 D? | 3/1 D? | 3/1 D? |
-| 6×5 | 1/1 R | 1/1 r | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D | 2/1 D | 2/1 D | 3/1 D? | 3/1 D? |
-| 7×5 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D? | 2/1 D | 2/1 D | 2/2 R? | 2/2 R? |
+| 6×5 | 1/1 R | 1/1 r | 1/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D? | 2/1 D | 2/1 D | 2/1 D | 3/1 D? | 3/1 D? |
+| 7×5 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D? | 2/1 D | 2/1 D | 2/1 D | 2/1 D |
 | 8×5 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 2/1 D | 2/1 D | 2/1 D |
 | 9×5 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D |
 | 10×5 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 R | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D? |
@@ -289,19 +295,19 @@ counting, social golfer, z3). All entries are lane-pair balanced.
 | 3×3 | 1 | 1 | 1 | 4 / 4 |
 | 4×3 | 1 | 2 | 4 | 4 / 4 |
 | 5×3 | 1 | 5 | 5 | 7 / 7 |
-| 6×3 | 1 | 3 | 6 | 8 / 8 |
-| 7×3 | 1 | 7 | 9 | 10 / 10 |
-| 8×3 | 1 | 4 | 8 | 11 / 11 |
-| 9×3 | 1 | 3 | 9 | 13 / 13 |
+| 6×3 | 1 | 3 | 8 | 8 / 8 |
+| 7×3 | 1 | 7 | 10 | 10 / 10 |
+| 8×3 | 1 | 4 | 11 | 11 / 11 |
+| 9×3 | 1 | 3 | 12 | 13 / 13 |
 | 10×3 | 1 | 5 | 8 | 14 / 14 |
 | 3×4 | 1 | 1 | 1 | 1 / 1 |
 | 4×4 | 1 | 1 | 1 | 5 / 5 |
 | 5×4 | 1 | 5 | 5 | 5 / 5 |
 | 6×4 | 1 | 3 | 5 | 7 / 7 |
-| 7×4 | 1 | 7 | 7 | 9 / 9 |
-| 8×4 | 1 | 4 | 8 | 10 / 10 |
+| 7×4 | 1 | 7 | 9 | 9 / 9 |
+| 8×4 | 1 | 4 | 9 | 10 / 10 |
 | 9×4 | 1 | 4 | 9 | 11 / 11 |
-| 10×4 | 1 | 5 | 7 | 13 / 13 |
+| 10×4 | 1 | 5 | 12 | 13 / 13 |
 | 3×5 | 1 | 1 | 1 | 1 / 1 |
 | 4×5 | 1 | 1 | 1 | 1 / 1 |
 | 5×5 | 1 | 1 | 1 | 6 / 6 |
@@ -325,7 +331,7 @@ Cells: max meetings / max ordered follows / repeated meetings (couple-blocks bey
 | 8×2 | 1/1/0 | 1/1/0 | 1/1/0 | 1/1/0 | 2/2/8 | 1/1/0 | 2/2/16 | 1/1/0 |
 | 9×2 | 1/1/0 | 1/1/0 | 1/1/0 | 1/1/0 | 1/1/0 | 1/1/0 | 1/1/0 | 1/1/0 |
 | 10×2 | 1/1/0 | 1/1/0 | 1/1/0 | 1/1/0 | 1/1/0 | 1/1/0 | 2/2/10 | 1/1/0 |
-| 3×3 | 3/3/6 | 3/2/6 | 4/4/15 | 2/1/9 | 5/5/24 | 2/1/12 | 6/6/33 | 2/2/18 |
+| 3×3 | 3/3/6 | 3/2/6 | 4/4/15 | 2/1/9 | 5/5/24 | 2/1/12 | 6/6/33 | 2/1/27 |
 | 4×3 | 3/3/16 | 1/1/0 | 4/4/28 | 1/1/0 | 5/5/40 | 2/1/3 | 6/6/52 | 2/1/7 |
 | 5×3 | 3/3/10 | 1/1/0 | 4/4/15 | 1/1/0 | 5/5/20 | 1/1/0 | 6/6/35 | 2/1/1 |
 | 6×3 | 3/3/12 | 1/1/0 | 4/4/30 | 1/1/0 | 5/5/48 | 1/1/0 | 6/6/66 | 1/1/0 |
@@ -364,7 +370,7 @@ Per cell: **R** = a movement rule is as good as the best balanced draw found (on
 | 8×2 | R | R | D 1/1 (rule 2/2) | D 1/1 (rule 2/2) | 1st (left lane): move 2 pairs right, keep position; 2nd (right lane): move 1 pair right, keep position |
 | 9×2 | R | R | R | R | 1st (left lane): move 1 pair left, keep position; 2nd (right lane): move 1 pair right, keep position |
 | 10×2 | R | R | R | D 1/1 (rule 2/2) | 1st (left lane): move 2 pairs right, keep position; 2nd (right lane): move 1 pair right, keep position |
-| 3×3 | R | D 2/1 (rule 3/3) | D 2/1 (rule 3/3) | D 2/2 (rule 3/3) | 1st (left lane): move 1 pair left, keep position; 2nd (right lane): move 1 pair right, bowl 3rd (left lane); 3rd (left lane): move 1 pair right, bowl 2nd (right lane) |
+| 3×3 | R | D 2/1 (rule 3/3) | D 2/1 (rule 3/3) | D 2/1 (rule 3/3) | 1st (left lane): move 1 pair left, keep position; 2nd (right lane): move 1 pair right, bowl 3rd (left lane); 3rd (left lane): move 1 pair right, bowl 2nd (right lane) |
 | 4×3 | D 1/1 (rule 2/2) | D 1/1 (rule 4/2) | D 2/1 (rule 3/3) | D 2/1 (rule 2/2) |  |
 | 5×3 | R | R | R | D 2/1 (rule 2/2) | 1st (left lane): move 1 pair left, keep position; 2nd (right lane): move 2 pairs right, keep position; 3rd (left lane): move 1 pair right, keep position |
 | 6×3 | R | D 1/1 (rule 2/2) | D 1/1 (rule 3/3) | D 1/1 (rule 3/3) | 1st (left lane): move 3 pairs right, bowl 2nd (right lane); 2nd (right lane): move 2 pairs right, bowl 3rd (left lane); 3rd (left lane): move 1 pair right, bowl 1st (left lane) |
@@ -426,19 +432,13 @@ Mixing tuple = (max meet, max follow, repeats, follow repeats, max unordered fol
 - 3×3 B=3: balanced [3, 2, 6, 3, 3, 6, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
 - 3×3 B=4: balanced [2, 1, 9, 0, 2, 9, 0] vs unconstrained [1, 1, 0, 0, 1, 0, -1]
 - 3×3 B=5: balanced [2, 1, 12, 0, 2, 12, 0] vs unconstrained [2, 1, 9, 0, 2, 9, -1]
-- 3×3 B=6: balanced [2, 2, 18, 3, 2, 18, -1] vs unconstrained [2, 1, 18, 0, 2, 18, -1]
+- 3×3 B=6: balanced [2, 1, 27, 0, 2, 27, 0] vs unconstrained [2, 1, 18, 0, 2, 18, -1]
 - 4×3 B=12: balanced [3, 2, 78, 14, 3, 78, -2] vs unconstrained [3, 2, 78, 13, 3, 78, -2]
 - 5×3 B=6: balanced [2, 1, 1, 0, 2, 1, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
 - 5×3 B=7: balanced [2, 1, 5, 0, 2, 5, 0] vs unconstrained [1, 1, 0, 0, 1, 0, -1]
-- 6×3 B=7: balanced [2, 1, 2, 0, 2, 2, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
-- 6×3 B=12: balanced [2, 2, 64, 2, 2, 64, 0] vs unconstrained [2, 2, 63, 1, 2, 63, -1]
 - 7×3 B=8: balanced [2, 1, 1, 0, 2, 1, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
 - 7×3 B=12: balanced [2, 1, 43, 0, 2, 43, 0] vs unconstrained [2, 1, 42, 0, 2, 42, -1]
 - 8×3 B=9: balanced [2, 1, 1, 0, 2, 1, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
-- 8×3 B=10: balanced [2, 1, 4, 0, 2, 4, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
-- 9×3 B=10: balanced [2, 1, 3, 0, 2, 3, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
-- 9×3 B=11: balanced [2, 1, 5, 0, 2, 5, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
-- 9×3 B=12: balanced [2, 1, 9, 0, 2, 9, 0] vs unconstrained [2, 1, 1, 0, 2, 1, 0]
 - 10×3 B=9: balanced [2, 1, 2, 0, 2, 2, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
 - 10×3 B=10: balanced [2, 1, 11, 0, 2, 11, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
 - 10×3 B=11: balanced [2, 1, 2, 0, 2, 2, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
@@ -458,8 +458,8 @@ Mixing tuple = (max meet, max follow, repeats, follow repeats, max unordered fol
 - 4×4 B=5: balanced [2, 1, 24, 0, 2, 1, 0] vs unconstrained [1, 1, 0, 0, 1, 0, -1]
 - 4×4 B=6: balanced [2, 1, 29, 0, 2, 1, 0] vs unconstrained [2, 1, 24, 0, 2, 2, -1]
 - 4×4 B=7: balanced [2, 1, 50, 0, 2, 6, 0] vs unconstrained [2, 1, 48, 0, 2, 5, -1]
-- 4×4 B=9: balanced [3, 1, 96, 0, 2, 25, -1] vs unconstrained [2, 1, 96, 0, 2, 24, -1]
-- 4×4 B=10: balanced [3, 1, 120, 0, 2, 40, -1] vs unconstrained [2, 1, 120, 0, 2, 40, -2]
+- 4×4 B=9: balanced [2, 1, 96, 0, 2, 43, -1] vs unconstrained [2, 1, 96, 0, 2, 24, -1]
+- 4×4 B=10: balanced [2, 1, 120, 0, 2, 48, -2] vs unconstrained [2, 1, 120, 0, 2, 40, -2]
 - 4×4 B=11: balanced [3, 1, 144, 0, 2, 56, -1] vs unconstrained [3, 1, 144, 0, 2, 56, -2]
 - 5×4 B=8: balanced [2, 1, 52, 0, 2, 2, 0] vs unconstrained [2, 1, 50, 0, 2, 2, -1]
 - 5×4 B=9: balanced [2, 1, 83, 0, 2, 10, 0] vs unconstrained [2, 1, 80, 0, 2, 8, -1]
@@ -472,11 +472,9 @@ Mixing tuple = (max meet, max follow, repeats, follow repeats, max unordered fol
 - 6×4 B=10: balanced [2, 1, 91, 0, 2, 4, 0] vs unconstrained [2, 1, 84, 0, 2, 3, -1]
 - 6×4 B=11: balanced [2, 1, 126, 0, 2, 17, 0] vs unconstrained [2, 1, 120, 0, 2, 13, -1]
 - 6×4 B=12: balanced [3, 1, 156, 0, 2, 36, -1] vs unconstrained [2, 1, 156, 0, 2, 26, -1]
-- 7×4 B=8: balanced [2, 1, 9, 0, 1, 0, 0] vs unconstrained [2, 1, 8, 0, 1, 0, 0]
 - 7×4 B=10: balanced [2, 1, 59, 0, 2, 2, 0] vs unconstrained [2, 1, 50, 0, 1, 0, 0]
 - 7×4 B=11: balanced [2, 1, 91, 0, 2, 3, 0] vs unconstrained [2, 1, 84, 0, 1, 0, -1]
 - 7×4 B=12: balanced [2, 1, 134, 0, 2, 11, 0] vs unconstrained [2, 1, 126, 0, 2, 5, -1]
-- 8×4 B=9: balanced [2, 1, 36, 0, 1, 0, 0] vs unconstrained [2, 1, 9, 0, 1, 0, 0]
 - 8×4 B=10: balanced [2, 1, 49, 0, 1, 0, 0] vs unconstrained [2, 1, 24, 0, 1, 0, 0]
 - 8×4 B=11: balanced [2, 1, 65, 0, 1, 0, 0] vs unconstrained [2, 1, 48, 0, 1, 0, 0]
 - 8×4 B=12: balanced [2, 1, 100, 0, 1, 0, 0] vs unconstrained [2, 1, 84, 0, 1, 0, 0]
@@ -487,13 +485,11 @@ Mixing tuple = (max meet, max follow, repeats, follow repeats, max unordered fol
 - 10×4 B=9: balanced [2, 1, 32, 0, 1, 0, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
 - 10×4 B=10: balanced [2, 1, 56, 0, 1, 0, 0] vs unconstrained [2, 1, 1, 0, 1, 0, 0]
 - 10×4 B=11: balanced [2, 1, 56, 0, 1, 0, 0] vs unconstrained [2, 1, 9, 0, 1, 0, 0]
-- 10×4 B=12: balanced [2, 1, 62, 0, 1, 0, 0] vs unconstrained [2, 1, 22, 0, 1, 0, 0]
 - 3×5 B=2: balanced [2, 1, 12, 0, 1, 0, 0] vs unconstrained [2, 1, 6, 0, 1, 0, 0]
 - 3×5 B=3: balanced [3, 1, 24, 0, 1, 0, 0] vs unconstrained [2, 1, 18, 0, 1, 0, 0]
 - 3×5 B=4: balanced [3, 1, 34, 0, 1, 0, 0] vs unconstrained [2, 1, 36, 0, 1, 0, 0]
 - 3×5 B=9: balanced [3, 1, 174, 0, 2, 39, 0] vs unconstrained [3, 1, 165, 0, 2, 30, -1]
 - 3×5 B=11: balanced [4, 1, 225, 0, 2, 61, -2] vs unconstrained [4, 1, 225, 0, 2, 60, -2]
-- 3×5 B=12: balanced [4, 2, 255, 2, 3, 75, -2] vs unconstrained [4, 2, 255, 1, 3, 76, -2]
 - 4×5 B=2: balanced [2, 1, 8, 0, 1, 0, 0] vs unconstrained [2, 1, 4, 0, 1, 0, 0]
 - 4×5 B=3: balanced [2, 1, 24, 0, 1, 0, 0] vs unconstrained [2, 1, 12, 0, 1, 0, 0]
 - 4×5 B=4: balanced [2, 1, 48, 0, 1, 0, 0] vs unconstrained [2, 1, 24, 0, 1, 0, 0]
@@ -522,8 +518,8 @@ Mixing tuple = (max meet, max follow, repeats, follow repeats, max unordered fol
 - 6×5 B=11: balanced [3, 1, 228, 0, 1, 0, 0] vs unconstrained [2, 1, 225, 0, 1, 0, -1]
 - 6×5 B=12: balanced [3, 1, 289, 0, 1, 0, 0] vs unconstrained [3, 1, 287, 0, 1, 0, 0]
 - 7×5 B=10: balanced [2, 1, 150, 0, 1, 0, 0] vs unconstrained [2, 1, 122, 0, 1, 0, 0]
-- 7×5 B=11: balanced [2, 2, 280, 140, 2, 140, 0] vs unconstrained [2, 1, 180, 0, 1, 0, 0]
-- 7×5 B=12: balanced [2, 2, 350, 175, 2, 175, 0] vs unconstrained [2, 1, 247, 0, 1, 0, 0]
+- 7×5 B=11: balanced [2, 1, 280, 0, 2, 41, 0] vs unconstrained [2, 1, 180, 0, 1, 0, 0]
+- 7×5 B=12: balanced [2, 1, 350, 0, 2, 63, 0] vs unconstrained [2, 1, 247, 0, 1, 0, 0]
 - 8×5 B=9: balanced [2, 1, 96, 0, 1, 0, 0] vs unconstrained [2, 1, 46, 0, 1, 0, 0]
 - 8×5 B=10: balanced [2, 1, 121, 0, 1, 0, 0] vs unconstrained [2, 1, 84, 0, 1, 0, 0]
 - 8×5 B=11: balanced [2, 1, 169, 0, 1, 0, 0] vs unconstrained [2, 1, 133, 0, 1, 0, 0]
@@ -542,43 +538,19 @@ Mixing tuple = (max meet, max follow, repeats, follow repeats, max unordered fol
 
 Tuple = (pair_spread, max_meet, max_follow, repeats, follow_repeats, max_ufollow, ufollow_repeats, -min_meet); bound = simple counting bound, or z3 where run.
 
-- 3×3 B=3: best [0, 3, 2, 6, 3, 3, 6, 0] vs bound [0, 3, 1, 0, 0, 1, 0, 0] (first gap: max_follow)
-- 3×3 B=6: best [0, 2, 2, 18, 3, 2, 18, -1] vs bound [0, 2, 1, 18, 0, 2, 18, -1] (first gap: max_follow)
-- 4×3 B=9: best [1, 2, 2, 42, 3, 2, 42, -1] vs bound [1, 2, 1, 42, 0, 2, 42, -1] (first gap: max_follow)
-- 4×3 B=10: best [1, 2, 2, 54, 2, 2, 54, -1] vs bound [1, 2, 1, 54, 0, 2, 54, -1] (first gap: max_follow)
-- 4×3 B=11: best [1, 2, 2, 66, 5, 2, 66, -2] vs bound [1, 2, 1, 66, 0, 2, 66, -2] (first gap: max_follow)
 - 5×3 B=6: best [1, 2, 1, 1, 0, 2, 1, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 5×3 B=7: best [1, 2, 1, 5, 0, 2, 5, 0] vs bound [1, 1, 1, 0, 0, 1, 0, -1] (first gap: max_meet)
-- 5×3 B=11: best [1, 2, 2, 60, 3, 2, 60, -1] vs bound [1, 2, 1, 60, 0, 2, 60, -1] (first gap: max_follow)
-- 5×3 B=12: best [1, 2, 2, 75, 3, 2, 75, -1] vs bound [1, 2, 1, 75, 0, 2, 75, -1] (first gap: max_follow)
-- 6×3 B=7: best [1, 2, 1, 2, 0, 2, 2, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 6×3 B=8: best [1, 2, 1, 1, 0, 2, 1, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 6×3 B=12: best [0, 2, 2, 64, 2, 2, 64, 0] vs bound [0, 2, 1, 63, 0, 2, 63, -1] (first gap: max_follow)
 - 7×3 B=8: best [1, 2, 1, 1, 0, 2, 1, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 7×3 B=10: best [1, 2, 1, 5, 0, 2, 5, 0] vs bound [1, 1, 1, 0, 0, 1, 0, -1] (first gap: max_meet)
 - 8×3 B=9: best [1, 2, 1, 1, 0, 2, 1, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 8×3 B=10: best [1, 2, 1, 4, 0, 2, 4, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 8×3 B=11: best [1, 2, 1, 3, 0, 2, 3, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 9×3 B=10: best [1, 2, 1, 3, 0, 2, 3, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 9×3 B=11: best [1, 2, 1, 5, 0, 2, 5, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 9×3 B=12: best [1, 2, 1, 9, 0, 2, 9, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 10×3 B=9: best [1, 2, 1, 2, 0, 2, 2, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 10×3 B=10: best [0, 2, 1, 11, 0, 2, 11, 0] vs bound [0, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 10×3 B=11: best [1, 2, 1, 2, 0, 2, 2, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 10×3 B=12: best [1, 2, 1, 4, 0, 2, 4, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 3×4 B=7: best [1, 3, 1, 60, 0, 2, 18, -1] vs bound [1, 2, 1, 60, 0, 2, 18, -1] (first gap: max_meet)
 - 3×4 B=10: best [1, 3, 2, 114, 5, 3, 55, -2] vs bound [1, 3, 1, 114, 0, 2, 54, -2] (first gap: max_follow)
-- 3×4 B=11: best [1, 4, 2, 132, 10, 3, 66, -2] vs bound [1, 3, 1, 132, 0, 2, 66, -3] (first gap: max_meet)
-- 4×4 B=9: best [1, 3, 1, 96, 0, 2, 25, -1] vs bound [1, 2, 1, 96, 0, 2, 24, -1] (first gap: max_meet)
-- 4×4 B=10: best [1, 3, 1, 120, 0, 2, 40, -1] vs bound [1, 2, 1, 120, 0, 2, 40, -2] (first gap: max_meet)
+- 3×4 B=11: best [1, 4, 2, 132, 10, 3, 66, -2] vs bound [1, 4, 1, 132, 0, 2, 66, -3] (first gap: max_follow)
 - 5×4 B=11: best [1, 3, 1, 140, 0, 2, 33, -1] vs bound [1, 2, 1, 140, 0, 2, 30, -1] (first gap: max_meet)
 - 5×4 B=12: best [1, 3, 1, 170, 0, 2, 50, -1] vs bound [1, 2, 1, 170, 0, 2, 50, -1] (first gap: max_meet)
-- 6×4 B=6: best [0, 2, 1, 17, 0, 1, 0, 0] vs bound [0, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 6×4 B=7: best [1, 2, 1, 19, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 6×4 B=12: best [0, 3, 1, 156, 0, 2, 36, -1] vs bound [0, 2, 1, 156, 0, 2, 12, -1] (first gap: max_meet)
-- 7×4 B=8: best [1, 2, 1, 9, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 7×4 B=9: best [1, 2, 1, 16, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, -1] (first gap: max_meet)
-- 8×4 B=9: best [1, 2, 1, 36, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 8×4 B=10: best [1, 2, 1, 49, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 9×4 B=10: best [1, 2, 1, 41, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 9×4 B=11: best [1, 2, 1, 47, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
@@ -586,9 +558,7 @@ Tuple = (pair_spread, max_meet, max_follow, repeats, follow_repeats, max_ufollow
 - 10×4 B=9: best [1, 2, 1, 32, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 10×4 B=10: best [0, 2, 1, 56, 0, 1, 0, 0] vs bound [0, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 10×4 B=11: best [1, 2, 1, 56, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 10×4 B=12: best [1, 2, 1, 62, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 3×5 B=10: best [1, 4, 1, 195, 0, 2, 45, -2] vs bound [1, 3, 1, 195, 0, 2, 45, -2] (first gap: max_meet)
-- 3×5 B=12: best [0, 4, 2, 255, 2, 3, 75, -2] vs bound [0, 4, 1, 255, 0, 2, 75, -3] (first gap: max_follow)
 - 4×5 B=7: best [1, 3, 1, 95, 0, 1, 0, 0] vs bound [1, 2, 1, 90, 0, 1, 0, -1] (first gap: max_meet)
 - 4×5 B=8: best [0, 3, 1, 131, 0, 1, 0, 0] vs bound [0, 2, 1, 130, 0, 1, 0, -1] (first gap: max_meet)
 - 4×5 B=9: best [1, 3, 1, 170, 0, 2, 3, -1] vs bound [1, 2, 1, 170, 0, 1, 0, -1] (first gap: max_meet)
@@ -597,15 +567,10 @@ Tuple = (pair_spread, max_meet, max_follow, repeats, follow_repeats, max_ufollow
 - 5×5 B=10: best [0, 3, 1, 203, 0, 1, 0, 0] vs bound [0, 2, 1, 200, 0, 1, 0, -1] (first gap: max_meet)
 - 5×5 B=11: best [1, 3, 1, 250, 0, 2, 3, -1] vs bound [1, 2, 1, 250, 0, 1, 0, -1] (first gap: max_meet)
 - 5×5 B=12: best [1, 3, 1, 300, 0, 2, 9, -1] vs bound [1, 2, 1, 300, 0, 1, 0, -2] (first gap: max_meet)
-- 6×5 B=4: best [1, 2, 1, 6, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 6×5 B=5: best [1, 2, 1, 22, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 6×5 B=6: best [0, 2, 1, 41, 0, 1, 0, 0] vs bound [0, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 6×5 B=7: best [1, 2, 1, 51, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 6×5 B=11: best [1, 3, 1, 228, 0, 1, 0, 0] vs bound [1, 2, 1, 225, 0, 1, 0, -1] (first gap: max_meet)
 - 6×5 B=12: best [0, 3, 1, 289, 0, 1, 0, 0] vs bound [0, 2, 1, 285, 0, 1, 0, -1] (first gap: max_meet)
 - 7×5 B=8: best [1, 2, 1, 16, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-- 7×5 B=11: best [1, 2, 2, 280, 140, 2, 140, 0] vs bound [1, 2, 1, 175, 0, 1, 0, -1] (first gap: max_follow)
-- 7×5 B=12: best [1, 2, 2, 350, 175, 2, 175, 0] vs bound [1, 2, 1, 245, 0, 1, 0, -1] (first gap: max_follow)
 - 8×5 B=9: best [1, 2, 1, 96, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 9×5 B=10: best [1, 2, 1, 119, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 9×5 B=11: best [1, 2, 1, 130, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, -1] (first gap: max_meet)
@@ -635,6 +600,7 @@ Tuple = (pair_spread, max_meet, max_follow, repeats, follow_repeats, max_ufollow
   rule, from the GF(q) construction or from scratch. Output is in
   `results/opt/`. `results/opt_free/` holds the earlier runs without the balance
   constraint, used for the "balance costs mixing" comparison.
+* `results/astra/`: 33 draws from Astra's second batch, read by `build_schemes.py` as extra candidates (the best draw wins on the full score). `results/astra_bounds.json`: the lower bounds proved there.
 * `exact.py`: exact z3 model (lane-pair balance + cap on meetings). It proves
   the least `max_meet` for small cases (`results/exact*.json`), and its
   solutions are polished by the anneal and kept when better.

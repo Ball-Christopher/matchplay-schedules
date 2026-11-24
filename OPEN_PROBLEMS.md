@@ -8,7 +8,7 @@ Each problem below can be read on its own. The common setting:
 - A round is **lane-exact** if every bowler is on every lane pair ⌊*r/n*⌋ or ⌈*r/n*⌉ times. The literature calls a lane-exact round a *generalized balanced tournament design* (GBTD).
 - A set of weeks is **clash-free** if no couple meets twice within it. It is then a resolvable packing.
 
-Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](METHODS.md); section numbers below refer to it. A literature check (section 12) found none of these problems addressed. Results from Astra (24 November 2026) were checked independently; see [contrib/astra-2026-11-24](contrib/astra-2026-11-24/README.md).
+Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](METHODS.md); section numbers below refer to it. A literature check (section 12) found none of these problems addressed. Results from Astra (two batches, 24 November 2026) were checked independently; see [contrib/astra-2026-11-24](contrib/astra-2026-11-24/README.md) and [contrib/astra-2026-11-24b](contrib/astra-2026-11-24b/README.md).
 
 ---
 
@@ -51,8 +51,11 @@ Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](ME
   - This gives **28·4^j and 40·4^j for every j ≥ 0**.
   - Verified witnesses: **112, 160, 448 and 640**. Each has every couple once and every bowler on every lane pair once or twice.
   - A separate 16-fold inflation gives the same 448 and 640.
-- Open below 160: **52, 64, 76, 88, 100, 124, 136, 148**.
-  - Astra's order-5 search in AG(3,4) for 64 found nothing, and a three-layer construction for 52 timed out. Neither is a proof of non-existence.
+- **52, 64, 76, 100, 124, 136 and 148 exist** (Astra's second batch, checked here). Each witness has every couple once, every bowler on every lane pair once or twice, and balanced positions.
+  - 52, 76, 100, 124, 148: four layers of Z_q (q = 13, 19, 25, 31, 37), one developed base week plus slope weeks *h* + *s_j a*.
+  - 64: four copies of GF(16), 16 transversal weeks plus the affine plane AG(2,4) in each layer, with one week's lanes permuted to repair the lane counts.
+  - 136: four layers of Z_33 plus 4 extra bowlers.
+- **Open below 160: only 88.** Astra's 88 search (Z_21 × 4 + 4) found nothing; that is not a proof.
 - The literature covers GBTDs with λ ≠ *k*−1 only for *k* = 3.
 
 ## 3. Short-season balance
@@ -73,7 +76,9 @@ Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](ME
   - week 8 must contain both of them, so inside each week-8 foursome the unmet couples form a 4-cycle.
   - So spread 1 needs a 7-week clash-free packing whose unmet couples form six disjoint 4-cycles. Astra also gives a 6×6-board construction that turns three such packings into a spread-1 round, ignoring lanes.
   - The packing has not been found.
-- **Open:** spread 1 for 4-way 24; whether a lane-exact 4-way 36 round can reach spread 2 (the current one is 3); and a general rule for the least possible spread.
+- **Lane-exact 4-way 36 reaches spread 2** (Astra's four-pattern round, problem 6).
+  - Astra's cyclic search on the six 4-cycle components found no spread-1 packing for 4-way 24.
+- **Open:** spread 1 for 4-way 24, and a general rule for the least possible spread.
 
 ## 4. Oil patterns over two rounds
 
@@ -84,19 +89,25 @@ Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](ME
   - Greedy cutting (always take the longest clash-free run) is optimal for a fixed order.
   - Let the fixed round 1 cut greedily into *g* blocks, the last of length *t*, and let *L* be the longest possible clash-free run. Then at least *g* − 1 + ⌈(*t* + *r*)/*L*⌉ blocks are needed.
 
-**Known.** Each row keeps round 1 exactly equal to the one-round file, and every upper bound has a lane-exact witness with balanced positions.
+**Known.** Each row keeps round 1 exactly equal to the one-round file, and every upper bound has a lane-exact witness with balanced positions (Astra; checked in the two contrib folders).
 
 | Size | Round 1 = oil file | Round 1 = main file |
 |---|---|---|
 | 3-way 12 | 6 (4+3+4+3+4+4), optimal | — |
-| 3-way 18 | **5** (8+5+6+7+8), optimal | **6**, optimal (Astra) |
-| 3-way 24 | 5–**6** (11+6+6+11+6+6, Astra) | 18–19 (Astra) |
-| 4-way 20 | **8** (5+4+5+5+5+4+5+5), optimal (Astra) | **19**, optimal (Astra) |
-| 4-way 24 | ≥ 8 for the current 6+5+6+6 oil round; untried | 15–20 (Astra) |
-| 4-way 32, 3-way 30 and 36 | untried | untried |
+| 3-way 18 | **5** (8+5+6+7+8), optimal | **6**, optimal |
+| 3-way 24 | 5–6 | 18–19 |
+| 3-way 30 | **5**, optimal | **18**, optimal |
+| 3-way 36 | 5–6 | **24**, optimal |
+| 4-way 20 | **8**, optimal | **19**, optimal |
+| 4-way 24 | **8**, optimal | **16**, optimal |
+| 4-way 32 | **8**, optimal | **8**, optimal |
+| 4-way 36 | 14–15 | 29–30 |
 
-- Astra's 4-way 24 oil result (11–16) extends the old 8-pattern oil round, which the library has replaced. For the current 4-pattern round the bound is 3 + ⌈(6 + 23)/7⌉ = 8.
-- Open: closing 3-way 24 (5 or 6), 4-way 24, and the sizes not yet tried.
+- **Proofs beyond the simple bound.**
+  - 4-way 24 main: the groups that avoid every couple in round 1's last block (5 weeks) contain no complete week, so that block can't be extended at all. That forces 12 + ⌈23/7⌉ = 16.
+  - 4-way 32 (either round 1): only 7 groups avoid round 1's last 8-week block, and a week needs 8, so the cut is forced. That gives 4 + ⌈31/10⌉ = 8.
+- **Partial work on 3-way 36 oil:** Astra has a three-week bridge that extends the oil round's 9-week tail to a 12-week clash-free run. If the rest of that round 2 can be given balanced lanes and positions, the blocks would be 16+10+12+16+16, i.e. 5, which would be optimal. Its checkpoint is in [contrib/astra-2026-11-24b/resume36](contrib/astra-2026-11-24b/resume36).
+- Open: 3-way 24 and 36 oil (5 or 6), 3-way 24 main (18 or 19), and 4-way 36 (14–15 oil, 29–30 main). The 4-way 36 upper bounds use Astra's four-pattern round as round 2. Its conflict graph has a unique 4-colouring (8+9+9+9), and the oil round ends in a 4-week block, so a different round 2 would be needed to reach 14.
 
 ## 5. Rotating the short group in vacancy schedules — settled
 
@@ -109,14 +120,13 @@ Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](ME
 - Astra's verified tables: 11, 17, 20, 23 and 26 in trios; 19, 23, 27 and 39 in fours.
 - **Library:** the vacancy files now rotate the slot this way wherever possible (`tools/rotate_vacancy.py`). The remaining fixed-slot cases are 14 in trios and 11 or 15 in fours, where it can't be done.
 
-## 6. Four oil patterns for 36 bowlers in fours
+## 6. Four oil patterns for 36 bowlers in fours — settled
 
 **Problem.** Is there a resolvable 2-(36, 4, 3) design (35 weeks) whose weeks split into 4 clash-free sets? A clash-free set has at most 11 weeks, so the sizes would be close to 9+9+9+8.
 
-**Known.**
-- 32 bowlers in fours reaches 4 (8+7+8+8) with a Z_7 × 4 + 4 fixed-bowler design.
-- The analogous Z_9 × 4 template (three orbits of 9, then the 8 invariant weeks) is **impossible**: the 8 invariant weeks would give a (9,4;1) difference matrix over Z_9, which doesn't exist.
-- Several order-3-tied variants and untied annealing found nothing. The best found is 11 sets (lane-exact).
+**Answer: yes** (Astra's second batch, checked here). The witness is 9+9+9+8, with all 35 weeks distinct, exact lanes (3 or 4 visits per lane pair), balanced positions and prefix spread 2. Four is optimal, because 3 × 11 < 35.
+- Construction: four layers of GF(9) = GF(3)[*i*]. The three Hamilton cycles on the four layers give three 9-week patterns. Each base week holds the four layer zeros, plus, on each directed cycle edge, ±1 with ±(1+*i*) and ±*i* with ±(2+*i*). The last 8 weeks are transversal weeks *h* + *s_j a* with coefficients 0, 1, 2, *i*.
+- The earlier Z_9 × 4 template is impossible (no (9,4;1) difference matrix over Z_9). The library's current file has 11 sets.
 
 ## 7. Qualifying movements: mixing under lane-pair balance
 
@@ -128,11 +138,15 @@ Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](ME
 **Known.** Full tables are in [qualifying/README.md](qualifying/README.md).
 - With no balance condition and no couple meeting twice, this is the social golfer problem.
 - Pair balance sometimes costs mixing. z3 proves this for 3×3, 3×4, 3×5, 4×4, 4×5 and 5×5.
-- Unproven realistic cases, where 2 meetings is achieved and 1 is not ruled out:
-  - 4×3 and 5×3 at B = 6
-  - 6×4 at B = 6
-  - 6×5 at B = 4–6
-- Most B = 7–12 results are best found, not proven.
+- **Astra's second batch** (checked; [contrib/astra-2026-11-24b](contrib/astra-2026-11-24b/README.md)) has 33 draws for B ≤ 12. 32 of them are proven optimal on both max meetings and max follows, either by counting or by the arguments below. 24 improve on the published draw. The new lower bounds:
+  - 6×4 at B = 6: the lane words would be a permutation array of length 6 and distance 5 with 24 words, but the maximum is 18.
+  - 6×5 at B = 4–6: one meeting would give two orthogonal Latin squares of order 6.
+  - 5×3 at B = 7: one meeting would give a KTS(15), and none of the seven has balanced lanes.
+  - 4×3 at B = 6 needs 2 by plain counting (12 opponent slots, 11 opponents). This list wrongly had it as open.
+  - 3×4 at B = 7 needs 3, and at B = 11 needs 4 (no GBTD(4,3)).
+  - 3×3 at B = 3 needs 2 follows: two bowlers share all three pairs and must repeat a follow direction.
+- **Open:** 5×3 at B = 6 (2 achieved, 1 not ruled out; the KTS argument doesn't cover packings that aren't part of a Kirkman system); 3×4 at B = 11 follows (2 achieved, 1 possible); and the cases outside Astra's table.
+- **Library:** the new draws are in `qualifying/schemes.json` wherever they score better (`qualifying/results/astra/`).
 
 ---
 
@@ -144,6 +158,10 @@ Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](ME
 - **Two-round oil: 4-way 20 reaches 8, optimal**; 3-way 18 reaches 5, optimal (problem 4).
 - **Four oil patterns for 24 bowlers in fours: yes**, as 6+5+6+6, lane-exact and with prefix spread 2 (METHODS section 13). Four is optimal: a clash-free set has at most 7 weeks, and 3 × 7 < 23. The design uses 6 super-points × Z₂² with an order-3 map cycling three blocks. Astra found an independent 6+6+6+5 design from an S₄ action; its lanes are not exact.
 - **Lane-exact 4-way 40 exists** (problem 2).
+- **Lane-exact one-meeting fours at 52, 64, 76, 100, 124, 136, 148**; below 160 only 88 is open (problem 2).
+- **Four oil patterns for 36 in fours: yes**, 9+9+9+8, lane-exact, spread 2 (problem 6).
+- **Two-round oil, fixed round 1:** 4-way 24 (8 oil, 16 main), 4-way 32 (8, 8), 3-way 30 (5, 18) and 3-way 36 main (24) are optimal (problem 4).
+- **Qualifying:** 32 of Astra's 33 draws are proven optimal on meetings and follows. 6×4 at B = 6 and 6×5 at B = 4–6 are proven to need 2 meetings (problem 7).
 
 - **4-way 12, lane-exact, is impossible.** No GBTD(4,3) exists: Chee, Kiah and Wang, *Electron. J. Combin.* 20(2) (2013) #P51. So 1 bowler off is the best possible.
 - **3-way 15, lane-exact, is impossible.** We checked all 7 KTS(15); this agrees with Chee, Kiah, Ling and Wang, *J. Combin. Des.* 22 (2014).
