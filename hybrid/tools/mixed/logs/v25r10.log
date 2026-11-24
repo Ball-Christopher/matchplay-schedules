@@ -1,0 +1,8 @@
+none for raw/v25_r10.w
+   1 fail best=106 restarts=100
+   1 fail best=28 restarts=98
+   1 fail best=30 restarts=100
+   1 fail best=30 restarts=98
+   1 fail best=32 restarts=99
+   2 fail best=34 restarts=99
+   1 fail best=36 restarts=99

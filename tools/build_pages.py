@@ -132,8 +132,78 @@ def analyse(path):
     return e
 
 
+def analyse_hybrid(path):
+    """A hybrid single round (hybrid/files/*.json): groups of 2, 3 or 4, possibly
+    mixed within a week; a lane entry is a group, null (empty) or {"wrapped": [g, g]}."""
+    d = json.loads(path.read_text())
+    v, n, raw = d["players"], d["lane_pairs"], d["weeks"]
+    W = [[([] if x is None else x["wrapped"] if isinstance(x, dict) else [x]) for x in wk] for wk in raw]
+    r = len(W)
+    meet, lane, fmt, pos, prefix = Counter(), Counter(), Counter(), Counter(), []
+    couples = list(itertools.combinations(range(1, v + 1), 2))
+    for wk in W:
+        for g, entry in enumerate(wk):
+            for grp in entry:
+                for q, p in enumerate(grp):
+                    lane[p, g] += 1; fmt[p, len(grp)] += 1; pos[p, len(grp), q] += 1
+                for a, b in itertools.combinations(sorted(grp), 2):
+                    meet[a, b] += 1
+        vals = [meet[c] for c in couples]
+        prefix.append(max(vals) - min(vals))
+    assert {meet[c] for c in couples} == {1}, path
+    mixes = {tuple(fmt[p, s] for s in (2, 3, 4)) for p in range(1, v + 1)}
+    assert len(mixes) == 1, (path, mixes)
+    mix = list(mixes.pop())
+    for s in (2, 3, 4):   # positions balanced within each format
+        if mix[s - 2]:
+            assert all(max(pos[p, s, q] for q in range(s)) - min(pos[p, s, q] for q in range(s)) <= 1
+                       for p in range(1, v + 1)), (path, s)
+    lo, hi = r // n, -(-r // n)
+    off = {p: [lane[p, g] for g in range(n)] for p in range(1, v + 1)
+           if any(not lo <= lane[p, g] <= hi for g in range(n))}
+    mixed = "_mixed" in path.stem
+    sid = f"hy{v}-" + "-".join(map(str, mix))
+    words = [f"{a} week{'s' if a > 1 else ''} {s}-way" for s, a in ((3, mix[1]), (4, mix[2]), (2, mix[0])) if a]
+    wrapped = sum(len(x) == 2 and len(x[0]) == 2 for wk in W for x in wk)
+    empty = sum(not x for wk in W for x in wk)
+    e = {
+        "id": sid, "file": f"hybrid/files/{path.stem}", "k": "h", "slots": v, "bowlers": v,
+        "kind": "mixed" if mixed else "uniform",
+        "label": "Hybrid, mixed weeks" if mixed else "Hybrid, one format a week",
+        "weeks": W, "lanes": n, "lambda": 1, "rounds": 1, "vacant": None, "blocks": None,
+        "lane_range": [lo, hi], "lane_off": off, "position_range": None, "mix": mix,
+        "mix_text": ", ".join(words), "wrapped": wrapped, "empty_lanes": empty,
+        "prefix_spread": prefix, "worst_prefix": max(prefix[:-1]) if r > 1 else 0,
+        "method": d.get("method", ""), "notes": [], "methods_anchor": "15-hybrid-single-rounds",
+        "distinct_weeks": r,
+    }
+    notes = e["notes"]
+    notes.append(f"Every bowler has the same season: {e['mix_text']}. Every couple meets exactly once.")
+    if mixed:
+        notes.append("Some weeks mix group sizes, so on those nights some bowlers play fewer opponents than others. "
+                     "It evens out over the season, but a single night's points aren't directly comparable.")
+    if wrapped:
+        notes.append(f"{wrapped} time(s) two 2-way matches share one lane pair (shown together in one cell).")
+    if empty:
+        notes.append(f"Some weeks use fewer lane pairs; {empty} lane-pair slot(s) are empty over the season, spread evenly.")
+    notes.extend(HYBRID_NOTES.get(sid, []))
+    return e
+
+
+HYBRID_NOTES = {
+    "hy24-0-10-1": ["The weeks of the North City Singles 2019 schedule, with the lane pairs reassigned "
+                    "(the original had 22 bowlers off on lanes)."],
+    "hy12-0-4-1": ["5 weeks is the shortest possible for 12 bowlers: two 4-way weeks always repeat a couple."],
+    "hy20-4-0-5": ["9 weeks is the shortest possible for 20 bowlers."],
+    "hy16-3-0-4": ["3 bowlers off is the best possible for this mix (proven)."],
+    "hy24-0-1-7": ["Exact lanes are impossible for this mix: each lane pair gets 3 + 4x visits, never the 24 needed."],
+    "hy36-0-1-11": ["Exact lanes are impossible for this mix: each lane pair gets 3 + 4x visits, never the 36 needed."],
+    "hy32-1-0-10": ["11 weeks, the shortest possible for 32 bowlers."],
+}
+
+
 def catalogue(entries):
-    rows = ["| ID | Bowlers | Weeks | Couples meet | Lane pairs | Oil patterns | File |",
+    rows = ["| ID | Bowlers | Weeks | Couples meet | Lane pairs | Oil patterns / hybrid formats | File |",
             "|---|---|---|---|---|---|---|"]
     for e in entries:
         lanes = "exact" if not e["lane_off"] else f"{len(e['lane_off'])} bowler(s) off"
@@ -141,8 +211,11 @@ def catalogue(entries):
         if e["blocks"] and e.get("block_repeats"):
             oil += f" ({e['block_repeats']} repeats)"
         bowl = f"{e['bowlers']}" + (f" (slot {e['vacant']} empty)" if e["vacant"] else "")
+        ext = "json" if e["k"] == "h" else "toml"
+        if e["k"] == "h":
+            oil = e["mix_text"]
         rows.append(f"| `{e['id']}` | {bowl} | {len(e['weeks'])} | {e['lambda']}× | {lanes} | {oil} "
-                    f"| [{e['file']}.toml]({e['file']}.toml) |")
+                    f"| [{e['file']}.{ext}]({e['file']}.{ext}) |")
     return "\n".join(rows)
 
 
@@ -160,6 +233,9 @@ def main():
     order = {"single": 0, "vacant": 1, "x2": 2, "oil": 3, "oilx2": 4}
     entries = sorted((analyse(p) for f in ("3way", "4way") for p in (ROOT / f).glob("v*.json")),
                      key=lambda e: (e["k"], e["slots"], order[e["kind"]]))
+    hyb = sorted((analyse_hybrid(p) for p in (ROOT / "hybrid" / "files").glob("v*.json") if "archive" not in p.stem),
+                 key=lambda e: (e["slots"], len(e["weeks"]), e["kind"]))
+    entries += hyb
     docs = ROOT / "docs"
     docs.mkdir(exist_ok=True)
     data = json.dumps(entries, separators=(",", ":"))

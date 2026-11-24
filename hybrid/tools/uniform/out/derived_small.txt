@@ -1,0 +1,56 @@
+12 new (4, 2, 1) from v12_0-4-1.json with TT->MMMM
+12 (0, 4, 1) TT -> MMT failed
+12 (0, 4, 1) MT -> MMM failed
+12 new (5, 3, 0) from v12_0-4-1.json with TQ->MMMMM
+12 (0, 4, 1) TTQ -> MQQ failed
+12 (0, 4, 1) TQQ -> MMQQ failed
+12 (0, 4, 1) TTTTQ -> MMQQQ failed
+12 (3, 4, 0) TTTTQ -> MMQQQ failed
+12 new (11, 0, 0) from v12_7-2-0.json with TT->MMMM
+12 (7, 2, 0) TT -> MMT failed
+12 new (9, 1, 0) from v12_7-2-0.json with MT->MMM
+12 (7, 2, 0) TTQ -> MQQ failed
+12 new (8, 0, 1) from v12_0-4-1.json with TT->MMMM with TT->MMMM
+12 (4, 2, 1) TT -> MMT failed
+12 new (6, 1, 1) from v12_0-4-1.json with TT->MMMM with MT->MMM
+12 (4, 2, 1) TTQ -> MQQ failed
+{"file": "v12_4-2-1.json", "weeks": 7, "lane_pairs": 4, "valid": true, "format_fair": true, "mix_2_3_4": [[4, 2, 1]], "lane_off_bowlers": 0, "position_off": 0}
+{"file": "v12_5-3-0.json", "weeks": 8, "lane_pairs": 4, "valid": true, "format_fair": true, "mix_2_3_4": [[5, 3, 0]], "lane_off_bowlers": 1, "position_off": 0}
+{"file": "v12_6-1-1.json", "weeks": 8, "lane_pairs": 4, "valid": true, "format_fair": true, "mix_2_3_4": [[6, 1, 1]], "lane_off_bowlers": 1, "position_off": 0}
+{"file": "v12_8-0-1.json", "weeks": 9, "lane_pairs": 3, "valid": true, "format_fair": true, "mix_2_3_4": [[8, 0, 1]], "lane_off_bowlers": 0, "position_off": 0}
+{"file": "v12_9-1-0.json", "weeks": 10, "lane_pairs": 4, "valid": true, "format_fair": true, "mix_2_3_4": [[9, 1, 0]], "lane_off_bowlers": 0, "position_off": 0}
+{"file": "v12_11-0-0.json", "weeks": 11, "lane_pairs": 3, "valid": true, "format_fair": true, "mix_2_3_4": [[11, 0, 0]], "lane_off_bowlers": 0, "position_off": 0}
+16 new (9, 0, 2) from v16_6-0-3.json with Q->MMM
+16 new (12, 0, 1) from v16_6-0-3.json with Q->MMM with Q->MMM
+{"file": "v16_9-0-2.json", "weeks": 11, "lane_pairs": 4, "valid": true, "format_fair": true, "mix_2_3_4": [[9, 0, 2]], "lane_off_bowlers": 0, "position_off": 0}
+{"file": "v16_12-0-1.json", "weeks": 13, "lane_pairs": 4, "valid": true, "format_fair": true, "mix_2_3_4": [[12, 0, 1]], "lane_off_bowlers": 0, "position_off": 0}
+18 new (5, 6, 0) from v18_1-8-0.json with TT->MMMM
+18 (1, 8, 0) TT -> MMT failed
+18 new (3, 7, 0) from v18_1-8-0.json with MT->MMM
+18 (1, 8, 0) TTQ -> MQQ failed
+18 (1, 8, 0) TTTTQ -> MMQQQ failed
+18 new (9, 4, 0) from v18_1-8-0.json with TT->MMMM with TT->MMMM
+18 (5, 6, 0) TT -> MMT failed
+18 new (7, 5, 0) from v18_1-8-0.json with TT->MMMM with MT->MMM
+18 (5, 6, 0) TTQ -> MQQ failed
+18 (5, 6, 0) TTTTQ -> MMQQQ failed
+18 (3, 7, 0) TTQ -> MQQ failed
+18 (3, 7, 0) TTTTQ -> MMQQQ failed
+18 (9, 4, 0) TT -> MMT failed
+18 new (11, 3, 0) from v18_1-8-0.json with TT->MMMM with TT->MMMM with MT->MMM
+18 (9, 4, 0) TTQ -> MQQ failed
+18 (9, 4, 0) TTTTQ -> MMQQQ failed
+18 (7, 5, 0) TTQ -> MQQ failed
+18 (7, 5, 0) TTTTQ -> MMQQQ failed
+18 (11, 3, 0) TTQ -> MQQ failed
+{"file": "v18_3-7-0.json", "weeks": 10, "lane_pairs": 6, "valid": true, "format_fair": true, "mix_2_3_4": [[3, 7, 0]], "lane_off_bowlers": 0, "position_off": 0}
+{"file": "v18_5-6-0.json", "weeks": 11, "lane_pairs": 6, "valid": true, "format_fair": true, "mix_2_3_4": [[5, 6, 0]], "lane_off_bowlers": 0, "position_off": 0}
+{"file": "v18_7-5-0.json", "weeks": 12, "lane_pairs": 6, "valid": true, "format_fair": true, "mix_2_3_4": [[7, 5, 0]], "lane_off_bowlers": 1, "position_off": 0}
+{"file": "v18_9-4-0.json", "weeks": 13, "lane_pairs": 6, "valid": true, "format_fair": true, "mix_2_3_4": [[9, 4, 0]], "lane_off_bowlers": 0, "position_off": 0}
+{"file": "v18_11-3-0.json", "weeks": 14, "lane_pairs": 6, "valid": true, "format_fair": true, "mix_2_3_4": [[11, 3, 0]], "lane_off_bowlers": 0, "position_off": 0}
+20 new (7, 0, 4) from v20_4-0-5.json with Q->MMM
+20 new (10, 0, 3) from v20_4-0-5.json with Q->MMM with Q->MMM
+{"file": "v20_7-0-4.json", "weeks": 11, "lane_pairs": 5, "valid": true, "format_fair": true, "mix_2_3_4": [[7, 0, 4]], "lane_off_bowlers": 0, "position_off": 0}
+{"file": "v20_10-0-3.json", "weeks": 13, "lane_pairs": 5, "valid": true, "format_fair": true, "mix_2_3_4": [[10, 0, 3]], "lane_off_bowlers": 0, "position_off": 0}
+28 new (6, 0, 7) from v28_3-0-8.json with Q->MMM
+{"file": "v28_6-0-7.json", "weeks": 13, "lane_pairs": 7, "valid": true, "format_fair": true, "mix_2_3_4": [[6, 0, 7]], "lane_off_bowlers": 1, "position_off": 0}

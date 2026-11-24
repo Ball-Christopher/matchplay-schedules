@@ -11,6 +11,7 @@ and of the bowling positions. Each schedule is a JSON file and a ready-to-paste 
   (source [METHODS.md](METHODS.md)).
 - **Open problems, stated on their own:** [OPEN_PROBLEMS.md](OPEN_PROBLEMS.md).
 - **Outside results, checked here:** [contrib/astra-2026-11-24](contrib/astra-2026-11-24/README.md).
+- **Hybrid seasons** (the format changes between 2-, 3- and 4-way so every couple meets exactly once): [hybrid/README.md](hybrid/README.md). They're also on the web page under "Hybrid".
 - **Qualifying lane movements** (M pairs, K per pair, B blocks: mixing, following and lane-pair balance): [qualifying/README.md](qualifying/README.md).
 
 ## Reading a schedule
@@ -85,7 +86,7 @@ IDs are `{k}w{N}` plus `-vacant`, `-x2`, `-oil` or `-oil-x2`: `4w20-oil` is 4-wa
 A `-vacant` schedule is for N−1 bowlers. The table is written by `tools/build_pages.py` from the files.
 
 <!-- catalogue:start -->
-| ID | Bowlers | Weeks | Couples meet | Lane pairs | Oil patterns | File |
+| ID | Bowlers | Weeks | Couples meet | Lane pairs | Oil patterns / hybrid formats | File |
 |---|---|---|---|---|---|---|
 | `3w12` | 12 | 11 | 2× | exact | 4+3+4 | [3way/v12.toml](3way/v12.toml) |
 | `3w12-vacant` | 11 (slot 12 empty) | 11 | 2× | exact |  | [3way/v12_vacant.toml](3way/v12_vacant.toml) |
@@ -151,6 +152,92 @@ A `-vacant` schedule is for N−1 bowlers. The table is written by `tools/build_
 | `4w40` | 40 | 13 | 1× | exact |  | [4way/v40.toml](4way/v40.toml) |
 | `4w40-vacant` | 39 (slot 40 empty) | 13 | 1× | exact |  | [4way/v40_vacant.toml](4way/v40_vacant.toml) |
 | `4w40-x2` | 40 | 26 | 2× | exact | 13+13 | [4way/v40_x2.toml](4way/v40_x2.toml) |
+| `hy11-4-3-0` | 11 | 7 | 1× | exact | 3 weeks 3-way, 4 weeks 2-way | [hybrid/files/v11_4-3-0_mixed.json](hybrid/files/v11_4-3-0_mixed.json) |
+| `hy12-0-4-1` | 12 | 5 | 1× | exact | 4 weeks 3-way, 1 week 4-way | [hybrid/files/v12_0-4-1.json](hybrid/files/v12_0-4-1.json) |
+| `hy12-2-3-1` | 12 | 6 | 1× | exact | 3 weeks 3-way, 1 week 4-way, 2 weeks 2-way | [hybrid/files/v12_2-3-1.json](hybrid/files/v12_2-3-1.json) |
+| `hy12-4-2-1` | 12 | 7 | 1× | exact | 2 weeks 3-way, 1 week 4-way, 4 weeks 2-way | [hybrid/files/v12_4-2-1.json](hybrid/files/v12_4-2-1.json) |
+| `hy12-3-4-0` | 12 | 7 | 1× | exact | 4 weeks 3-way, 3 weeks 2-way | [hybrid/files/v12_3-4-0.json](hybrid/files/v12_3-4-0.json) |
+| `hy12-5-3-0` | 12 | 8 | 1× | 1 bowler(s) off | 3 weeks 3-way, 5 weeks 2-way | [hybrid/files/v12_5-3-0.json](hybrid/files/v12_5-3-0.json) |
+| `hy12-6-1-1` | 12 | 8 | 1× | 1 bowler(s) off | 1 week 3-way, 1 week 4-way, 6 weeks 2-way | [hybrid/files/v12_6-1-1.json](hybrid/files/v12_6-1-1.json) |
+| `hy12-7-2-0` | 12 | 9 | 1× | exact | 2 weeks 3-way, 7 weeks 2-way | [hybrid/files/v12_7-2-0.json](hybrid/files/v12_7-2-0.json) |
+| `hy12-8-0-1` | 12 | 9 | 1× | exact | 1 week 4-way, 8 weeks 2-way | [hybrid/files/v12_8-0-1.json](hybrid/files/v12_8-0-1.json) |
+| `hy12-9-1-0` | 12 | 10 | 1× | exact | 1 week 3-way, 9 weeks 2-way | [hybrid/files/v12_9-1-0.json](hybrid/files/v12_9-1-0.json) |
+| `hy13-6-3-0` | 13 | 9 | 1× | exact | 3 weeks 3-way, 6 weeks 2-way | [hybrid/files/v13_6-3-0_mixed.json](hybrid/files/v13_6-3-0_mixed.json) |
+| `hy14-7-0-2` | 14 | 9 | 1× | exact | 2 weeks 4-way, 7 weeks 2-way | [hybrid/files/v14_7-0-2_mixed.json](hybrid/files/v14_7-0-2_mixed.json) |
+| `hy15-0-1-4` | 15 | 5 | 1× | 3 bowler(s) off | 1 week 3-way, 4 weeks 4-way | [hybrid/files/v15_0-1-4_mixed.json](hybrid/files/v15_0-1-4_mixed.json) |
+| `hy15-4-5-0` | 15 | 9 | 1× | exact | 5 weeks 3-way, 4 weeks 2-way | [hybrid/files/v15_4-5-0_mixed.json](hybrid/files/v15_4-5-0_mixed.json) |
+| `hy16-0-3-3` | 16 | 6 | 1× | exact | 3 weeks 3-way, 3 weeks 4-way | [hybrid/files/v16_0-3-3_mixed.json](hybrid/files/v16_0-3-3_mixed.json) |
+| `hy16-3-0-4` | 16 | 7 | 1× | 3 bowler(s) off | 4 weeks 4-way, 3 weeks 2-way | [hybrid/files/v16_3-0-4.json](hybrid/files/v16_3-0-4.json) |
+| `hy16-6-0-3` | 16 | 9 | 1× | exact | 3 weeks 4-way, 6 weeks 2-way | [hybrid/files/v16_6-0-3.json](hybrid/files/v16_6-0-3.json) |
+| `hy16-9-0-2` | 16 | 11 | 1× | exact | 2 weeks 4-way, 9 weeks 2-way | [hybrid/files/v16_9-0-2.json](hybrid/files/v16_9-0-2.json) |
+| `hy16-12-0-1` | 16 | 13 | 1× | exact | 1 week 4-way, 12 weeks 2-way | [hybrid/files/v16_12-0-1.json](hybrid/files/v16_12-0-1.json) |
+| `hy17-4-6-0` | 17 | 10 | 1× | exact | 6 weeks 3-way, 4 weeks 2-way | [hybrid/files/v17_4-6-0_mixed.json](hybrid/files/v17_4-6-0_mixed.json) |
+| `hy18-1-8-0` | 18 | 9 | 1× | exact | 8 weeks 3-way, 1 week 2-way | [hybrid/files/v18_1-8-0.json](hybrid/files/v18_1-8-0.json) |
+| `hy18-3-7-0` | 18 | 10 | 1× | exact | 7 weeks 3-way, 3 weeks 2-way | [hybrid/files/v18_3-7-0.json](hybrid/files/v18_3-7-0.json) |
+| `hy18-5-6-0` | 18 | 11 | 1× | exact | 6 weeks 3-way, 5 weeks 2-way | [hybrid/files/v18_5-6-0.json](hybrid/files/v18_5-6-0.json) |
+| `hy18-7-5-0` | 18 | 12 | 1× | 1 bowler(s) off | 5 weeks 3-way, 7 weeks 2-way | [hybrid/files/v18_7-5-0.json](hybrid/files/v18_7-5-0.json) |
+| `hy18-9-4-0` | 18 | 13 | 1× | exact | 4 weeks 3-way, 9 weeks 2-way | [hybrid/files/v18_9-4-0.json](hybrid/files/v18_9-4-0.json) |
+| `hy18-11-3-0` | 18 | 14 | 1× | exact | 3 weeks 3-way, 11 weeks 2-way | [hybrid/files/v18_11-3-0.json](hybrid/files/v18_11-3-0.json) |
+| `hy19-6-6-0` | 19 | 12 | 1× | exact | 6 weeks 3-way, 6 weeks 2-way | [hybrid/files/v19_6-6-0_mixed.json](hybrid/files/v19_6-6-0_mixed.json) |
+| `hy20-4-0-5` | 20 | 9 | 1× | exact | 5 weeks 4-way, 4 weeks 2-way | [hybrid/files/v20_4-0-5.json](hybrid/files/v20_4-0-5.json) |
+| `hy20-7-0-4` | 20 | 11 | 1× | exact | 4 weeks 4-way, 7 weeks 2-way | [hybrid/files/v20_7-0-4.json](hybrid/files/v20_7-0-4.json) |
+| `hy20-10-0-3` | 20 | 13 | 1× | exact | 3 weeks 4-way, 10 weeks 2-way | [hybrid/files/v20_10-0-3.json](hybrid/files/v20_10-0-3.json) |
+| `hy21-2-3-4` | 21 | 9 | 1× | 4 bowler(s) off | 3 weeks 3-way, 4 weeks 4-way, 2 weeks 2-way | [hybrid/files/v21_2-3-4_mixed.json](hybrid/files/v21_2-3-4_mixed.json) |
+| `hy21-6-7-0` | 21 | 13 | 1× | exact | 7 weeks 3-way, 6 weeks 2-way | [hybrid/files/v21_6-7-0_mixed.json](hybrid/files/v21_6-7-0_mixed.json) |
+| `hy22-3-0-6` | 22 | 9 | 1× | exact | 6 weeks 4-way, 3 weeks 2-way | [hybrid/files/v22_3-0-6_mixed.json](hybrid/files/v22_3-0-6_mixed.json) |
+| `hy22-9-3-2` | 22 | 14 | 1× | exact | 3 weeks 3-way, 2 weeks 4-way, 9 weeks 2-way | [hybrid/files/v22_9-3-2_mixed.json](hybrid/files/v22_9-3-2_mixed.json) |
+| `hy23-4-3-4` | 23 | 11 | 1× | exact | 3 weeks 3-way, 4 weeks 4-way, 4 weeks 2-way | [hybrid/files/v23_4-3-4_mixed.json](hybrid/files/v23_4-3-4_mixed.json) |
+| `hy23-4-9-0` | 23 | 13 | 1× | exact | 9 weeks 3-way, 4 weeks 2-way | [hybrid/files/v23_4-9-0_mixed.json](hybrid/files/v23_4-9-0_mixed.json) |
+| `hy24-0-1-7` | 24 | 8 | 1× | 12 bowler(s) off | 1 week 3-way, 7 weeks 4-way | [hybrid/files/v24_0-1-7.json](hybrid/files/v24_0-1-7.json) |
+| `hy24-0-4-5` | 24 | 9 | 1× | exact | 4 weeks 3-way, 5 weeks 4-way | [hybrid/files/v24_0-4-5.json](hybrid/files/v24_0-4-5.json) |
+| `hy24-2-3-5` | 24 | 10 | 1× | exact | 3 weeks 3-way, 5 weeks 4-way, 2 weeks 2-way | [hybrid/files/v24_2-3-5.json](hybrid/files/v24_2-3-5.json) |
+| `hy24-0-7-3` | 24 | 10 | 1× | 1 bowler(s) off | 7 weeks 3-way, 3 weeks 4-way | [hybrid/files/v24_0-7-3.json](hybrid/files/v24_0-7-3.json) |
+| `hy24-3-1-6` | 24 | 10 | 1× | exact | 1 week 3-way, 6 weeks 4-way, 3 weeks 2-way | [hybrid/files/v24_3-1-6.json](hybrid/files/v24_3-1-6.json) |
+| `hy24-1-5-4` | 24 | 10 | 1× | exact | 5 weeks 3-way, 4 weeks 4-way, 1 week 2-way | [hybrid/files/v24_1-5-4.json](hybrid/files/v24_1-5-4.json) |
+| `hy24-1-8-2` | 24 | 11 | 1× | exact | 8 weeks 3-way, 2 weeks 4-way, 1 week 2-way | [hybrid/files/v24_1-8-2.json](hybrid/files/v24_1-8-2.json) |
+| `hy24-5-0-6` | 24 | 11 | 1× | exact | 6 weeks 4-way, 5 weeks 2-way | [hybrid/files/v24_5-0-6.json](hybrid/files/v24_5-0-6.json) |
+| `hy24-0-10-1` | 24 | 11 | 1× | exact | 10 weeks 3-way, 1 week 4-way | [hybrid/files/v24_0-10-1.json](hybrid/files/v24_0-10-1.json) |
+| `hy24-2-6-3` | 24 | 11 | 1× | exact | 6 weeks 3-way, 3 weeks 4-way, 2 weeks 2-way | [hybrid/files/v24_2-6-3.json](hybrid/files/v24_2-6-3.json) |
+| `hy24-4-2-5` | 24 | 11 | 1× | exact | 2 weeks 3-way, 5 weeks 4-way, 4 weeks 2-way | [hybrid/files/v24_4-2-5.json](hybrid/files/v24_4-2-5.json) |
+| `hy24-3-4-4` | 24 | 11 | 1× | exact | 4 weeks 3-way, 4 weeks 4-way, 3 weeks 2-way | [hybrid/files/v24_3-4-4.json](hybrid/files/v24_3-4-4.json) |
+| `hy24-3-7-2` | 24 | 12 | 1× | exact | 7 weeks 3-way, 2 weeks 4-way, 3 weeks 2-way | [hybrid/files/v24_3-7-2.json](hybrid/files/v24_3-7-2.json) |
+| `hy24-1-11-0` | 24 | 12 | 1× | exact | 11 weeks 3-way, 1 week 2-way | [hybrid/files/v24_1-11-0.json](hybrid/files/v24_1-11-0.json) |
+| `hy24-5-3-4` | 24 | 12 | 1× | exact | 3 weeks 3-way, 4 weeks 4-way, 5 weeks 2-way | [hybrid/files/v24_5-3-4.json](hybrid/files/v24_5-3-4.json) |
+| `hy24-4-5-3` | 24 | 12 | 1× | exact | 5 weeks 3-way, 3 weeks 4-way, 4 weeks 2-way | [hybrid/files/v24_4-5-3.json](hybrid/files/v24_4-5-3.json) |
+| `hy24-2-9-1` | 24 | 12 | 1× | exact | 9 weeks 3-way, 1 week 4-way, 2 weeks 2-way | [hybrid/files/v24_2-9-1.json](hybrid/files/v24_2-9-1.json) |
+| `hy24-6-1-5` | 24 | 12 | 1× | exact | 1 week 3-way, 5 weeks 4-way, 6 weeks 2-way | [hybrid/files/v24_6-1-5.json](hybrid/files/v24_6-1-5.json) |
+| `hy24-4-8-1` | 24 | 13 | 1× | exact | 8 weeks 3-way, 1 week 4-way, 4 weeks 2-way | [hybrid/files/v24_4-8-1.json](hybrid/files/v24_4-8-1.json) |
+| `hy24-6-4-3` | 24 | 13 | 1× | exact | 4 weeks 3-way, 3 weeks 4-way, 6 weeks 2-way | [hybrid/files/v24_6-4-3.json](hybrid/files/v24_6-4-3.json) |
+| `hy24-3-10-0` | 24 | 13 | 1× | exact | 10 weeks 3-way, 3 weeks 2-way | [hybrid/files/v24_3-10-0.json](hybrid/files/v24_3-10-0.json) |
+| `hy24-7-2-4` | 24 | 13 | 1× | exact | 2 weeks 3-way, 4 weeks 4-way, 7 weeks 2-way | [hybrid/files/v24_7-2-4.json](hybrid/files/v24_7-2-4.json) |
+| `hy24-8-0-5` | 24 | 13 | 1× | exact | 5 weeks 4-way, 8 weeks 2-way | [hybrid/files/v24_8-0-5.json](hybrid/files/v24_8-0-5.json) |
+| `hy24-5-6-2` | 24 | 13 | 1× | exact | 6 weeks 3-way, 2 weeks 4-way, 5 weeks 2-way | [hybrid/files/v24_5-6-2.json](hybrid/files/v24_5-6-2.json) |
+| `hy24-9-1-4` | 24 | 14 | 1× | exact | 1 week 3-way, 4 weeks 4-way, 9 weeks 2-way | [hybrid/files/v24_9-1-4.json](hybrid/files/v24_9-1-4.json) |
+| `hy24-6-7-1` | 24 | 14 | 1× | exact | 7 weeks 3-way, 1 week 4-way, 6 weeks 2-way | [hybrid/files/v24_6-7-1.json](hybrid/files/v24_6-7-1.json) |
+| `hy24-8-3-3` | 24 | 14 | 1× | exact | 3 weeks 3-way, 3 weeks 4-way, 8 weeks 2-way | [hybrid/files/v24_8-3-3.json](hybrid/files/v24_8-3-3.json) |
+| `hy24-5-9-0` | 24 | 14 | 1× | exact | 9 weeks 3-way, 5 weeks 2-way | [hybrid/files/v24_5-9-0.json](hybrid/files/v24_5-9-0.json) |
+| `hy24-7-5-2` | 24 | 14 | 1× | exact | 5 weeks 3-way, 2 weeks 4-way, 7 weeks 2-way | [hybrid/files/v24_7-5-2.json](hybrid/files/v24_7-5-2.json) |
+| `hy25-6-3-4` | 25 | 13 | 1× | exact | 3 weeks 3-way, 4 weeks 4-way, 6 weeks 2-way | [hybrid/files/v25_6-3-4_mixed.json](hybrid/files/v25_6-3-4_mixed.json) |
+| `hy26-7-3-4` | 26 | 14 | 1× | exact | 3 weeks 3-way, 4 weeks 4-way, 7 weeks 2-way | [hybrid/files/v26_7-3-4_mixed.json](hybrid/files/v26_7-3-4_mixed.json) |
+| `hy27-6-4-4` | 27 | 14 | 1× | exact | 4 weeks 3-way, 4 weeks 4-way, 6 weeks 2-way | [hybrid/files/v27_6-4-4_mixed.json](hybrid/files/v27_6-4-4_mixed.json) |
+| `hy28-3-0-8` | 28 | 11 | 1× | exact | 8 weeks 4-way, 3 weeks 2-way | [hybrid/files/v28_3-0-8.json](hybrid/files/v28_3-0-8.json) |
+| `hy28-6-0-7` | 28 | 13 | 1× | 1 bowler(s) off | 7 weeks 4-way, 6 weeks 2-way | [hybrid/files/v28_6-0-7.json](hybrid/files/v28_6-0-7.json) |
+| `hy29-4-6-4` | 29 | 14 | 1× | exact | 6 weeks 3-way, 4 weeks 4-way, 4 weeks 2-way | [hybrid/files/v29_4-6-4_mixed.json](hybrid/files/v29_4-6-4_mixed.json) |
+| `hy30-1-14-0` | 30 | 15 | 1× | exact | 14 weeks 3-way, 1 week 2-way | [hybrid/files/v30_1-14-0.json](hybrid/files/v30_1-14-0.json) |
+| `hy31-6-6-4` | 31 | 16 | 1× | exact | 6 weeks 3-way, 4 weeks 4-way, 6 weeks 2-way | [hybrid/files/v31_6-6-4_mixed.json](hybrid/files/v31_6-6-4_mixed.json) |
+| `hy32-1-0-10` | 32 | 11 | 1× | exact | 10 weeks 4-way, 1 week 2-way | [hybrid/files/v32_1-0-10.json](hybrid/files/v32_1-0-10.json) |
+| `hy32-4-0-9` | 32 | 13 | 1× | exact | 9 weeks 4-way, 4 weeks 2-way | [hybrid/files/v32_4-0-9.json](hybrid/files/v32_4-0-9.json) |
+| `hy35-4-3-8` | 35 | 15 | 1× | exact | 3 weeks 3-way, 8 weeks 4-way, 4 weeks 2-way | [hybrid/files/v35_4-3-8_mixed.json](hybrid/files/v35_4-3-8_mixed.json) |
+| `hy36-0-1-11` | 36 | 12 | 1× | 19 bowler(s) off | 1 week 3-way, 11 weeks 4-way | [hybrid/files/v36_0-1-11.json](hybrid/files/v36_0-1-11.json) |
+| `hy36-2-0-11` | 36 | 13 | 1× | exact | 11 weeks 4-way, 2 weeks 2-way | [hybrid/files/v36_2-0-11.json](hybrid/files/v36_2-0-11.json) |
+| `hy36-0-4-9` | 36 | 13 | 1× | exact | 4 weeks 3-way, 9 weeks 4-way | [hybrid/files/v36_0-4-9.json](hybrid/files/v36_0-4-9.json) |
+| `hy36-1-2-10` | 36 | 13 | 1× | 11 bowler(s) off | 2 weeks 3-way, 10 weeks 4-way, 1 week 2-way | [hybrid/files/v36_1-2-10.json](hybrid/files/v36_1-2-10.json) |
+| `hy36-1-5-8` | 36 | 14 | 1× | 5 bowler(s) off | 5 weeks 3-way, 8 weeks 4-way, 1 week 2-way | [hybrid/files/v36_1-5-8.json](hybrid/files/v36_1-5-8.json) |
+| `hy36-3-1-10` | 36 | 14 | 1× | 1 bowler(s) off | 1 week 3-way, 10 weeks 4-way, 3 weeks 2-way | [hybrid/files/v36_3-1-10.json](hybrid/files/v36_3-1-10.json) |
+| `hy36-2-3-9` | 36 | 14 | 1× | 3 bowler(s) off | 3 weeks 3-way, 9 weeks 4-way, 2 weeks 2-way | [hybrid/files/v36_2-3-9.json](hybrid/files/v36_2-3-9.json) |
+| `hy36-0-7-7` | 36 | 14 | 1× | 7 bowler(s) off | 7 weeks 3-way, 7 weeks 4-way | [hybrid/files/v36_0-7-7.json](hybrid/files/v36_0-7-7.json) |
+| `hy36-1-17-0` | 36 | 18 | 1× | exact | 17 weeks 3-way, 1 week 2-way | [hybrid/files/v36_1-17-0.json](hybrid/files/v36_1-17-0.json) |
+| `hy40-3-0-12` | 40 | 15 | 1× | exact | 12 weeks 4-way, 3 weeks 2-way | [hybrid/files/v40_3-0-12.json](hybrid/files/v40_3-0-12.json) |
 <!-- catalogue:end -->
 
 ## How they were made

@@ -1,0 +1,2 @@
+{"file": "v32_1-0-10.json", "weeks": 11, "lane_pairs": 8, "valid": true, "format_fair": true, "mix_2_3_4": [[1, 0, 10]], "lane_off_bowlers": 0, "position_off": 0}
+{"file": "v36_0-1-11.json", "weeks": 12, "lane_pairs": 12, "valid": true, "format_fair": true, "mix_2_3_4": [[0, 1, 11]], "lane_off_bowlers": 19, "position_off": 0}

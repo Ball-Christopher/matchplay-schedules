@@ -1,0 +1,24 @@
+v36_0-7-7.json W 3 off 8 was 11
+v36_0-7-7.json W 10 off 7 was 11
+v36_0-7-7.json W 30 off 9 was 11
+{"file": "v36_0-7-7.json", "weeks": 14, "lane_pairs": 12, "valid": true, "format_fair": true, "mix_2_3_4": [[0, 7, 7]], "lane_off_bowlers": 7, "position_off": 0}
+v36_0-1-11.json W 3 off 20 was 19
+v36_0-1-11.json W 10 off 20 was 19
+v36_0-1-11.json W 30 off 19 was 19
+v24_0-4-5.json W 3 off 6 was 6
+v24_0-4-5.json W 10 off 6 was 6
+v24_0-4-5.json W 30 off 7 was 6
+v36_3-1-10.json W 3 off 1 was 2
+v36_3-1-10.json W 10 off 2 was 2
+v36_3-1-10.json W 30 off 2 was 2
+{"file": "v36_3-1-10.json", "weeks": 14, "lane_pairs": 12, "valid": true, "format_fair": true, "mix_2_3_4": [[3, 1, 10]], "lane_off_bowlers": 1, "position_off": 0}
+v12_5-3-0.json W 3 off 1 was 1
+v12_5-3-0.json W 10 off 1 was 1
+v12_5-3-0.json W 30 off 1 was 1
+v12_6-1-1.json W 3 off 1 was 1
+v12_6-1-1.json W 10 off 1 was 1
+v12_6-1-1.json W 30 off 1 was 1
+v18_7-5-0.json W 3 off 1 was 1
+v18_7-5-0.json W 10 off 1 was 1
+v18_7-5-0.json W 30 off 1 was 1
+v28_6-0-7.json W 3 off 1 was 1

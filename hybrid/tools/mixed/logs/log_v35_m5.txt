@@ -1,0 +1,6 @@
+v35_15m5 combos 34 [((4, 5, 3), (6, 1, 5), (4, 1, 6)), ((5, 3, 4), (5, 3, 4), (4, 1, 6)), ((5, 3, 4), (6, 1, 5), (3, 3, 5)), ((2, 5, 4), (6, 1, 5), (6, 1, 5))]
+v35_15m5 ('cfg_v35_15m5_1.txt', 1, '2.5') fail best=40 restarts=15
+v35_15m5 ('cfg_v35_15m5_0.txt', 1, '2.5') fail best=30 restarts=12
+v35_15m5 ('cfg_v35_15m5_2.txt', 1, '2.5') fail best=30 restarts=17
+v35_15m5 ('cfg_v35_15m5_3.txt', 1, '2.5') fail best=30 restarts=16
+NOTFOUND v35_15m5

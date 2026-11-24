@@ -1,0 +1,11 @@
+{"players": 24, "lane_pairs": 8, "method": "4-RGDD of type 3^8: points Z_7 x 3 rows + 3 fixed, groups {(x,0),(x,1),(x,2)} and {inf0,inf1,inf2} form the 3-way week, one base 4-way class developed mod 7 (cyclic.py, base class from seed 7 of the convsearch.gen template); lane pairs by z3 with at most K bowlers off (lanes017k.py), positions by de Werra colouring (tools/positions.py). Exact lanes are impossible (a lane pair gets 3 + 4x visits, never 24), so at least 2 bowlers are off",
+ "weeks": [
+  [[3,1,7,20],[24,17,2,14],[4,8,13,12],[16,22,11,5],[15,9,6,23],[19,18,21,10],null,null],
+  [[17,6,12,22],[7,23,10,16],null,[8,3,24,18],[2,21,1,4],null,[13,5,14,9],[20,19,15,11]],
+  [[9,24,4,19],null,[12,16,20,21],[5,2,3,15],[18,13,22,7],null,[1,11,23,17],[14,10,8,6]],
+  [null,[22,14,19,1],[11,7,9,8],null,[10,20,5,24],[21,15,17,13],[6,4,16,3],[23,12,18,2]],
+  [[14,15,18,16],[1,12,10,9],[17,5,4,7],[23,13,3,19],null,[11,6,21,24],[2,22,8,20],null],
+  [[13,2,11,10],null,null,[6,18,5,1],[8,16,19,17],[20,23,14,4],[7,24,15,12],[21,3,9,22]],
+  [[5,8,23,21],[3,14,12,11],[19,7,6,2],[9,17,20,18],null,[4,10,22,15],null,[16,1,24,13]],
+  [[7,14,21],[6,13,20],[22,23,24],[1,8,15],[4,11,18],[2,9,16],[5,12,19],[3,10,17]]
+ ]}

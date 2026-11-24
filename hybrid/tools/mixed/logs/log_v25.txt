@@ -1,0 +1,4 @@
+v25_10m2 combos 1 [((0, 7, 1), (0, 7, 1), (0, 3, 4), (0, 3, 4))]
+v25_10m2 ('cfg_v25_10m2_0.txt', 1, '1.0') fail best=24 restarts=47
+v25_10m2 ('cfg_v25_10m2_0.txt', 2, '1.0') fail best=24 restarts=44
+NOTFOUND v25_10m2

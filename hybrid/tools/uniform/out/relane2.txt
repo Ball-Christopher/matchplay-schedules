@@ -1,0 +1,9 @@
+v36_1-2-10.json W 3 off 11 was 11
+v36_1-2-10.json W 10 off 12 was 11
+v36_1-2-10.json W 30 off 12 was 11
+v36_1-5-8.json W 3 off 5 was 5
+v36_1-5-8.json W 10 off 7 was 5
+v36_1-5-8.json W 30 off 7 was 5
+v36_2-3-9.json W 3 off 3 was 3
+v36_2-3-9.json W 10 off 3 was 3
+v36_2-3-9.json W 30 off 5 was 3

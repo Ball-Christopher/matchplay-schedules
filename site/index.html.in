@@ -121,6 +121,7 @@
   .who .p { display: inline-block; width: 1.9em; font-size: 0.7rem; color: var(--muted); }
   .who.empty { color: var(--muted); font-style: italic; cursor: default; }
   .who.on { background: var(--hi); color: var(--hi-ink); }
+  .wrapsep { display: block; border-top: 1px dashed var(--rule); margin: 0.2em 0; }
   .who.on .p { color: inherit; }
   td.num { text-align: right; font-variant-numeric: tabular-nums; }
   td.num.off { color: var(--off); font-weight: 700; }
@@ -144,7 +145,7 @@
 <body>
 <button class="theme-switch" type="button" id="theme" aria-label="Colour theme"></button>
 <h1>Matchplay schedules</h1>
-<p class="lede">Balanced schedules for 3-way and 4-way matchplay leagues of 11 to 40 bowlers. In every schedule each couple of bowlers meets equally often, and every bowler gets an even share of the lane pairs and of the bowling positions. Pick a league size, add names if you like, and export the result.</p>
+<p class="lede">Balanced schedules for 3-way and 4-way matchplay leagues of 11 to 40 bowlers, plus hybrid seasons that switch between 2-, 3- and 4-way so every couple meets exactly once. In every schedule each couple of bowlers meets equally often, and every bowler gets an even share of the lane pairs and of the bowling positions. Pick a league size, add names if you like, and export the result.</p>
 <nav class="top"><a href="methods.html">How they were made, and the limits</a><a href="schedules.json" download>All schedules (JSON)</a></nav>
 
 <div class="controls">
@@ -153,8 +154,9 @@
     <div class="seg" id="kseg">
       <label><input type="radio" name="k" value="3"><span>3-way</span></label>
       <label><input type="radio" name="k" value="4"><span>4-way</span></label>
+      <label><input type="radio" name="k" value="h"><span>Hybrid</span></label>
     </div>
-    <p class="hint">Each pairing in a group is a match: 3 matches a night in 3-way, 6 in 4-way.</p>
+    <p class="hint" id="khint">Each pairing in a group is a match: 3 matches a night in 3-way, 6 in 4-way.</p>
     <div style="margin-top:1rem">
       <label class="label" for="n" style="display:block">Number of bowlers</label>
       <select id="n"></select>
@@ -212,9 +214,13 @@
 
 <script>
 const DATA = /*DATA*/null;
-const POS = { 3: ["L1", "R1", "L2"], 4: ["L1", "R1", "L2", "R2"] };
-const POS_TEXT = { 3: "L1 left lane first · R1 right lane first · L2 left lane second", 4: "L1 left lane first · R1 right lane first · L2 left lane second · R2 right lane second" };
-const KIND_ORDER = { single: 0, vacant: 1, x2: 2, oil: 3, oilx2: 4 };
+const POS = { 2: ["L", "R"], 3: ["L1", "R1", "L2"], 4: ["L1", "R1", "L2", "R2"] };
+const POS_TEXT = { 3: "L1 left lane first · R1 right lane first · L2 left lane second", 4: "L1 left lane first · R1 right lane first · L2 left lane second · R2 right lane second",
+  h: "Groups of 2, 3 or 4 · L / R left or right lane in 2-way · L1 left lane first · R1 right lane first · L2 left lane second · R2 right lane second · — empty lane pair" };
+const KIND_ORDER = { single: 0, vacant: 1, x2: 2, oil: 3, oilx2: 4, uniform: 5, mixed: 6 };
+// the groups on lane pair g in week w (hybrid entries store them directly; a wrapped pair holds two 2-way groups)
+const groupsAt = (e, w, g) => e.k === "h" ? w[g] : [w.slice(g * e.k, g * e.k + e.k)];
+const kOf = v => v === "h" ? "h" : +v;
 const $ = s => document.querySelector(s);
 const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
                 set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
@@ -241,6 +247,7 @@ function laneText(e) { const off = Object.keys(e.lane_off).length; return off ? 
 function blockText(e) { return e.blocks ? `${e.blocks.length} oil patterns (${e.blocks.join("+")})` : ""; }
 function describe(e) {
   const bits = [`${e.weeks.length} weeks`, `couples meet ${e.lambda}×`, laneText(e)];
+  if (e.k === "h") bits.splice(1, 0, e.mix_text);
   if (e.blocks) bits.push(blockText(e));
   return bits.join(" · ");
 }
@@ -251,14 +258,19 @@ function fillSizes(k, want) {
   const n = all.includes(want) ? want : all.reduce((a, b) => Math.abs(b - (want || 0)) < Math.abs(a - (want || 0)) ? b : a);
   sel.value = n;
   const missing = []; for (let i = 11; i <= 40; i++) if (!all.includes(i)) missing.push(i);
-  $("#nhint").textContent = `${k}-way schedules exist for ${all.join(", ")}. A size one below a multiple of ${k} uses the bigger schedule with an empty slot.`;
+  $("#nhint").textContent = k === "h"
+    ? `Hybrid schedules exist for ${all.join(", ")}. Every couple meets exactly once; the format changes between (or within) weeks.`
+    : `${k}-way schedules exist for ${all.join(", ")}. A size one below a multiple of ${k} uses the bigger schedule with an empty slot.`;
+  $("#khint").textContent = k === "h"
+    ? "Hybrid: each week is 2-way, 3-way or 4-way (or a mix), and every bowler gets the same number of each over the season."
+    : "Each pairing in a group is a match: 3 matches a night in 3-way, 6 in 4-way.";
   return n;
 }
 function fillChoices(k, n, wantId) {
   const list = entriesFor(k, n), box = $("#choices");
   box.innerHTML = list.map(e => `<label class="choice"><input type="radio" name="s" value="${e.id}">
     <span class="t">${e.label}<code>${e.id}</code></span><span class="d">${describe(e)}</span></label>`).join("");
-  const pick = list.find(e => e.id === wantId) || list[0];
+  const pick = list.find(e => e.id === wantId) || list.find(e => !Object.keys(e.lane_off).length) || list[0];
   box.querySelector(`input[value="${pick.id}"]`).checked = true;
   box.onchange = ev => select(ev.target.value);
   return pick.id;
@@ -296,11 +308,11 @@ function nameHint() {
 
 // ---- render ---------------------------------------------------------------
 function stats() {
-  const e = cur, n = e.lanes, k = e.k, lanes = {}, pos = {}, meet = {};
-  for (let p = 1; p <= e.slots; p++) { lanes[p] = Array(n).fill(0); pos[p] = Array(k).fill(0); meet[p] = {}; }
-  for (const w of e.weeks) for (let g = 0; g < n; g++) {
-    const grp = w.slice(g * k, g * k + k);
-    grp.forEach((p, q) => { lanes[p][g]++; pos[p][q]++; for (const o of grp) if (o !== p) meet[p][o] = (meet[p][o] || 0) + 1; });
+  const e = cur, n = e.lanes, h = e.k === "h", lanes = {}, pos = {}, meet = {};
+  for (let p = 1; p <= e.slots; p++) { lanes[p] = Array(n).fill(0); pos[p] = Array(h ? 3 : e.k).fill(0); meet[p] = {}; }
+  for (const w of e.weeks) for (let g = 0; g < n; g++) for (const grp of groupsAt(e, w, g)) {
+    // hybrid: the "position" columns count 2-, 3- and 4-way weeks instead
+    grp.forEach((p, q) => { lanes[p][g]++; pos[p][h ? grp.length - 2 : q]++; for (const o of grp) if (o !== p) meet[p][o] = (meet[p][o] || 0) + 1; });
   }
   return { lanes, pos, meet };
 }
@@ -312,13 +324,15 @@ function render() {
   const tiles = [
     ["Couples", `each meets ${e.lambda}×`, false],
     ["Lane pairs", off ? `${off} bowler${off > 1 ? "s" : ""} off by 1+` : `exact (${e.lane_range[0] === e.lane_range[1] ? e.lane_range[0] : e.lane_range.join("–")} each)`, off > 0],
-    ["Positions", `exact (${e.position_range[0] === e.position_range[1] ? e.position_range[0] : e.position_range.join("–")} each)`, false],
+    e.k === "h" ? ["Formats", `each bowler: ${e.mix_text}`, false]
+      : ["Positions", `exact (${e.position_range[0] === e.position_range[1] ? e.position_range[0] : e.position_range.join("–")} each)`, false],
     ["Stopping early", e.worst_prefix <= 1 ? "always within 1" : `worst gap ${e.worst_prefix} meetings`, false],
   ];
   if (e.blocks) tiles.push(["Oil patterns", `${e.blocks.length}: ${e.blocks.join(" + ")} weeks`, false],
                            ["Same-pattern repeats", String(e.block_repeats), e.block_repeats > 0]);
   if (e.vacant) tiles.push(["Empty slot", `roster number ${e.vacant}`, false]);
   if (e.kind === "x2" || e.kind === "oilx2") tiles.push(["Groups repeated in round 2", String(e.repeated_groups || 0), false]);
+  if (e.k === "h") tiles.push(["Positions", "even within each format", false]);
   $("#summary").innerHTML = tiles.map(([a, b, w]) => `<div class="tile"><div class="k">${a}</div><div class="v${w ? " warn" : ""}">${b}</div></div>`).join("");
   const notes = [...e.notes];
   if (off) notes.unshift("Off-balance lane pairs: " + Object.entries(e.lane_off).map(([p, c]) => `${esc(label(+p, nm))} (${c.join(", ")})`).join("; ") + `. The even share is ${e.lane_range.join(" or ")}.`);
@@ -327,6 +341,7 @@ function render() {
     notes.push(`If the season stops early, the most uneven point is after week ${w}: some couples will have met ${e.worst_prefix} more times than others. By the last week every couple has met ${e.lambda}×.`);
   }
   if (k === 4) notes.push("In a 4-way group every pairing is a match, so a night has 6 matches per group.");
+  if (k === "h") notes.push(`See <a href="https://github.com/Ball-Christopher/matchplay-schedules/tree/main/hybrid">the hybrid notes</a> for what's proven and what's still open.`);
   $("#notes").innerHTML = notes.map(t => `<li>${t}</li>`).join("");
   $("#method").textContent = e.method || "See the full methods.";
   $("#mlink").href = `methods.html#${e.methods_anchor}`;
@@ -342,18 +357,20 @@ function render() {
     if ((e.kind === "x2" || e.kind === "oilx2") && i === r / 2) rows += `<tr class="band"><th colspan="${n + 1}">Round 2 · weeks ${i + 1}–${r}</th></tr>`;
     let cells = "";
     for (let g = 0; g < n; g++) {
-      cells += `<td class="grp">` + w.slice(g * k, g * k + k).map((p, q) => p === e.vacant
-        ? `<span class="who empty"><span class="p">${POS[k][q]}</span>empty</span>`
-        : `<span class="who${picked === p ? " on" : ""}" data-p="${p}" title="Roster number ${p}"><span class="p">${POS[k][q]}</span>${esc(label(p, nm))}</span>`).join("") + `</td>`;
+      const gs = groupsAt(e, w, g);
+      cells += `<td class="grp">` + (gs.length ? gs.map((grp, gi) => (gi ? `<span class="wrapsep" aria-hidden="true"></span>` : "") + grp.map((p, q) => p === e.vacant
+        ? `<span class="who empty"><span class="p">${POS[grp.length][q]}</span>empty</span>`
+        : `<span class="who${picked === p ? " on" : ""}" data-p="${p}" title="Roster number ${p}"><span class="p">${POS[grp.length][q]}</span>${esc(label(p, nm))}</span>`).join("")).join("")
+        : `<span class="who empty">—</span>`) + `</td>`;
     }
     rows += `<tr><th class="wk">Week ${i + 1}</th>${cells}</tr>`;
   });
   $("#weeks").innerHTML = `<thead><tr><th></th>${lanesHead}</tr></thead><tbody>${rows}</tbody>`;
 
   // bowlers table
-  const s = stats(), [lo, hi] = e.lane_range, [plo, phi] = e.position_range;
+  const s = stats(), [lo, hi] = e.lane_range, [plo, phi] = e.position_range || [-Infinity, Infinity];
   const head = `<th>No.</th><th>Bowler</th>` + Array.from({ length: n }, (_, g) => `<th>${L + 2 * g}–${L + 2 * g + 1}</th>`).join("")
-             + POS[k].map(x => `<th>${x}</th>`).join("") + `<th>Meets</th>`;
+             + (k === "h" ? ["2-way", "3-way", "4-way"] : POS[k]).map(x => `<th>${x}</th>`).join("") + `<th>Meets</th>`;
   const body = realSlots().map(p => {
     const ms = realSlots().filter(o => o !== p).map(o => s.meet[p][o] || 0);
     const mn = Math.min(...ms), mx = Math.max(...ms);
@@ -370,9 +387,12 @@ function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<":
 function csv() {
   const e = cur, nm = slotNames(), k = e.k, L = lane(), q = s => /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   const rows = [["week", "pattern", "lane_pair", "lanes", "position", "roster_no", "bowler"]];
+  if (k === "h") rows[0].splice(2, 0, "format");
   e.weeks.forEach((w, i) => { const pat = patternOf(i);
-    for (let g = 0; g < e.lanes; g++) w.slice(g * k, g * k + k).forEach((p, j) =>
-      rows.push([i + 1, pat, g + 1, `${L + 2 * g}-${L + 2 * g + 1}`, POS[k][j], p === e.vacant ? "" : p, p === e.vacant ? "(empty)" : label(p, nm)])); });
+    for (let g = 0; g < e.lanes; g++) for (const grp of groupsAt(e, w, g)) grp.forEach((p, j) => {
+      const row = [i + 1, pat, g + 1, `${L + 2 * g}-${L + 2 * g + 1}`, POS[grp.length][j], p === e.vacant ? "" : p, p === e.vacant ? "(empty)" : label(p, nm)];
+      if (k === "h") row.splice(2, 0, `${grp.length}-way`);
+      rows.push(row); }); });
   return rows.map(r => r.map(x => q(String(x))).join(",")).join("\n") + "\n";
 }
 function patternOf(i) { if (!cur.blocks) return ""; let s = 0; for (let b = 0; b < cur.blocks.length; b++) { s += cur.blocks[b]; if (i < s) return String.fromCharCode(65 + b); } return ""; }
@@ -380,7 +400,8 @@ function toml() {
   const e = cur, nm = slotNames(), r = e.weeks.length, w2 = String(e.slots).length, tq = s => JSON.stringify(s);
   const out = [`# Matchplay schedule ${e.id}: ${e.label.toLowerCase()}, ${e.bowlers} bowlers, ${r} weeks.`,
     `# ${describe(e)}.`, `# From https://bowling.collapse.nz/schedules/#${e.id}`,
-    `# In [league] set: pattern = ${e.k}, first_lane = ${lane()}, weeks = ${r}`];
+    e.k === "h" ? `# Hybrid: each week lists its lane pairs in order, and each lane pair its groups (2, 3 or 4 bowlers; two 2-way groups = shared lane pair; [] = empty). first_lane = ${lane()}, weeks = ${r}. The league software's fixed 'pattern' setting does not apply.`
+      : `# In [league] set: pattern = ${e.k}, first_lane = ${lane()}, weeks = ${r}`];
   if (e.vacant) out.push(`# Roster number ${e.vacant} is the empty slot: its group bowls one short.`);
   out.push("");
   if (nameList().length) {
@@ -390,15 +411,18 @@ function toml() {
   }
   if (e.blocks) { let s = 1; e.blocks.forEach((b, i) => { out.push("[[pattern]]", `name = "Pattern ${String.fromCharCode(65 + i)}"`, `first = ${s}`, `last = ${s + b - 1}`, ""); s += b; }); }
   out.push("[schedule]", "weeks = [");
-  e.weeks.forEach((w, i) => out.push(`  [${w.map(p => String(p).padStart(w2)).join(", ")}],  # week ${String(i + 1).padStart(2)}`));
+  e.weeks.forEach((w, i) => out.push(e.k === "h"
+    ? `  ${JSON.stringify(w).replace(/,/g, ", ")},  # week ${String(i + 1).padStart(2)}`
+    : `  [${w.map(p => String(p).padStart(w2)).join(", ")}],  # week ${String(i + 1).padStart(2)}`));
   out.push("]", "");
   return out.join("\n");
 }
 function json() {
   const e = cur, nm = slotNames(), bowlers = {};
   for (let p = 1; p <= e.slots; p++) bowlers[p] = p === e.vacant ? null : label(p, nm);
-  return JSON.stringify({ id: e.id, group: e.k, bowlers_count: e.bowlers, first_lane: lane(), blocks: e.blocks, vacant: e.vacant,
-    position_order: POS[e.k], bowlers, weeks: e.weeks }, null, 1) + "\n";
+  return JSON.stringify({ id: e.id, group: e.k === "h" ? "hybrid" : e.k, bowlers_count: e.bowlers, first_lane: lane(), blocks: e.blocks, vacant: e.vacant,
+    position_order: e.k === "h" ? POS : POS[e.k], formats_per_bowler: e.mix ? { "2-way": e.mix[0], "3-way": e.mix[1], "4-way": e.mix[2] } : undefined,
+    bowlers, weeks: e.weeks }, null, 1) + "\n";
 }
 function save(text, name, type) {
   const a = document.createElement("a");
@@ -426,8 +450,8 @@ document.addEventListener("click", ev => {
   const w = ev.target.closest(".who[data-p], tr[data-p]"); if (!w) return;
   const p = +w.dataset.p; picked = picked === p ? null : p; render();
 });
-$("#kseg").onchange = ev => { const k = +ev.target.value, n = fillSizes(k, +$("#n").value); select(fillChoices(k, n)); };
-$("#n").onchange = () => { const k = cur.k, n = +$("#n").value; select(fillChoices(k, n, cur.id.replace(/^\d+w\d+/, `${k}w${n}`))); };
+$("#kseg").onchange = ev => { const k = kOf(ev.target.value), n = fillSizes(k, +$("#n").value); select(fillChoices(k, n)); };
+$("#n").onchange = () => { const k = cur.k, n = +$("#n").value; select(fillChoices(k, n, k === "h" ? null : cur.id.replace(/^\d+w\d+/, `${k}w${n}`))); };
 $("#lane").oninput = () => { history.replaceState(null, "", `#${cur.id}` + (lane() !== 1 ? `&lane=${lane()}` : "")); render(); };
 $("#names").oninput = () => { store.set("schedules-names", $("#names").value); render(); };
 $("#shuffle").onclick = () => {

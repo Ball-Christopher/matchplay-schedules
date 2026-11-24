@@ -1,0 +1,10 @@
+v31_13 combos 2 [((0, 9, 1), (0, 9, 1), (0, 9, 1), (0, 1, 7)), ((0, 9, 1), (0, 9, 1), (0, 5, 4), (0, 5, 4))]
+v31_13 ('cfg_v31_13_0.txt', 2, '1.5') fail best=36 restarts=17
+v31_13 ('cfg_v31_13_0.txt', 2, '2.5') fail best=60 restarts=19
+v31_13 ('cfg_v31_13_0.txt', 1, '1.5') fail best=24 restarts=17
+v31_13 ('cfg_v31_13_0.txt', 1, '2.5') fail best=66 restarts=16
+v31_13 ('cfg_v31_13_1.txt', 1, '1.5') fail best=30 restarts=16
+v31_13 ('cfg_v31_13_1.txt', 1, '2.5') fail best=60 restarts=17
+v31_13 ('cfg_v31_13_1.txt', 2, '2.5') fail best=78 restarts=15
+v31_13 ('cfg_v31_13_1.txt', 2, '1.5') fail best=30 restarts=15
+NOTFOUND v31_13

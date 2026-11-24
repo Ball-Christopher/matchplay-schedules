@@ -1,0 +1,12 @@
+{"players": 12, "lane_pairs": 3, "method": "derived from v12_0-4-1 with TT->MMMM with TT->MMMM (M/T/Q = 2/3/4-way week; Q->MMM splits a K4 week into its three matchings, other moves re-resolve the couples of the removed weeks by exact cover, tools/uniform/derived.py); 2-way weeks wrapped two matches per lane pair where needed; lane pairs by simulated annealing (lanes.c), positions by de Werra colouring (tools/positions.py)",
+ "weeks": [
+  [[5,6,7,8],[9,10,11,12],[1,2,3,4]],
+  [{"wrapped":[[9,2],[12,5]]},{"wrapped":[[3,6],[1,7]]},{"wrapped":[[11,8],[10,4]]}],
+  [{"wrapped":[[2,12],[7,10]]},{"wrapped":[[5,3],[8,1]]},{"wrapped":[[4,11],[6,9]]}],
+  [{"wrapped":[[4,6],[2,8]]},{"wrapped":[[11,5],[9,7]]},{"wrapped":[[12,3],[10,1]]}],
+  [{"wrapped":[[3,9],[1,11]]},{"wrapped":[[5,4],[7,2]]},{"wrapped":[[6,10],[8,12]]}],
+  [{"wrapped":[[3,11],[4,7]]},{"wrapped":[[2,10],[12,6]]},{"wrapped":[[1,5],[9,8]]}],
+  [{"wrapped":[[8,4],[10,3]]},{"wrapped":[[6,1],[11,2]]},{"wrapped":[[7,12],[5,9]]}],
+  [{"wrapped":[[1,9],[11,6]]},{"wrapped":[[4,12],[10,8]]},{"wrapped":[[2,5],[3,7]]}],
+  [{"wrapped":[[5,10],[12,1]]},{"wrapped":[[9,4],[8,3]]},{"wrapped":[[7,11],[6,2]]}]
+ ]}

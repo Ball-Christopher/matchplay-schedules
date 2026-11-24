@@ -1,0 +1,19 @@
+100 off 5 file 6
+{"file": "v24_0-4-5.json", "weeks": 9, "lane_pairs": 8, "valid": true, "format_fair": true, "mix_2_3_4": [[0, 4, 5]], "lane_off_bowlers": 5, "position_off": 0}
+101 off 5 file 5
+102 off 5 file 5
+103 off 6 file 5
+104 off 5 file 5
+105 off 6 file 5
+106 off 5 file 5
+107 off 5 file 5
+108 off 4 file 5
+{"file": "v24_0-4-5.json", "weeks": 9, "lane_pairs": 8, "valid": true, "format_fair": true, "mix_2_3_4": [[0, 4, 5]], "lane_off_bowlers": 4, "position_off": 0}
+109 off 5 file 4
+110 off 6 file 4
+111 off 5 file 4
+112 off 6 file 4
+113 off 0 file 4
+{"file": "v24_0-4-5.json", "weeks": 9, "lane_pairs": 8, "valid": true, "format_fair": true, "mix_2_3_4": [[0, 4, 5]], "lane_off_bowlers": 0, "position_off": 0}
+114 off 6 file 0
+115 off 5 file 0

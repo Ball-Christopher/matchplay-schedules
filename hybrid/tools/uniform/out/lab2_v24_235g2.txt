@@ -1,0 +1,2 @@
+v24_235g2 found 0.7
+expanded design checked [2, 2, 3, 3, 3, 4, 4, 4, 4, 4]

@@ -301,3 +301,20 @@ Astra (another AI agent) worked on the open problems against revision `e5afce7`.
 - **24 in fours, spread 1.** This needs a 7-week clash-free packing whose unmet couples form six disjoint 4-cycles. None has been found yet.
 
 The vacancy result is now used for the library's vacancy files (section 5). The other witnesses are not library files. See OPEN_PROBLEMS.md for what is still open.
+
+## 15. Hybrid single rounds
+
+A hybrid round changes the format during the season so that **every couple meets exactly once**. Weeks can be 2-way, 3-way or 4-way, or a mix within a week. Every bowler gets the same number of weeks of each format. The model is North City Singles 2019: 24 bowlers, 10 weeks of 3-way plus 1 week of 4-way.
+
+- **One format a week** (a uniformly resolvable design):
+  - The literature settles most two-format cases: Rees 1987 for {2,3}, Dinitz–Ling–Danziger 2009 for {2,4}, and Schuster 2013 for {3,4}.
+  - Designs were built with cyclic base-class searches and z3, and the library's own RBIBDs were split.
+  - Further designs: resolvable transversal designs over GF(8) and GF(9) with the groups filled in (32 and 36), z3 on designs with half or a third as many points then each point split into 2 or 3 bowlers, and splitting a 4-way week into three 2-way weeks or re-resolving weeks by exact cover.
+- **Mixed weeks:** no published results were found.
+  - Designs were built by annealing, mostly over Z_m × classes plus fixed points, with base weeks developed mod m and invariant weeks.
+  - These are the only option for odd sizes not divisible by 3.
+  - Two cases were proved impossible by z3 after hand-normalising: 19 in 7 weeks (3×3-way + 4×4-way) and 14 in 5 weeks (1×2-way + 4×4-way). Symmetric searches (Z_6, Z_3, S_3) for 37 with no 2-way weeks gave no answer within an hour per case.
+- **Lanes and positions:** solved afterwards with z3 or annealing. Where a week has fewer groups than lane pairs, the empty lane pairs rotate. Where it helped, two 2-way matches share a lane pair ("wrapped").
+- **The 2019 schedule:** reassigning the lanes for the same weeks makes it lane-exact. The original had 22 bowlers off.
+
+Results, proofs of the shortest possible seasons, and open cases are in [hybrid/README.md](https://github.com/Ball-Christopher/matchplay-schedules/blob/main/hybrid/README.md). The checker is `hybrid/verify.py`.

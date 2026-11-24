@@ -1,0 +1,12 @@
+# compiled search binaries
+tools/uniform/urd
+tools/uniform/urd_dbg
+tools/uniform/lanes
+tools/uniform/basecls
+tools/mixed/dfs19
+tools/mixed/tabu
+tools/mixed/oanneal
+tools/mixed/anneal
+tools/mixed/sanneal
+*.o
+__pycache__/

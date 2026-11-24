@@ -1,0 +1,8 @@
+none for raw/v19_r7.w
+   1 fail best=16 restarts=103
+   2 fail best=18 restarts=103
+   1 fail best=22 restarts=103
+   1 fail best=24 restarts=103
+   1 fail best=26 restarts=102
+   1 fail best=44 restarts=104
+   1 fail best=52 restarts=104

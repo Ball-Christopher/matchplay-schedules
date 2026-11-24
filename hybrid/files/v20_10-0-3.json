@@ -1,0 +1,16 @@
+{"players": 20, "lane_pairs": 5, "method": "derived from v20_4-0-5 with Q->MMM with Q->MMM (M/T/Q = 2/3/4-way week; Q->MMM splits a K4 week into its three matchings, other moves re-resolve the couples of the removed weeks by exact cover, tools/uniform/derived.py); 2-way weeks wrapped two matches per lane pair where needed; lane pairs by simulated annealing (lanes.c), positions by de Werra colouring (tools/positions.py)",
+ "weeks": [
+  [[7,5,6,8],[1,2,3,4],[16,13,15,14],[20,17,19,18],[10,11,9,12]],
+  [[18,8,16,3],[19,10,7,13],[17,14,1,11],[9,6,4,15],[12,20,5,2]],
+  [[8,15,11,20],[6,1,10,16],[2,18,13,9],[5,4,14,19],[3,7,12,17]],
+  [{"wrapped":[[3,9],[4,18]]},{"wrapped":[[20,13],[15,5]]},{"wrapped":[[10,8],[17,6]]},{"wrapped":[[1,12],[7,11]]},{"wrapped":[[16,19],[2,14]]}],
+  [{"wrapped":[[13,17],[19,15]]},{"wrapped":[[5,1],[12,16]]},{"wrapped":[[14,7],[9,20]]},{"wrapped":[[11,4],[8,2]]},{"wrapped":[[6,3],[18,10]]}],
+  [{"wrapped":[[3,19],[1,13]]},{"wrapped":[[11,18],[4,17]]},{"wrapped":[[9,7],[12,15]]},{"wrapped":[[2,16],[6,20]]},{"wrapped":[[8,14],[5,10]]}],
+  [{"wrapped":[[14,9],[10,4]]},{"wrapped":[[17,8],[7,2]]},{"wrapped":[[20,1],[18,5]]},{"wrapped":[[16,11],[19,12]]},{"wrapped":[[15,3],[13,6]]}],
+  [{"wrapped":[[20,16],[2,17]]},{"wrapped":[[6,14],[3,11]]},{"wrapped":[[18,12],[19,1]]},{"wrapped":[[5,13],[10,15]]},{"wrapped":[[7,4],[9,8]]}],
+  [{"wrapped":[[15,2],[11,5]]},{"wrapped":[[14,18],[12,6]]},{"wrapped":[[4,20],[16,7]]},{"wrapped":[[17,10],[13,3]]},{"wrapped":[[8,19],[1,9]]}],
+  [{"wrapped":[[12,14],[18,6]]},{"wrapped":[[10,2],[19,9]]},{"wrapped":[[5,3],[15,17]]},{"wrapped":[[8,1],[20,7]]},{"wrapped":[[16,4],[11,13]]}],
+  [{"wrapped":[[6,19],[9,16]]},{"wrapped":[[4,8],[7,15]]},{"wrapped":[[2,11],[3,10]]},{"wrapped":[[13,12],[1,18]]},{"wrapped":[[17,5],[14,20]]}],
+  [{"wrapped":[[7,1],[10,20]]},{"wrapped":[[16,17],[9,5]]},{"wrapped":[[8,12],[4,13]]},{"wrapped":[[3,14],[6,2]]},{"wrapped":[[19,11],[15,18]]}],
+  [{"wrapped":[[14,10],[12,4]]},{"wrapped":[[20,3],[13,8]]},{"wrapped":[[11,6],[2,19]]},{"wrapped":[[5,16],[17,9]]},{"wrapped":[[1,15],[18,7]]}]
+ ]}

@@ -1,0 +1,10 @@
+v19_7f4 combos 1 [((0, 5, 1), (0, 1, 4))]
+v19_7f4 ('cfg_v19_7f4_0.txt', 1, '2.5') fail best=36 restarts=26
+v19_7f4 ('cfg_v19_7f4_0.txt', 2, '2.5') fail best=36 restarts=26
+v19_7f4 ('cfg_v19_7f4_0.txt', 1, '1.5') fail best=36 restarts=25
+v19_7f4 ('cfg_v19_7f4_0.txt', 2, '1.5') fail best=36 restarts=25
+v19_7f4 ('cfg_v19_7f4_0.txt', 3, '1.5') fail best=36 restarts=25
+v19_7f4 ('cfg_v19_7f4_0.txt', 4, '1.5') fail best=36 restarts=25
+v19_7f4 ('cfg_v19_7f4_0.txt', 3, '2.5') fail best=36 restarts=25
+v19_7f4 ('cfg_v19_7f4_0.txt', 4, '2.5') fail best=36 restarts=25
+NOTFOUND v19_7f4

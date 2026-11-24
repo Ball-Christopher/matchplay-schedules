@@ -1,0 +1,11 @@
+{"players": 12, "lane_pairs": 4, "method": "derived from v12_0-4-1 with TQ->MMMMM (M/T/Q = 2/3/4-way week; Q->MMM splits a K4 week into its three matchings, other moves re-resolve the couples of the removed weeks by exact cover, tools/uniform/derived.py); 2-way weeks wrapped two matches per lane pair where needed; lane pairs by simulated annealing (lanes.c), positions by de Werra colouring (tools/positions.py)",
+ "weeks": [
+  [[8,10,3],[12,7,4],[11,6,2],[5,9,1]],
+  [[1,12,6],[10,2,5],[9,4,8],[3,11,7]],
+  [[4,5,11],[6,3,9],[7,1,10],[2,8,12]],
+  [{"wrapped":[[10,12],[1,2]]},[8,7],[4,6],{"wrapped":[[9,11],[5,3]]}],
+  [[11,8],{"wrapped":[[2,4],[12,9]]},{"wrapped":[[7,5],[3,1]]},[6,10]],
+  [{"wrapped":[[9,2],[6,7]]},{"wrapped":[[11,10],[3,12]]},[8,5],[4,1]],
+  [[7,9],{"wrapped":[[5,6],[1,8]]},{"wrapped":[[12,11],[2,3]]},[10,4]],
+  [{"wrapped":[[5,12],[3,4]]},[1,11],[9,10],{"wrapped":[[6,8],[2,7]]}]
+ ]}

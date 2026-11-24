@@ -1,0 +1,2 @@
+12 3 found 65.8
+expanded design checked [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3]

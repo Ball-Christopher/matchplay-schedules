@@ -1,0 +1,12 @@
+{"players": 16, "lane_pairs": 4, "method": "library resolvable (16,4,1) design (4way/v16.json) with 2 of its 5 weeks split into three 2-way weeks each (K4 = 3 matchings); 2-way weeks wrapped two matches per lane pair; lanes by annealing, positions by de Werra colouring",
+ "weeks": [
+  [[13,11,8,2],[7,14,1,12],[10,16,3,5],[15,9,4,6]],
+  [[4,5,14,11],[8,1,10,15],[3,6,12,13],[2,7,16,9]],
+  [[6,8,5,7],[1,4,2,3],[11,12,9,10],[14,13,15,16]],
+  [{"wrapped":[[7,15],[9,1]]},{"wrapped":[[5,13],[16,4]]},{"wrapped":[[6,10],[14,2]]},{"wrapped":[[8,12],[3,11]]}],
+  [{"wrapped":[[15,3],[13,9]]},{"wrapped":[[10,14],[12,16]]},{"wrapped":[[4,8],[11,7]]},{"wrapped":[[2,6],[1,5]]}],
+  [{"wrapped":[[12,4],[15,11]]},{"wrapped":[[14,6],[9,5]]},{"wrapped":[[1,13],[16,8]]},{"wrapped":[[7,3],[10,2]]}],
+  [{"wrapped":[[13,10],[3,14]]},{"wrapped":[[11,16],[2,15]]},{"wrapped":[[4,7],[6,1]]},{"wrapped":[[5,12],[8,9]]}],
+  [{"wrapped":[[16,1],[2,12]]},{"wrapped":[[3,8],[11,6]]},{"wrapped":[[14,9],[15,5]]},{"wrapped":[[10,7],[13,4]]}],
+  [{"wrapped":[[4,10],[6,16]]},{"wrapped":[[7,13],[9,3]]},{"wrapped":[[5,2],[12,15]]},{"wrapped":[[1,11],[8,14]]}]
+ ]}

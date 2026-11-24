@@ -1,0 +1,3 @@
+v26_108 combos 1 [((1, 0, 6), (1, 0, 6))]
+v26_108 ('cfg_v26_108_0.txt', 1, '1.5') fail best=30 restarts=47
+NOTFOUND v26_108
