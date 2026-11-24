@@ -110,6 +110,9 @@ B > M the block-level balance leaves at most one extra game on a pair.
   2 (no two orthogonal Latin squares of order 6). From the third batch
   ([contrib/astra-2026-11-24c](../contrib/astra-2026-11-24c/START_HERE.md)): 3×4 B=11 has
   min_meet ≤ 2 (otherwise a GBTD(4,3)), and its new draw is optimal on all ten fields.
+  From the fourth batch ([contrib/astra-2026-11-25](../contrib/astra-2026-11-25/README.md)):
+  5×3 B=6 needs 2 meetings (exhaustive search over all balanced draws), so the
+  published draw is optimal on meetings and follows.
 
 A scheme is **proven optimal** on a field when it reaches these bounds on that
 field and on every earlier one. Lane-pair balance can push mixing above the
@@ -259,7 +262,7 @@ counting, social golfer, z3). All entries are lane-pair balanced.
 | 10×2 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D |
 | 3×3 | 1/1 R | 2/1 R | 3/2 r | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/2 D | 3/2 D | 3/2 D | 3/2 D |
 | 4×3 | 1/1 R | 1/1 r | 1/1 D | 1/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/2 D |
-| 5×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D? | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D |
+| 5×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D |
 | 6×3 | 1/1 R | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D |
 | 7×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D? | 1/1 D | 1/1 D | 2/1 D | 2/1 D |
 | 8×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 1/1 D | 1/1 D | 2/1 D |
@@ -540,7 +543,6 @@ Mixing tuple = (max meet, max follow, repeats, follow repeats, max unordered fol
 
 Tuple = (pair_spread, max_meet, max_follow, repeats, follow_repeats, max_ufollow, ufollow_repeats, -min_meet); bound = simple counting bound, or z3 where run.
 
-- 5×3 B=6: best [1, 2, 1, 1, 0, 2, 1, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 7×3 B=8: best [1, 2, 1, 1, 0, 2, 1, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 8×3 B=9: best [1, 2, 1, 1, 0, 2, 1, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 10×3 B=9: best [1, 2, 1, 2, 0, 2, 2, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
@@ -581,7 +583,6 @@ Tuple = (pair_spread, max_meet, max_follow, repeats, follow_repeats, max_ufollow
 - 10×5 B=10: best [0, 2, 1, 139, 0, 1, 0, 0] vs bound [0, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 10×5 B=11: best [1, 2, 1, 145, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 10×5 B=12: best [1, 2, 1, 168, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
-
 
 ## Files
 

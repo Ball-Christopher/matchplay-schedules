@@ -113,9 +113,10 @@ Round 2 keeps every couple's count right under any relabelling of the bowlers, s
 - **3-way 27:** Method 2 found nothing in 20,000 tries, because round 1 has four doubled lane pairs per bowler. The agent's freer annealing of round 2's lane order, with a Hungarian-optimal relabelling at every step, stalled at 3–5 cells off after 34 runs. The fix was the Fable agent's **pair of KTS(27)s** built together (section 3.3), each exact alone and exact together with no repeated trios. Its first round replaced the original `v27.json`.
 
 - **Astra's two-round files (24 November 2026, section 14):** round 1 is copied row for row, and round 2 is relabelled so each bowler's less-frequent lane pair and position differ from round 1's. Where possible a short colour class of round 2 is joined to round 1's last block. They replaced `v24_x2`, `v30_x2` and `v36_x2` (3-way) and `v24_x2` and `v36_x2` (4-way), which needed 29/34/40 and 24/52 oil-pattern blocks; the replacements need 19/18/24 and 16/30. They also supplied `v24_oil_x2`, `v30_oil_x2`, `v36_oil_x2` (3-way) and `v24_oil_x2`, `v32_oil_x2` (4-way).
+- **3-way 24, fourth batch (25 November 2026, section 14):** Astra's new round 2 replaced `v24_x2` (19 blocks, now 18) and `v24_oil_x2` (6, now 5). Both are optimal. Imported by `tools/import_astra_b4.py`.
 - **4-way 36 oil, two rounds** (`tools/import_astra_b2.py`): Method 2 with positions added to the matching, on the new 4-pattern round. 8 blocks; the lower bound is 7.
 
-**Left as is:** a few groups recur across the rounds in 3-way 12 (1), 3-way 18 (3), 3-way 24 (4) and 4-way 12 (2). These designs have every couple meeting at least twice per round, which leaves little room.
+**Left as is:** a few groups recur across the rounds in 3-way 12 (1), 3-way 18 (3) and 4-way 12 (2). These designs have every couple meeting at least twice per round, which leaves little room. Astra's optimal 3-way 24 files repeat more: 22 of round 2's 184 trios in `v24_x2` and 23 in `v24_oil_x2` also occur in round 1 (the files they replaced had 9 and 8). That is the price of the fewer oil-pattern blocks so far; a relabelling search that keeps the blocks might lower it.
 
 ## 7. Positions
 
@@ -329,6 +330,14 @@ Checked in [contrib/astra-2026-11-24c](contrib/astra-2026-11-24c/README.md), aga
   - No reordering of the main 4-way 20, 24 or 36 files reaches spread 2 (rechecked here with a direct z3 model over week orders).
   - The 8-week class of the 4-pattern 36 round can't follow the main round's last block under any relabelling (rechecked structurally).
   - A one-meeting 5×3 draw at 6 blocks would have to have no symmetry (19 prime-order cases searched).
+
+### Fourth batch (25 November 2026)
+
+Checked in [contrib/astra-2026-11-25](contrib/astra-2026-11-25/README.md), against revision `054c531`.
+
+- **3-way 24, two rounds: 5 patterns with the oil round first (11+6+8+10+11), 18 with the main round first.** Both meet the lower bound. Round 2 is built as clash-free parts of 2, 10 and 11 weeks. The 11 weeks are a nearly Kirkman triple system, made by doubling an order-3 invariant 12-point design. The 10 weeks have an order-3 symmetry, and the 2 opening weeks are rebuilt from the 10 weeks' unmet couples. Lanes come from a symmetric search, with positions by bipartite flows. Now `3way/v24_oil_x2` and `3way/v24_x2`.
+- **Qualifying 5×3 at 6 blocks needs 2 meetings.** Astra split the search into 41 cases by how often bowlers repeat a lane within 4 blocks. It was rechecked here by a single exact-cover search over lane words, with one word fixed as 001234 by relabelling blocks and lanes. That search takes 1.4 s and visits 11.2 million nodes. It finds draws at once when 2 meetings are allowed.
+- **4-way 24, trades from the published 7-week packing:** keeping any 3 weeks and refilling the other 4 gives 7 other packings, all relabellings of the original. So trades of up to 4 weeks at a time never remove the 8 unmet triangles.
 
 ## 15. Hybrid single rounds
 

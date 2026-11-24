@@ -1,15 +1,9 @@
 {
- "_about": "Lower bounds proved in Astra's second batch (contrib/astra-2026-11-24b), checked there. Field -> bound, with the reason.",
+ "_about": "Lower bounds proved in Astra's batches (contrib/astra-2026-11-24b, -24c, -25), checked there. Field -> bound, with the reason.",
  "M3_K3_B3": {
   "max_follow": [
    2,
    "every lane word is one of 6 permutations, so two of the 9 bowlers share all 3 pairs; meeting 3 times in trios repeats a follow direction"
-  ]
- },
- "M3_K4_B7": {
-  "max_meet": [
-   3,
-   "a cap of 2 forces every met couple to meet exactly twice, but each bowler has 21 opponent slots (odd)"
   ]
  },
  "M3_K4_B11": {
@@ -20,6 +14,18 @@
   "neg_min_meet": [
    -2,
    "min_meet 3 would make every couple meet exactly 3 times (198 incidences, 66 couples): a GBTD(4,3), which does not exist (Astra, third batch)"
+  ]
+ },
+ "M3_K4_B7": {
+  "max_meet": [
+   3,
+   "a cap of 2 forces every met couple to meet exactly twice, but each bowler has 21 opponent slots (odd)"
+  ]
+ },
+ "M5_K3_B6": {
+  "max_meet": [
+   2,
+   "a one-meeting draw is 15 lane words of length 6 (one lane twice) agreeing in at most one place, 3 per lane per block; exhaustive search finds none (Astra, fourth batch; rechecked in contrib/astra-2026-11-25/check/q15w.c)"
   ]
  },
  "M5_K3_B7": {

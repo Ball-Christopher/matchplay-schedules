@@ -11,7 +11,7 @@ and of the bowling positions. Each schedule is a JSON file and a ready-to-paste 
   (source [METHODS.md](METHODS.md)).
 - **Open problems, stated on their own:** [OPEN_PROBLEMS.md](OPEN_PROBLEMS.md).
 - **Open issues, as a to-do list with where to start:** [OPEN_ISSUES.md](OPEN_ISSUES.md).
-- **Outside results, checked here:** [contrib/astra-2026-11-24](contrib/astra-2026-11-24/README.md).
+- **Outside results, checked here:** Astra's four batches, [contrib/astra-2026-11-24](contrib/astra-2026-11-24/README.md), [-24b](contrib/astra-2026-11-24b/README.md), [-24c](contrib/astra-2026-11-24c/README.md) and [-25](contrib/astra-2026-11-25/README.md).
 - **Hybrid seasons** (the format changes between 2-, 3- and 4-way so every couple meets exactly once): [hybrid/README.md](hybrid/README.md). They're also on the web page under "Hybrid".
 - **Qualifying lane movements** (M pairs, K per pair, B blocks: mixing, following and lane-pair balance): [qualifying/README.md](qualifying/README.md).
 
@@ -73,7 +73,7 @@ For leagues that change oil pattern in blocks, the aim is that no couple meets t
 | 3way/v30_oil | 3 (14,9,6) | 0 | exact | lower bound reached |
 | 3way/v36_oil | 3 (16,10,9) | 0 | exact | lower bound reached |
 | 3way/v18_oil_x2 | 5 (8,5,6,7,8) over two rounds | 0 | exact | round 1 = v18_oil; 5 is optimal |
-| 3way/v24_oil_x2 | 6 (11,6,6,11,6,6) | 0 | exact | round 1 = v24_oil; lower bound 5 (Astra) |
+| 3way/v24_oil_x2 | 5 (11,6,8,10,11) | 0 | exact | round 1 = v24_oil; optimal (Astra) |
 | 3way/v30_oil_x2 | 5 (14,9,8,13,14) | 0 | exact | round 1 = v30_oil; optimal (Astra) |
 | 3way/v36_oil_x2 | 5 (16,10,12,16,16) | 0 | exact | round 1 = v36_oil; optimal (Astra) |
 | 4way/v24_oil_x2 | 8 (6,5,6,6,6,5,6,6) | 0 | exact | round 1 = v24_oil; optimal (Astra) |
@@ -111,9 +111,9 @@ A `-vacant` schedule is for N−1 bowlers. The table is written by `tools/build_
 | `3w21-x2` | 21 | 20 | 2× | exact | 10+10 | [3way/v21_x2.toml](3way/v21_x2.toml) |
 | `3w24` | 24 | 23 | 2× | exact |  | [3way/v24.toml](3way/v24.toml) |
 | `3w24-vacant` | 23 (slot 24 empty) | 23 | 2× | exact |  | [3way/v24_vacant.toml](3way/v24_vacant.toml) |
-| `3w24-x2` | 24 | 46 | 4× | exact | 4+1+1+1+1+1+1+1+1+1+1+1+1+1+1+5+11+6+6 | [3way/v24_x2.toml](3way/v24_x2.toml) |
+| `3w24-x2` | 24 | 46 | 4× | exact | 4+1+1+1+1+1+1+1+1+1+1+1+1+1+1+7+10+11 | [3way/v24_x2.toml](3way/v24_x2.toml) |
 | `3w24-oil` | 24 | 23 | 2× | exact | 11+6+6 | [3way/v24_oil.toml](3way/v24_oil.toml) |
-| `3w24-oil-x2` | 24 | 46 | 4× | exact | 11+6+6+11+6+6 | [3way/v24_oil_x2.toml](3way/v24_oil_x2.toml) |
+| `3w24-oil-x2` | 24 | 46 | 4× | exact | 11+6+8+10+11 | [3way/v24_oil_x2.toml](3way/v24_oil_x2.toml) |
 | `3w27` | 27 | 13 | 1× | exact |  | [3way/v27.toml](3way/v27.toml) |
 | `3w27-vacant` | 26 (slot 27 empty) | 13 | 1× | exact |  | [3way/v27_vacant.toml](3way/v27_vacant.toml) |
 | `3w27-x2` | 27 | 26 | 2× | exact | 13+13 | [3way/v27_x2.toml](3way/v27_x2.toml) |

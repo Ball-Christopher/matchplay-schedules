@@ -12402,7 +12402,7 @@
 },
 "lower_bound": [
 1,
-1,
+2,
 1,
 0,
 0,
@@ -12412,7 +12412,7 @@
 0,
 0
 ],
-"proven_fields": 1,
+"proven_fields": 3,
 "optimal": false,
 "mixing_optimal": false,
 "sgp_rounds_known": 7,

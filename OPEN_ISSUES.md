@@ -2,13 +2,13 @@
 
 The work still to do, as a checklist. Each item says what's best so far, what would close it, and where to pick it up. The mathematical background is in [OPEN_PROBLEMS.md](OPEN_PROBLEMS.md), and how things were built is in [METHODS.md](METHODS.md).
 
-Status as of 24 November 2026. Contributions are welcome: open a GitHub issue or pull request, with the weeks in the repository's JSON format so they can be checked (`python3 verify.py`, `python3 hybrid/verify.py`, `python3 qualifying/verify.py`).
+Status as of 25 November 2026. Contributions are welcome: open a GitHub issue or pull request, with the weeks in the repository's JSON format so they can be checked (`python3 verify.py`, `python3 hybrid/verify.py`, `python3 qualifying/verify.py`).
 
 ## Matchplay library (3-way and 4-way, 11–40 bowlers)
 
 | Issue | Best so far | Closed by | Start from |
 |---|---|---|---|
-| 4-way 24, short-season spread | Spread 2 (lane-exact) | A spread-1 round, or a proof it can't exist. It needs a 7-week clash-free packing whose unmet couples form six disjoint 4-cycles. | OPEN_PROBLEMS 3; Astra's 6×6-board construction in `contrib/astra-2026-11-24/` |
+| 4-way 24, short-season spread | Spread 2 (lane-exact) | A spread-1 round, or a proof it can't exist. It needs a 7-week clash-free packing whose unmet couples form six disjoint 4-cycles. | OPEN_PROBLEMS 3; Astra's 6×6-board construction in `contrib/astra-2026-11-24/`. Trades of up to 4 weeks from the published packing only give relabellings of it (`contrib/astra-2026-11-25/`), so start from a different packing or change 5+ weeks at once. |
 | 4-way 20, 24 and 36 main rounds peak at spread 3 | Spread 3 | Lane-exact main rounds with spread 2. No reordering of the current weeks can do it (proven), so new weekly groups are needed. The oil rounds of 20, 24 and 36 already reach 2. | METHODS 8; `contrib/astra-2026-11-24c/check/prefix_z3.py` |
 | Prefix order searched jointly with lanes | Order tuned after lanes are fixed | A joint search | METHODS 11 |
 
@@ -18,10 +18,9 @@ These are impossible and can't be fixed: exact lanes for 3-way 15, 4-way 12 and 
 
 | Size | Oil round first | Main round first | Start from |
 |---|---|---|---|
-| 3-way 24 | 6 (bound 5) | 19 (bound 18) | Astra tried recolourings and fixed-tail embeddings; see `contrib/astra-2026-11-24b/search_notes_under_40.md` |
 | 4-way 36 | 8 with the new 4-pattern round (bound 7) | 30 (bound 29) | Needs a different round 2. For the main round, Astra's 4-pattern round can't be relabelled to reach 29 (proven, `contrib/astra-2026-11-24c/check/grid36.py`). |
 
-All other sizes are optimal, including 3-way 36 oil (5 patterns, Astra's third batch). See OPEN_PROBLEMS 4.
+All other sizes are optimal, including 3-way 36 oil (5 patterns, Astra's third batch) and 3-way 24 (5 oil first, 18 main first, Astra's fourth batch). See OPEN_PROBLEMS 4.
 
 ## Lane-exact one-meeting fours (λ = 1)
 
@@ -46,8 +45,12 @@ Full results and proofs: [hybrid/README.md](hybrid/README.md).
 
 | Issue | Best so far | Start from |
 |---|---|---|
-| 5×3 at 6 blocks | 2 meetings, 1 follow; 1 meeting not ruled out (the Kirkman argument doesn't cover packings outside a KTS(15)). A one-meeting draw would have to have no symmetry at all (proven), so the next search has to be unrestricted. | `contrib/astra-2026-11-24c/` (METHODS, `proofs/symmetry15.cpp`); `contrib/astra-2026-11-24b/search_notes_under_40.md` |
 | Other entries marked `?` | Listed under "Open" in [qualifying/README.md](qualifying/README.md), mostly B = 7–12 with 1 meeting not ruled out | `qualifying/exact.py`, `qualifying/anneal.c` |
+
+## Settled in the fourth batch (25 November 2026)
+
+- 3-way 24 over two rounds: 5 patterns with the oil round first and 18 with the main round first, both optimal.
+- Qualifying 5×3 at 6 blocks: 2 meetings is the minimum, so the published draw is optimal.
 
 ## Housekeeping
 
