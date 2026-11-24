@@ -18,7 +18,7 @@
 | 8×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 1/1 D | 1/1 D | 2/1 D |
 | 9×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D | 1/1 D |
 | 10×3 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 1/1 D | 1/1 D | 1/1 D | 2/1 D? | 2/1 D? | 2/1 D? | 2/1 D? |
-| 3×4 | 1/1 R | 2/1 r | 3/1 r | 2/1 D | 2/1 D | 2/1 D | 3/1 D | 3/1 D | 3/1 D | 3/2 D? | 4/2 D? | 4/2 D |
+| 3×4 | 1/1 R | 2/1 r | 3/1 r | 2/1 D | 2/1 D | 2/1 D | 3/1 D | 3/1 D | 3/1 D | 3/2 D? | 4/1 D | 4/2 D |
 | 4×4 | 1/1 R | 2/1 r | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/1 D | 3/1 D |
 | 5×4 | 1/1 R | 1/1 r | 1/1 r | 1/1 r | 1/1 r | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/1 D? | 3/1 D? |
 | 6×4 | 1/1 R | 1/1 r | 1/1 R | 1/1 D | 1/1 D | 2/1 D | 2/1 D? | 2/1 D | 2/1 D | 2/1 D | 2/1 D | 3/1 D? |
@@ -205,7 +205,7 @@ Mixing tuple = (max meet, max follow, repeats, follow repeats, max unordered fol
 - 3×4 B=6: balanced [2, 1, 54, 0, 2, 18, 0] vs unconstrained [2, 1, 45, 0, 2, 9, 0]
 - 3×4 B=8: balanced [3, 1, 78, 0, 2, 30, -1] vs unconstrained [3, 1, 78, 0, 2, 30, -2]
 - 3×4 B=10: balanced [3, 2, 114, 5, 3, 55, -2] vs unconstrained [3, 2, 114, 3, 3, 54, -2]
-- 3×4 B=11: balanced [4, 2, 132, 10, 3, 66, -2] vs unconstrained [3, 2, 132, 8, 3, 66, -3]
+- 3×4 B=11: balanced [4, 1, 132, 0, 2, 66, -2] vs unconstrained [3, 2, 132, 8, 3, 66, -3]
 - 3×4 B=12: balanced [4, 2, 150, 12, 3, 78, -2] vs unconstrained [4, 2, 150, 12, 3, 78, -3]
 - 4×4 B=2: balanced [2, 1, 4, 0, 1, 0, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
 - 4×4 B=3: balanced [2, 1, 12, 0, 1, 0, 0] vs unconstrained [1, 1, 0, 0, 1, 0, 0]
@@ -301,7 +301,6 @@ Tuple = (pair_spread, max_meet, max_follow, repeats, follow_repeats, max_ufollow
 - 10×3 B=11: best [1, 2, 1, 2, 0, 2, 2, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 10×3 B=12: best [1, 2, 1, 4, 0, 2, 4, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)
 - 3×4 B=10: best [1, 3, 2, 114, 5, 3, 55, -2] vs bound [1, 3, 1, 114, 0, 2, 54, -2] (first gap: max_follow)
-- 3×4 B=11: best [1, 4, 2, 132, 10, 3, 66, -2] vs bound [1, 4, 1, 132, 0, 2, 66, -3] (first gap: max_follow)
 - 5×4 B=11: best [1, 3, 1, 140, 0, 2, 33, -1] vs bound [1, 2, 1, 140, 0, 2, 30, -1] (first gap: max_meet)
 - 5×4 B=12: best [1, 3, 1, 170, 0, 2, 50, -1] vs bound [1, 2, 1, 170, 0, 2, 50, -1] (first gap: max_meet)
 - 6×4 B=7: best [1, 2, 1, 19, 0, 1, 0, 0] vs bound [1, 1, 1, 0, 0, 1, 0, 0] (first gap: max_meet)

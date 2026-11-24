@@ -75,7 +75,7 @@ For leagues that change oil pattern in blocks, the aim is that no couple meets t
 | 3way/v18_oil_x2 | 5 (8,5,6,7,8) over two rounds | 0 | exact | round 1 = v18_oil; 5 is optimal |
 | 3way/v24_oil_x2 | 6 (11,6,6,11,6,6) | 0 | exact | round 1 = v24_oil; lower bound 5 (Astra) |
 | 3way/v30_oil_x2 | 5 (14,9,8,13,14) | 0 | exact | round 1 = v30_oil; optimal (Astra) |
-| 3way/v36_oil_x2 | 6 (16,10,9,16,10,9) | 0 | exact | round 1 = v36_oil; lower bound 5 (Astra) |
+| 3way/v36_oil_x2 | 5 (16,10,12,16,16) | 0 | exact | round 1 = v36_oil; optimal (Astra) |
 | 4way/v24_oil_x2 | 8 (6,5,6,6,6,5,6,6) | 0 | exact | round 1 = v24_oil; optimal (Astra) |
 | 4way/v32_oil_x2 | 8 (8,7,8,8,8,7,8,8) | 0 | exact | round 1 = v32_oil; optimal (Astra) |
 | 4way/v36_oil_x2 | 8 (9,9,9,8,9,9,9,8) | 0 | exact | round 1 = v36_oil; lower bound 7 |
@@ -129,7 +129,7 @@ A `-vacant` schedule is for N−1 bowlers. The table is written by `tools/build_
 | `3w36-vacant` | 35 (slot 36 empty) | 35 | 2× | exact |  | [3way/v36_vacant.toml](3way/v36_vacant.toml) |
 | `3w36-x2` | 36 | 70 | 4× | exact | 2+1+1+1+1+2+2+1+1+3+1+2+1+1+2+1+2+2+2+1+2+11+16+11 | [3way/v36_x2.toml](3way/v36_x2.toml) |
 | `3w36-oil` | 36 | 35 | 2× | exact | 16+10+9 | [3way/v36_oil.toml](3way/v36_oil.toml) |
-| `3w36-oil-x2` | 36 | 70 | 4× | exact | 16+10+9+16+10+9 | [3way/v36_oil_x2.toml](3way/v36_oil_x2.toml) |
+| `3w36-oil-x2` | 36 | 70 | 4× | exact | 16+10+12+16+16 | [3way/v36_oil_x2.toml](3way/v36_oil_x2.toml) |
 | `3w39` | 39 | 19 | 1× | exact |  | [3way/v39.toml](3way/v39.toml) |
 | `3w39-vacant` | 38 (slot 39 empty) | 19 | 1× | exact |  | [3way/v39_vacant.toml](3way/v39_vacant.toml) |
 | `3w39-x2` | 39 | 38 | 2× | exact | 19+19 | [3way/v39_x2.toml](3way/v39_x2.toml) |
@@ -232,6 +232,7 @@ A `-vacant` schedule is for N−1 bowlers. The table is written by `tools/build_
 | `hy24-7-5-2` | 24 | 14 | 1× | exact | 5 weeks 3-way, 2 weeks 4-way, 7 weeks 2-way | [hybrid/files/v24_7-5-2.json](hybrid/files/v24_7-5-2.json) |
 | `hy25-6-3-4` | 25 | 13 | 1× | exact | 3 weeks 3-way, 4 weeks 4-way, 6 weeks 2-way | [hybrid/files/v25_6-3-4_mixed.json](hybrid/files/v25_6-3-4_mixed.json) |
 | `hy26-7-3-4` | 26 | 14 | 1× | exact | 3 weeks 3-way, 4 weeks 4-way, 7 weeks 2-way | [hybrid/files/v26_7-3-4_mixed.json](hybrid/files/v26_7-3-4_mixed.json) |
+| `hy27-0-1-8` | 27 | 9 | 1× | exact | 1 week 3-way, 8 weeks 4-way | [hybrid/files/v27_0-1-8_mixed.json](hybrid/files/v27_0-1-8_mixed.json) |
 | `hy27-6-4-4` | 27 | 14 | 1× | exact | 4 weeks 3-way, 4 weeks 4-way, 6 weeks 2-way | [hybrid/files/v27_6-4-4_mixed.json](hybrid/files/v27_6-4-4_mixed.json) |
 | `hy28-3-0-8` | 28 | 11 | 1× | exact | 8 weeks 4-way, 3 weeks 2-way | [hybrid/files/v28_3-0-8.json](hybrid/files/v28_3-0-8.json) |
 | `hy28-6-0-7` | 28 | 13 | 1× | 1 bowler(s) off | 7 weeks 4-way, 6 weeks 2-way | [hybrid/files/v28_6-0-7.json](hybrid/files/v28_6-0-7.json) |
@@ -250,6 +251,7 @@ A `-vacant` schedule is for N−1 bowlers. The table is written by `tools/build_
 | `hy36-2-3-9` | 36 | 14 | 1× | 3 bowler(s) off | 3 weeks 3-way, 9 weeks 4-way, 2 weeks 2-way | [hybrid/files/v36_2-3-9.json](hybrid/files/v36_2-3-9.json) |
 | `hy36-0-7-7` | 36 | 14 | 1× | 7 bowler(s) off | 7 weeks 3-way, 7 weeks 4-way | [hybrid/files/v36_0-7-7.json](hybrid/files/v36_0-7-7.json) |
 | `hy36-1-17-0` | 36 | 18 | 1× | exact | 17 weeks 3-way, 1 week 2-way | [hybrid/files/v36_1-17-0.json](hybrid/files/v36_1-17-0.json) |
+| `hy39-0-1-12` | 39 | 13 | 1× | exact | 1 week 3-way, 12 weeks 4-way | [hybrid/files/v39_0-1-12_mixed.json](hybrid/files/v39_0-1-12_mixed.json) |
 | `hy40-3-0-12` | 40 | 15 | 1× | exact | 12 weeks 4-way, 3 weeks 2-way | [hybrid/files/v40_3-0-12.json](hybrid/files/v40_3-0-12.json) |
 <!-- catalogue:end -->
 

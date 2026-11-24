@@ -46,8 +46,8 @@ NOTES = {
     "3w30-oil-x2": ["Round 1 is 3w30-oil unchanged; 5 patterns over two rounds is the fewest possible (Astra)."],
     "4w24-oil-x2": ["Round 1 is 4w24-oil unchanged; 8 patterns over two rounds is the fewest possible (Astra)."],
     "4w32-oil-x2": ["Round 1 is 4w32-oil unchanged; 8 patterns over two rounds is the fewest possible (Astra)."],
+    "3w36-oil-x2": ["Round 1 is 3w36-oil unchanged; 5 patterns over two rounds is the fewest possible (Astra)."],
     "3w24-oil-x2": ["Round 1 is 3w24-oil unchanged; 6 patterns over two rounds, against a lower bound of 5 (Astra)."],
-    "3w36-oil-x2": ["Round 1 is 3w36-oil unchanged; 6 patterns over two rounds, against a lower bound of 5 (Astra)."],
     "4w40": ["The first known 40-bowler schedule in fours with exact lane balance (built from the geometry PG(3,3))."],
     "3w18-oil-x2": ["Round 1 is the one-round oil schedule 3w18-oil unchanged; 5 patterns over the two rounds is the fewest possible."],
     "3w12": ["The oil-pattern split (4, 3 and 4 weeks) is built in, and 3 patterns is the fewest possible."],
@@ -202,6 +202,8 @@ HYBRID_NOTES = {
     "hy20-4-0-5": ["9 weeks is the shortest possible for 20 bowlers."],
     "hy16-3-0-4": ["3 bowlers off is the best possible for this mix (proven)."],
     "hy24-0-1-7": ["Exact lanes are impossible for this mix: each lane pair gets 3 + 4x visits, never the 24 needed."],
+    "hy27-0-1-8": ["9 weeks, the shortest possible: the 28-bowler one-meeting round with one bowler removed (Astra)."],
+    "hy39-0-1-12": ["13 weeks, the shortest possible: the 40-bowler one-meeting round with one bowler removed (Astra)."],
     "hy36-0-1-11": ["Exact lanes are impossible for this mix: each lane pair gets 3 + 4x visits, never the 36 needed."],
     "hy32-1-0-10": ["11 weeks, the shortest possible for 32 bowlers."],
 }

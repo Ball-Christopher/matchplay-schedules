@@ -15,7 +15,7 @@ Status: checked by `verify.py` and listed on the website under **Hybrid** (bowli
 
 ## Results (v = bowlers, R = weeks)
 
-86 schedules, 71 of them lane-exact. "Wrapped" counts lane pairs shared by two 2-way matches over the season; in 2-way weeks with more matches than lane pairs every match is wrapped.
+88 schedules, 73 of them lane-exact. "Wrapped" counts lane pairs shared by two 2-way matches over the season; in 2-way weeks with more matches than lane pairs every match is wrapped.
 
 | v | mix (2/3/4-way weeks) | R | lane pairs | lanes | wrapped | weeks | note | file |
 |---:|---|---:|---:|---|---:|---|---|---|
@@ -87,6 +87,7 @@ Status: checked by `verify.py` and listed on the website under **Hybrid** (bowli
 | 25 | 6 / 3 / 4 | 13 | 8 | exact | 24 | mixed |  | `v25_6-3-4_mixed` |
 | 26 | 7 / 3 / 4 | 14 | 11 | exact |  | mixed |  | `v26_7-3-4_mixed` |
 | 27 | 6 / 4 / 4 | 14 | 11 | exact |  | mixed |  | `v27_6-4-4_mixed` |
+| 27 | 0 / 1 / 8 | 9 | 7 | exact |  | mixed | shortest possible; 28-bowler round minus one bowler (Astra) | `v27_0-1-8_mixed` |
 | 28 | 3 / 0 / 8 | 11 | 7 | exact | 21 | uniform |  | `v28_3-0-8` |
 | 28 | 6 / 0 / 7 | 13 | 7 | **1 off** | 42 | uniform |  | `v28_6-0-7` |
 | 29 | 4 / 6 / 4 | 14 | 10 | exact | 9 | mixed |  | `v29_4-6-4_mixed` |
@@ -104,6 +105,7 @@ Status: checked by `verify.py` and listed on the website under **Hybrid** (bowli
 | 36 | 2 / 3 / 9 | 14 | 12 | **3 off** | 12 | uniform |  | `v36_2-3-9` |
 | 36 | 3 / 1 / 10 | 14 | 12 | **1 off** | 20 | uniform |  | `v36_3-1-10` |
 | 36 | 1 / 17 / 0 | 18 | 12 | exact | 6 | uniform | NKTS | `v36_1-17-0` |
+| 39 | 0 / 1 / 12 | 13 | 10 | exact |  | mixed | shortest possible; 40-bowler round minus one bowler (Astra) | `v39_0-1-12_mixed` |
 | 40 | 3 / 0 / 12 | 15 | 10 | exact | 30 | uniform |  | `v40_3-0-12` |
 
 `v24_archive2019.json` is the original 2019 schedule with its original lanes, kept for comparison.
@@ -125,7 +127,7 @@ Status: checked by `verify.py` and listed on the website under **Hybrid** (bowli
 - **Uniform:** 24 with 2×2-way + 7×4-way (also open in the literature), and 24 with 1×2-way + 2×3-way + 6×4-way. Better lanes for 24 in 8 weeks (1–12 off) and the 36 files that are not exact.
 - **37: no schedule yet within 16 weeks.** Not found: 0/6/8 in 14 weeks, 0/12/4 in 16, or 6/3/8 in 17. Many symmetry groups are ruled out (Z_9, Z_12, Z_18, Z_36, A_4, and Z_2×Z_2 for 0/6/8); Z_6 templates gave no answer in an hour each.
 - **Mixed, only 3-way and 4-way groups:** 25 in 10 weeks (0/6/4), and 31 in 11 or 13 (0/3/8, 0/9/4).
-- **Other mixed options not found:** 21 0/4/4, 26 1/0/8 and 7/0/6, 27 0/1/8, 33 4/2/8, 34 3/3/8 and 3/0/10, 38 1/3/10; 39 not attempted.
+- **Other mixed options not found:** 21 0/4/4, 26 1/0/8 and 7/0/6, 33 4/2/8, 34 3/3/8 and 3/0/10, 38 1/3/10. (27 0/1/8 and 39 0/1/12 were found by Astra: delete one bowler from the 28- or 40-bowler one-meeting fours round. The same trick gives a hybrid for v − 1 whenever a one-meeting fours round on v exists; these are the library's `4way/v{v}_vacant` files seen as hybrids, and `v15_0-1-4_mixed` is the same idea for 16.)
 
 ## Practical caveats
 

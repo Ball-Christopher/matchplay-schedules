@@ -20158,20 +20158,20 @@
 "score": {
 "pair_spread": 1,
 "max_meet": 4,
-"max_follow": 2,
+"max_follow": 1,
 "repeats": 132,
-"follow_repeats": 10,
-"max_ufollow": 3,
+"follow_repeats": 0,
+"max_ufollow": 2,
 "ufollow_repeats": 66,
 "neg_min_meet": -2,
-"side_spread": 3,
-"pos_spread": 7
+"side_spread": 1,
+"pos_spread": 1
 },
 "extra": {
 "min_meet": 2,
 "never_met": 0,
-"min_distinct_followed": 9,
-"min_distinct_followers": 9
+"min_distinct_followed": 11,
+"min_distinct_followers": 11
 },
 "lower_bound": [
 1,
@@ -20181,13 +20181,13 @@
 0,
 2,
 66,
--3,
+-2,
 1,
 1
 ],
-"proven_fields": 2,
-"optimal": false,
-"mixing_optimal": false,
+"proven_fields": 10,
+"optimal": true,
+"mixing_optimal": true,
 "sgp_rounds_known": 1,
 "sgp_rounds_max": 1,
 "rule": null,

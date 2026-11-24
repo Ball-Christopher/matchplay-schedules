@@ -8,7 +8,7 @@ Each problem below can be read on its own. The common setting:
 - A round is **lane-exact** if every bowler is on every lane pair ⌊*r/n*⌋ or ⌈*r/n*⌉ times. The literature calls a lane-exact round a *generalized balanced tournament design* (GBTD).
 - A set of weeks is **clash-free** if no couple meets twice within it. It is then a resolvable packing.
 
-Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](METHODS.md); section numbers below refer to it. A literature check (section 12) found none of these problems addressed. Results from Astra (two batches, 24 November 2026) were checked independently; see [contrib/astra-2026-11-24](contrib/astra-2026-11-24/README.md) and [contrib/astra-2026-11-24b](contrib/astra-2026-11-24b/README.md).
+Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](METHODS.md); section numbers below refer to it. A literature check (section 12) found none of these problems addressed. Results from Astra (three batches, 24 November 2026) were checked independently; see [contrib/astra-2026-11-24](contrib/astra-2026-11-24/README.md), [contrib/astra-2026-11-24b](contrib/astra-2026-11-24b/README.md) and [contrib/astra-2026-11-24c](contrib/astra-2026-11-24c/README.md).
 
 ---
 
@@ -77,6 +77,7 @@ Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](ME
   - So spread 1 needs a 7-week clash-free packing whose unmet couples form six disjoint 4-cycles. Astra also gives a 6×6-board construction that turns three such packings into a spread-1 round, ignoring lanes.
   - The packing has not been found.
 - **Lane-exact 4-way 36 reaches spread 2** (Astra's four-pattern round, problem 6).
+- **The main 4-way 20, 24 and 36 files can't reach spread 2 by reordering** (Astra, checked here with a direct z3 model): every order of their weeks has a prefix where one couple has met 3 times and another 0. New weekly groups would be needed; the oil files of the same sizes already reach 2.
   - Astra's cyclic search on the six 4-cycle components found no spread-1 packing for 4-way 24.
 - **Open:** spread 1 for 4-way 24, and a general rule for the least possible spread.
 
@@ -97,17 +98,18 @@ Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](ME
 | 3-way 18 | **5** (8+5+6+7+8), optimal | **6**, optimal |
 | 3-way 24 | 5–6 | 18–19 |
 | 3-way 30 | **5**, optimal | **18**, optimal |
-| 3-way 36 | 5–6 | **24**, optimal |
+| 3-way 36 | **5** (16+10+12+16+16), optimal | **24**, optimal |
 | 4-way 20 | **8**, optimal | **19**, optimal |
 | 4-way 24 | **8**, optimal | **16**, optimal |
 | 4-way 32 | **8**, optimal | **8**, optimal |
-| 4-way 36 | 14–15 | 29–30 |
+| 4-way 36 | 7–8 (with the new 4-pattern oil round) | 29–30 |
 
 - **Proofs beyond the simple bound.**
   - 4-way 24 main: the groups that avoid every couple in round 1's last block (5 weeks) contain no complete week, so that block can't be extended at all. That forces 12 + ⌈23/7⌉ = 16.
   - 4-way 32 (either round 1): only 7 groups avoid round 1's last 8-week block, and a week needs 8, so the cut is forced. That gives 4 + ⌈31/10⌉ = 8.
-- **Partial work on 3-way 36 oil:** Astra has a three-week bridge that extends the oil round's 9-week tail to a 12-week clash-free run. If the rest of that round 2 can be given balanced lanes and positions, the blocks would be 16+10+12+16+16, i.e. 5, which would be optimal. Its checkpoint is in [contrib/astra-2026-11-24b/resume36](contrib/astra-2026-11-24b/resume36).
-- Open: 3-way 24 and 36 oil (5 or 6), 3-way 24 main (18 or 19), and 4-way 36 (14–15 oil, 29–30 main). The 4-way 36 upper bounds use Astra's four-pattern round as round 2. Its conflict graph has a unique 4-colouring (8+9+9+9), and the oil round ends in a 4-week block, so a different round 2 would be needed to reach 14.
+- **3-way 36 oil (Astra, third batch):** round 2 is three 12-bowler layers plus two transversal systems, and its first 3 weeks join round 1's 9-week tail, giving 16+10+12+16+16.
+- **4-way 36 main:** 29 would need Astra's 4-pattern round to put its 8-week class straight after round 1's last 3-week block. That is impossible for any relabelling (checked here: the couples that class leaves free form 4 disjoint K9s plus 9 disjoint K4s, and no 3 clash-free weeks fit inside them). A different round 2 could still reach 29.
+- Open: 3-way 24 oil (5 or 6) and main (18 or 19), and 4-way 36 (7–8 oil, 29–30 main).
 
 ## 5. Rotating the short group in vacancy schedules — settled
 
@@ -145,7 +147,8 @@ Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](ME
   - 4×3 at B = 6 needs 2 by plain counting (12 opponent slots, 11 opponents). This list wrongly had it as open.
   - 3×4 at B = 7 needs 3, and at B = 11 needs 4 (no GBTD(4,3)).
   - 3×3 at B = 3 needs 2 follows: two bowlers share all three pairs and must repeat a follow direction.
-- **Open:** 5×3 at B = 6 (2 achieved, 1 not ruled out; the KTS argument doesn't cover packings that aren't part of a Kirkman system); 3×4 at B = 11 follows (2 achieved, 1 possible); and the cases outside Astra's table.
+- **3×4 at B = 11 is now optimal on all ten fields** (Astra, third batch): 4 meetings, every ordered follow exactly once.
+- **Open:** 5×3 at B = 6 (2 achieved, 1 not ruled out; the KTS argument doesn't cover packings that aren't part of a Kirkman system). Any one-meeting draw would have to have no symmetry at all under permuting blocks and relabelling lanes (Astra's third batch, confirmed here by two independent searches; [contrib/astra-2026-11-24c](contrib/astra-2026-11-24c/README.md)). Also the cases outside Astra's tables.
 - **Library:** the new draws are in `qualifying/schemes.json` wherever they score better (`qualifying/results/astra/`).
 
 ---
@@ -161,7 +164,8 @@ Status as of 24 November 2026. The evidence for each claim is in [METHODS.md](ME
 - **Lane-exact one-meeting fours at 52, 64, 76, 100, 124, 136, 148**; below 160 only 88 is open (problem 2).
 - **Four oil patterns for 36 in fours: yes**, 9+9+9+8, lane-exact, spread 2 (problem 6).
 - **Two-round oil, fixed round 1:** 4-way 24 (8 oil, 16 main), 4-way 32 (8, 8), 3-way 30 (5, 18) and 3-way 36 main (24) are optimal (problem 4).
-- **Qualifying:** 32 of Astra's 33 draws are proven optimal on meetings and follows. 6×4 at B = 6 and 6×5 at B = 4–6 are proven to need 2 meetings (problem 7).
+- **Two-round oil for 3-way 36: 5 patterns, optimal** (problem 4).
+- **Qualifying:** all of Astra's 33 draws are now proven optimal on meetings and follows (3×4 at B = 11 closed in the third batch). 6×4 at B = 6 and 6×5 at B = 4–6 are proven to need 2 meetings (problem 7).
 
 - **4-way 12, lane-exact, is impossible.** No GBTD(4,3) exists: Chee, Kiah and Wang, *Electron. J. Combin.* 20(2) (2013) #P51. So 1 bowler off is the best possible.
 - **3-way 15, lane-exact, is impossible.** We checked all 7 KTS(15); this agrees with Chee, Kiah, Ling and Wang, *J. Combin. Des.* 22 (2014).

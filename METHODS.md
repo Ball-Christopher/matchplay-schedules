@@ -318,6 +318,18 @@ Checked in [contrib/astra-2026-11-24b](contrib/astra-2026-11-24b/README.md), aga
 
 Library files taken from this batch: `4way/v36_oil`, the two-round files listed in section 6, and 24 qualifying draws (`qualifying/schemes.json`). `tools/import_astra_b2.py` imports them and asserts that each round 1 matches the library.
 
+### Third batch (24 November 2026)
+
+Checked in [contrib/astra-2026-11-24c](contrib/astra-2026-11-24c/README.md), against revision `61eecc0`.
+
+- **3-way 36, two rounds, oil first: 5 patterns (16+10+12+16+16), optimal.** Round 2 is three 12-bowler layers (11 internal weeks each) plus two 12-week transversal systems built from GF(4) on matched four-bowler groups. Lanes come from annealing inside three sets of four lane pairs. Now `3way/v36_oil_x2`.
+- **Qualifying 3×4 at 11 blocks:** a draw optimal on all ten score fields, found with an order-3 symmetry.
+- **Hybrids 27 (0/1/8) and 39 (0/1/12):** a one-meeting fours round on 28 or 40 with one bowler removed. Both are the shortest possible.
+- **Proofs:**
+  - No reordering of the main 4-way 20, 24 or 36 files reaches spread 2 (rechecked here with a direct z3 model over week orders).
+  - The 8-week class of the 4-pattern 36 round can't follow the main round's last block under any relabelling (rechecked structurally).
+  - A one-meeting 5×3 draw at 6 blocks would have to have no symmetry (19 prime-order cases searched).
+
 ## 15. Hybrid single rounds
 
 A hybrid round changes the format during the season so that **every couple meets exactly once**. Weeks can be 2-way, 3-way or 4-way, or a mix within a week. Every bowler gets the same number of weeks of each format. The model is North City Singles 2019: 24 bowlers, 10 weeks of 3-way plus 1 week of 4-way.
